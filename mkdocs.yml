@@ -1,0 +1,81 @@
+site_name: LLM-Architecture_Foundations
+site_description: The theoretical building blocks. "How is the model built?"
+site_author: Saurabh Goyal
+repo_url: https://github.com/saurabhiit2007/LLM-Architecture-Foundations
+theme:
+  name: material
+  features:
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - mathjax
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: deep purple
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: lime
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Model Architecture Families:
+      - Mixture of Models (MoE): ./model_architecture_families/mixture_of_experts.md
+  - Attention Mechanisms:
+      - Multi-Head Attention: ./attention_mechanisms/index.md
+      - Multi Query Attention (MQA): ./attention_mechanisms/index.md
+      - Grouped Query Attention (GQA): ./attention_mechanisms/index.md
+      - Sliding Window: ./attention_mechanisms/index.md
+  - Real World Model Families:
+      - Claude: ./real_world_model_families/claude.md
+      - Llama: ./real_world_model_families/llama.md
+      - Gemini: ./real_world_model_families/gemini.md
+      - Mistral: ./real_world_model_families/mistral.md
+      - Dense vs MoE Comparison: ./real_world_model_families/dense_vs_MoE_comparison.md
+      - General Comparison: ./real_world_model_families/general_comparison.md
+  - Transformer Components:
+      - RMSNorm: ./index.md
+      - LayerNorm: ./index.md
+      - SwiGLU: ./index.md
+  - Tokenization:
+      - Unigram: ./tokenization/unigram.md
+      - Sentence Piece Unigram: ./tokenization/sentence_piece_unigram.md
+      - Byte Pair Encoding: ./tokenization/byte_pair_encoding.md
+      - Vocabulary Size Tradeoffs:  ./tokenization/vocabulary_size_tradeoffs.md
+  - Positional Encodings:
+      - RoPE: ./positional_encodings/RoPE.md
+      - ALiBi: ./positional_encodings/ALiBi.md
+  - Pretraining objective:
+      - Next Token Prediction: ./index.md
+  - Scaling laws:
+      - model size, data size, compute tradeoffs: ./index.md
+  - References: references.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      permalink: true
+  - footnotes
+  - tables
+  - pymdownx.arithmatex
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tasklist
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
