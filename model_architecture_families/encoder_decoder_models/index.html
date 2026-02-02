@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../dense_vs_sparse_models/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Encoder decoder models - LLM-Architecture_Foundations</title>
+        <title>Encoder Decoder Models - LLM-Architecture_Foundations</title>
       
     
     
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Encoder decoder models
+              Encoder Decoder Models
             
           </span>
         </div>
@@ -270,20 +274,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -299,12 +303,333 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Model Architecture Families
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Encoder Decoder Models
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encoder Decoder Models
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-concept-and-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Concept and Intuition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Core Concept and Intuition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-specialist-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Specialist Analogy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architecture-the-sparse-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Architecture: The Sparse Transformer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Architecture: The Sparse Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#components-of-an-moe-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components of an MoE Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routing-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routing Mechanism
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-study-mixtral-8x7b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case Study: Mixtral 8x7B
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-expert-capacity-and-token-dropping" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Expert Capacity and Token Dropping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Expert Capacity and Token Dropping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-reduce-routing-weight-even-when-the-expert-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Reduce Routing Weight Even When the Expert Is Correct?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-training-dynamics-and-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Training Dynamics and Stability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Training Dynamics and Stability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-moe-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of MoE Training
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-collapse-and-expert-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mode Collapse and Expert Imbalance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-losses-for-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auxiliary Losses for Stability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-emergent-expert-specialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Emergent Expert Specialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-what-moe-improves-and-what-it-does-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. What MoE Improves and What It Does Not
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. What MoE Improves and What It Does Not">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moe-primarily-improves" class="md-nav__link">
+    <span class="md-ellipsis">
+      MoE Primarily Improves
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe-does-not-automatically-improve" class="md-nav__link">
+    <span class="md-ellipsis">
+      MoE Does Not Automatically Improve
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-inference-and-deployment-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Inference and Deployment Trade-offs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-training-cost-vs-inference-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Training Cost vs Inference Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-moe-in-the-scaling-toolbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. MoE in the Scaling Toolbox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-some-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Some Questions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dense_vs_sparse_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dense vs Sparse Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1450,7 +1775,7 @@
   
 
 
-  <h1>Encoder decoder models</h1>
+  <h1>Encoder Decoder Models</h1>
 
 <h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
 <p>Mixture of Experts (MoE) is an architectural paradigm that enables scaling model capacity to frontier levels while keeping per-token inference compute manageable. It allows a model to store far more knowledge than a dense model with similar inference cost, making it a key technique behind models such as GPT-4, Mixtral, and Grok.</p>

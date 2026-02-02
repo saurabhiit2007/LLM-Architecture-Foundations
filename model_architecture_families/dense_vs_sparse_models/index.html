@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../encoder_decoder_models/">
+      
+      
+        <link rel="next" href="../mixture_of_experts/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Dense vs sparse models - LLM-Architecture_Foundations</title>
+        <title>Dense vs Sparse Models - LLM-Architecture_Foundations</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-overview" class="md-skip">
+        <a href="#1-high-level-concept" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dense vs sparse models
+              Dense vs Sparse Models
             
           </span>
         </div>
@@ -270,20 +274,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -299,12 +303,222 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Model Architecture Families
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../encoder_decoder_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encoder Decoder Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Dense vs Sparse Models
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dense vs Sparse Models
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-high-level-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. High-Level Concept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-architecture-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Architecture Comparison
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Architecture Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-dense-transformer-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Dense Transformer Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sparse-moe-transformer-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Sparse (MoE) Transformer Block
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dense-vs-sparse-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dense vs. Sparse Comparison Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-key-engineering-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Key Engineering Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Key Engineering Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-load-balancing-and-auxiliary-losses" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Load Balancing and Auxiliary Losses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-expert-specialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Expert Specialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-system-design-and-communication-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 System Design and Communication Overhead
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-summary-of-pros-and-cons" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summary of Pros and Cons
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Summary of Pros and Cons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-pros-of-sparse-moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Pros of Sparse (MoE)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-cons-of-sparse-moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Cons of Sparse (MoE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
             
               
                 
@@ -1195,28 +1409,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
+  <a href="#1-high-level-concept" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Overview
+      1. High-Level Concept
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-core-concept-and-intuition" class="md-nav__link">
+  <a href="#2-architecture-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Core Concept and Intuition
+      2. Architecture Comparison
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Core Concept and Intuition">
+    <nav class="md-nav" aria-label="2. Architecture Comparison">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-specialist-analogy" class="md-nav__link">
+  <a href="#21-dense-transformer-block" class="md-nav__link">
     <span class="md-ellipsis">
-      The Specialist Analogy
+      2.1 Dense Transformer Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sparse-moe-transformer-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Sparse (MoE) Transformer Block
     </span>
   </a>
   
@@ -1228,37 +1451,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-architecture-the-sparse-transformer" class="md-nav__link">
+  <a href="#3-dense-vs-sparse-comparison-table" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Architecture: The Sparse Transformer
+      3. Dense vs. Sparse Comparison Table
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Architecture: The Sparse Transformer">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-key-engineering-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Key Engineering Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Key Engineering Challenges">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#components-of-an-moe-layer" class="md-nav__link">
+  <a href="#41-load-balancing-and-auxiliary-losses" class="md-nav__link">
     <span class="md-ellipsis">
-      Components of an MoE Layer
+      4.1 Load Balancing and Auxiliary Losses
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#routing-mechanism" class="md-nav__link">
+  <a href="#42-expert-specialization" class="md-nav__link">
     <span class="md-ellipsis">
-      Routing Mechanism
+      4.2 Expert Specialization
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#case-study-mixtral-8x7b" class="md-nav__link">
+  <a href="#43-system-design-and-communication-overhead" class="md-nav__link">
     <span class="md-ellipsis">
-      Case Study: Mixtral 8x7B
+      4.3 System Design and Communication Overhead
     </span>
   </a>
   
@@ -1270,19 +1502,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-expert-capacity-and-token-dropping" class="md-nav__link">
+  <a href="#5-summary-of-pros-and-cons" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Expert Capacity and Token Dropping
+      5. Summary of Pros and Cons
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Expert Capacity and Token Dropping">
+    <nav class="md-nav" aria-label="5. Summary of Pros and Cons">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-reduce-routing-weight-even-when-the-expert-is-correct" class="md-nav__link">
+  <a href="#51-pros-of-sparse-moe" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Reduce Routing Weight Even When the Expert Is Correct?
+      5.1 Pros of Sparse (MoE)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-cons-of-sparse-moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Cons of Sparse (MoE)
     </span>
   </a>
   
@@ -1290,144 +1531,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-training-dynamics-and-stability" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Training Dynamics and Stability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Training Dynamics and Stability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#benefits-of-moe-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits of MoE Training
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mode-collapse-and-expert-imbalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mode Collapse and Expert Imbalance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auxiliary-losses-for-stability" class="md-nav__link">
-    <span class="md-ellipsis">
-      Auxiliary Losses for Stability
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-emergent-expert-specialization" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Emergent Expert Specialization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-what-moe-improves-and-what-it-does-not" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. What MoE Improves and What It Does Not
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. What MoE Improves and What It Does Not">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#moe-primarily-improves" class="md-nav__link">
-    <span class="md-ellipsis">
-      MoE Primarily Improves
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#moe-does-not-automatically-improve" class="md-nav__link">
-    <span class="md-ellipsis">
-      MoE Does Not Automatically Improve
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-inference-and-deployment-trade-offs" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Inference and Deployment Trade-offs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-training-cost-vs-inference-cost" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Training Cost vs Inference Cost
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-moe-in-the-scaling-toolbox" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. MoE in the Scaling Toolbox
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-key-takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Key Takeaways
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-some-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Some Questions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
   
 </li>
       
@@ -1450,259 +1553,170 @@
   
 
 
-  <h1>Dense vs sparse models</h1>
+  <h1>Dense vs Sparse Models</h1>
 
-<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
-<p>Mixture of Experts (MoE) is an architectural paradigm that enables scaling model capacity to frontier levels while keeping per-token inference compute manageable. It allows a model to store far more knowledge than a dense model with similar inference cost, making it a key technique behind models such as GPT-4, Mixtral, and Grok.</p>
-<hr />
-<h2 id="2-core-concept-and-intuition">2. Core Concept and Intuition<a class="headerlink" href="#2-core-concept-and-intuition" title="Permanent link">&para;</a></h2>
-<p>In a standard <strong>dense Transformer</strong>, every parameter participates in processing every token.</p>
-<p><strong>The problem with dense scaling</strong></p>
+<h2 id="1-high-level-concept">1. High-Level Concept<a class="headerlink" href="#1-high-level-concept" title="Permanent link">&para;</a></h2>
+<p>The fundamental difference between Dense and Sparse models lies in the relationship between <strong>Active Parameters</strong> and <strong>Total Parameters</strong>.</p>
 <ul>
-<li>Increasing parameters increases capacity</li>
-<li>But inference cost, latency, and memory usage scale linearly with model size</li>
+<li>
+<p><strong>Dense Models (e.g., LLaMA 3, GPT-3):</strong>
+  All model parameters are activated for every token. Increasing model capacity directly increases per-token compute and memory cost.</p>
+</li>
+<li>
+<p><strong>Sparse Models / Mixture of Experts (MoE) (e.g., Mixtral, some DeepSeek variants):</strong>
+  The model contains a large pool of parameters, but only a small subset is activated per token. This enables scaling model capacity faster than per-token compute, although system-level costs still increase.</p>
+</li>
 </ul>
-<p><strong>The MoE solution</strong></p>
-<p>MoE decouples <strong>model capacity</strong> from <strong>inference compute</strong> by activating only a small subset of parameters for each token.</p>
-<h3 id="the-specialist-analogy">The Specialist Analogy<a class="headerlink" href="#the-specialist-analogy" title="Permanent link">&para;</a></h3>
-<p>Instead of one generalist handling all tasks, imagine a panel of specialists.</p>
-<ul>
-<li>A routing system decides which specialists should handle each input</li>
-<li>Only those specialists are consulted</li>
-</ul>
-<p>Key distinction:</p>
-<ul>
-<li><strong>Total parameters</strong> represent the full knowledge capacity</li>
-<li><strong>Active parameters</strong> determine inference cost for a given token</li>
-</ul>
-<hr />
-<h2 id="3-architecture-the-sparse-transformer">3. Architecture: The Sparse Transformer<a class="headerlink" href="#3-architecture-the-sparse-transformer" title="Permanent link">&para;</a></h2>
-<p>An MoE model is identical to a standard Transformer except that the <strong>Feed-Forward Network (FFN)</strong> layers are replaced with <strong>MoE layers</strong>.</p>
-<h3 id="components-of-an-moe-layer">Components of an MoE Layer<a class="headerlink" href="#components-of-an-moe-layer" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Experts (<span class="arithmatex">\(E_i\)</span>)</strong>  </li>
-</ol>
-<p>A set of <span class="arithmatex">\(N\)</span> independent FFNs, each with its own parameters.</p>
-<ol>
-<li><strong>Router / Gating Network (<span class="arithmatex">\(G\)</span>)</strong>  </li>
-</ol>
-<p>A small learnable function that scores which experts should process a given token.</p>
-<h3 id="routing-mechanism">Routing Mechanism<a class="headerlink" href="#routing-mechanism" title="Permanent link">&para;</a></h3>
-<p>For an input token representation <span class="arithmatex">\(x\)</span>, the output of an MoE layer is:</p>
-<div class="arithmatex">\[
-y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x)
-\]</div>
-<p>In <strong>sparse MoE</strong>, a <strong>Top-k routing</strong> strategy is used:</p>
-<ul>
-<li>Only the top <span class="arithmatex">\(k\)</span> experts receive non-zero weights</li>
-<li>All other experts are skipped entirely</li>
-<li>Typically <span class="arithmatex">\(k = 1\)</span> or <span class="arithmatex">\(k = 2\)</span></li>
-</ul>
-<p>Only the selected experts are evaluated, making computation and gradient flow sparse.</p>
-<hr />
-<h3 id="case-study-mixtral-8x7b">Case Study: Mixtral 8x7B<a class="headerlink" href="#case-study-mixtral-8x7b" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Total experts:</strong> 8</li>
-<li><strong>Routing:</strong> Top-2 per token</li>
-<li><strong>Active parameters per token:</strong> ~13B</li>
-<li><strong>Total parameters:</strong> ~47B</li>
-</ul>
-<p>The model exhibits capacity comparable to a ~50B dense model while running at the speed of a ~13B model.</p>
-<hr />
-<h2 id="4-expert-capacity-and-token-dropping">4. Expert Capacity and Token Dropping<a class="headerlink" href="#4-expert-capacity-and-token-dropping" title="Permanent link">&para;</a></h2>
-<p>Each expert has a fixed <strong>capacity</strong>, which limits how many tokens it can process in a single batch. This capacity is typically set as a multiple of the expected average load per expert.</p>
-<p>If too many tokens are routed to the same expert in a batch:</p>
-<ul>
-<li>Excess tokens may be dropped entirely</li>
-<li>Or processed with reduced routing weight, meaning their contribution to the expert’s output is scaled down to maintain numerical and compute stability</li>
-<li>Or rerouted to fallback experts, depending on the implementation</li>
-</ul>
-<p>This mechanism prevents individual experts from becoming compute or memory bottlenecks but introduces a trade-off:</p>
-<ul>
-<li>Larger capacity improves training stability and model quality</li>
-<li>Smaller capacity improves efficiency but risks silent quality degradation due to dropped tokens</li>
-</ul>
-<p>Monitoring expert utilization and token dropping rates is therefore critical during training and debugging MoE models.</p>
 <blockquote>
-<h4 id="why-reduce-routing-weight-even-when-the-expert-is-correct">Why Reduce Routing Weight Even When the Expert Is Correct?<a class="headerlink" href="#why-reduce-routing-weight-even-when-the-expert-is-correct" title="Permanent link">&para;</a></h4>
-<p>Routing decides <strong>which expert is best</strong> for a token.<br />
-Capacity limits decide <strong>how much influence that token is allowed to have</strong> in a given batch.</p>
-<p>When an expert exceeds its capacity, all routed tokens are still correct assignments, but the system cannot afford to:</p>
-<ul>
-<li>Process unlimited tokens</li>
-<li>Accumulate unbounded gradients</li>
-<li>Let one expert dominate training</li>
-</ul>
-<p>Reducing the routing weight is a soft fallback:</p>
-<ul>
-<li>The token is still processed by the correct expert</li>
-<li>Its output and gradients are scaled down</li>
-<li>Compute and training stability are preserved</li>
-</ul>
-<p>The reduced weight does <strong>not</strong> indicate lower correctness.
-It limits influence to protect compute budgets and prevent expert collapse while retaining partial learning signal.</p>
+<p>Note: MoE decouples total parameter count from per-token compute, but does not eliminate compute, memory, or system overhead.</p>
 </blockquote>
 <hr />
-<h2 id="5-training-dynamics-and-stability">5. Training Dynamics and Stability<a class="headerlink" href="#5-training-dynamics-and-stability" title="Permanent link">&para;</a></h2>
-<h3 id="benefits-of-moe-training">Benefits of MoE Training<a class="headerlink" href="#benefits-of-moe-training" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Compute efficiency:</strong> Lower validation loss for the same training FLOPs compared to dense models</li>
-<li><strong>Knowledge scaling:</strong> Experts can store long-tail facts and rare patterns efficiently</li>
-<li><strong>Faster convergence:</strong> Sparse FFNs reduce redundant computation</li>
-</ul>
 <hr />
-<h3 id="mode-collapse-and-expert-imbalance">Mode Collapse and Expert Imbalance<a class="headerlink" href="#mode-collapse-and-expert-imbalance" title="Permanent link">&para;</a></h3>
-<p>A common failure mode is <strong>expert collapse</strong>:</p>
-<ul>
-<li>Early-random advantages cause one expert to receive more tokens</li>
-<li>That expert improves faster due to more gradients</li>
-<li>Other experts receive fewer updates and remain undertrained</li>
-</ul>
-<hr />
-<h3 id="auxiliary-losses-for-stability">Auxiliary Losses for Stability<a class="headerlink" href="#auxiliary-losses-for-stability" title="Permanent link">&para;</a></h3>
-<p>To prevent collapse, MoE training includes additional losses:</p>
-<ul>
-<li><strong>Load Balancing Loss:</strong> Penalizes uneven token distribution across experts</li>
-<li><strong>Z-Loss:</strong> Penalizes large router logits to improve numerical stability</li>
-</ul>
-<p>These losses are essential for maintaining expert diversity.</p>
-<hr />
-<h2 id="5-emergent-expert-specialization">5. Emergent Expert Specialization<a class="headerlink" href="#5-emergent-expert-specialization" title="Permanent link">&para;</a></h2>
-<p>Experts are not manually assigned domains.</p>
-<p>Specialization emerges implicitly from:</p>
-<ul>
-<li>Routing gradients</li>
-<li>Data distribution</li>
-<li>Load balancing constraints</li>
-</ul>
-<p>In practice, experts often specialize in:</p>
-<ul>
-<li>Syntax and formatting</li>
-<li>Punctuation and boilerplate</li>
-<li>Code versus natural language</li>
-<li>Long-context versus short-context tokens</li>
-</ul>
-<p>MoE does not guarantee clean semantic specialization such as math or biology experts.</p>
-<hr />
-<h2 id="6-what-moe-improves-and-what-it-does-not">6. What MoE Improves and What It Does Not<a class="headerlink" href="#6-what-moe-improves-and-what-it-does-not" title="Permanent link">&para;</a></h2>
-<h3 id="moe-primarily-improves">MoE Primarily Improves<a class="headerlink" href="#moe-primarily-improves" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Factual recall</li>
-<li>Coverage of rare or long-tail patterns</li>
-<li>Knowledge density per inference FLOP</li>
-</ul>
-<h3 id="moe-does-not-automatically-improve">MoE Does Not Automatically Improve<a class="headerlink" href="#moe-does-not-automatically-improve" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Multi-step reasoning</li>
-<li>Logical consistency</li>
-<li>Planning and abstraction</li>
-</ul>
-<p>Reasoning quality depends more on:</p>
-<ul>
-<li>Attention mechanisms</li>
-<li>Data quality</li>
-<li>Post-training alignment and RL</li>
-</ul>
-<hr />
-<h2 id="7-inference-and-deployment-trade-offs">7. Inference and Deployment Trade-offs<a class="headerlink" href="#7-inference-and-deployment-trade-offs" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Aspect</th>
-<th>Impact</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Throughput</td>
-<td>High, due to sparse computation</td>
-</tr>
-<tr>
-<td>Latency</td>
-<td>Low, driven by active parameter count</td>
-</tr>
-<tr>
-<td>VRAM Usage</td>
-<td>Very high, since all experts must be resident</td>
-</tr>
-<tr>
-<td>Communication</td>
-<td>High, requires all-to-all routing in distributed setups</td>
-</tr>
-</tbody>
-</table>
-<p>MoE models are often <strong>memory-bandwidth bound</strong>, not compute-bound.</p>
-<hr />
-<h2 id="8-training-cost-vs-inference-cost">8. Training Cost vs Inference Cost<a class="headerlink" href="#8-training-cost-vs-inference-cost" title="Permanent link">&para;</a></h2>
-<p>MoE reduces inference cost but increases training complexity:</p>
-<ul>
-<li>More communication overhead</li>
-<li>More fragile optimization</li>
-<li>Harder distributed orchestration</li>
-</ul>
-<p>MoE is most effective when:</p>
-<ul>
-<li>A model is trained once</li>
-<li>Served at massive scale</li>
-<li>Inference cost dominates total lifetime cost</li>
-</ul>
-<p>Dense models may be preferable for smaller-scale or latency-critical use cases.</p>
-<hr />
-<h2 id="9-moe-in-the-scaling-toolbox">9. MoE in the Scaling Toolbox<a class="headerlink" href="#9-moe-in-the-scaling-toolbox" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Strategy</th>
-<th>Key Idea</th>
-<th>Trade-off</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Dense scaling</td>
-<td>Increase parameters</td>
-<td>Expensive inference</td>
-</tr>
-<tr>
-<td>MoE</td>
-<td>Sparse activation</td>
-<td>Memory and communication overhead</td>
-</tr>
-<tr>
-<td>Longer training</td>
-<td>More tokens per parameter</td>
-<td>Higher one-time cost</td>
-</tr>
-<tr>
-<td>Quantization</td>
-<td>Lower precision</td>
-<td>Potential accuracy loss</td>
-</tr>
-</tbody>
-</table>
-<p>MoE is a powerful but specialized tool, not a universal solution.</p>
-<hr />
-<h2 id="10-key-takeaways">10. Key Takeaways<a class="headerlink" href="#10-key-takeaways" title="Permanent link">&para;</a></h2>
-<ul>
-<li>MoE decouples capacity from inference compute</li>
-<li>It is most effective for knowledge-heavy scaling</li>
-<li>Training is harder, inference is cheaper</li>
-<li>Many failures stem from routing imbalance and systems constraints</li>
-</ul>
-<p>MoE reflects a broader trend in modern LLMs: scaling is as much a systems problem as it is a modeling problem.</p>
-<hr />
-<h2 id="11-some-questions">11. Some Questions<a class="headerlink" href="#11-some-questions" title="Permanent link">&para;</a></h2>
-<p><strong>Q: Does MoE reduce attention bottlenecks?</strong>
-A: No. MoE typically replaces FFN layers. Attention remains dense, so KV cache memory and attention compute are unchanged.</p>
-<p><strong>Q: Why use Top-2 routing instead of Top-1?</strong>
-A: Top-2 provides smoother gradients and backup information flow, improving training stability.</p>
-<p><strong>Q: What is the main bottleneck when serving MoE models?</strong><br />
-A: Memory bandwidth and communication, not raw FLOPs.</p>
-<hr />
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="2-architecture-comparison">2. Architecture Comparison<a class="headerlink" href="#2-architecture-comparison" title="Permanent link">&para;</a></h2>
+<h3 id="21-dense-transformer-block">2.1 Dense Transformer Block<a class="headerlink" href="#21-dense-transformer-block" title="Permanent link">&para;</a></h3>
+<p>In a standard Transformer layer, each token passes through:</p>
 <ol>
-<li><a href="https://huggingface.co/blog/moe">https://huggingface.co/blog/moe</a></li>
+<li>Self-Attention</li>
+<li>A single dense Feed-Forward Network (FFN)</li>
 </ol>
+<p>All FFN parameters are evaluated for every token.</p>
+<hr />
+<h3 id="22-sparse-moe-transformer-block">2.2 Sparse (MoE) Transformer Block<a class="headerlink" href="#22-sparse-moe-transformer-block" title="Permanent link">&para;</a></h3>
+<p>MoE replaces the single FFN with:</p>
+<ol>
+<li>
+<p><strong>Experts:</strong>
+   A set of <span class="arithmatex">\(N\)</span> independent FFNs, commonly ranging from 8 to 64 experts.</p>
+</li>
+<li>
+<p><strong>Router (Gating Network):</strong>
+   A lightweight network that selects which experts should process each token.</p>
+</li>
+</ol>
+<p><strong>Important architectural notes:</strong></p>
+<ul>
+<li>MoE typically replaces only the FFN, not the attention mechanism.</li>
+<li>Many architectures interleave dense and MoE layers rather than applying MoE everywhere.</li>
+</ul>
+<p><strong>Mathematical Formulation</strong></p>
+<p>For an input token <span class="arithmatex">\(x\)</span>, the output is a weighted combination of the selected experts:</p>
+<div class="arithmatex">\[
+y = \sum_{i \in \text{TopK}} G(x)_i \cdot E_i(x)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(G(x)_i\)</span> is the routing probability for expert <span class="arithmatex">\(i\)</span>
+- <span class="arithmatex">\(E_i(x)\)</span> is the output of expert <span class="arithmatex">\(i\)</span>
+- Most models use <strong>Top-2 routing during training</strong> and often <strong>Top-1 routing during inference</strong></p>
+<blockquote>
+<p>Note: Detailed description of MoE is available <a href="../mixture_of_experts/">here</a></p>
+</blockquote>
+<hr />
+<hr />
+<h2 id="3-dense-vs-sparse-comparison-table">3. Dense vs. Sparse Comparison Table<a class="headerlink" href="#3-dense-vs-sparse-comparison-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Dense Models</th>
+<th>Sparse Models (MoE)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Per-Token Compute</strong></td>
+<td>Proportional to model size</td>
+<td>Proportional to active experts</td>
+</tr>
+<tr>
+<td><strong>Total Parameters</strong></td>
+<td>Equal to active parameters</td>
+<td>Much larger than active parameters</td>
+</tr>
+<tr>
+<td><strong>Memory Footprint</strong></td>
+<td>Proportional to total parameters</td>
+<td>Proportional to total parameters plus routing overhead</td>
+</tr>
+<tr>
+<td><strong>Training Complexity</strong></td>
+<td>Stable and well understood</td>
+<td>Complex due to routing and load balancing</td>
+</tr>
+<tr>
+<td><strong>Inference Latency</strong></td>
+<td>Compute-bound</td>
+<td>Often communication-bound</td>
+</tr>
+<tr>
+<td><strong>Scaling Behavior</strong></td>
+<td>Performance scales with compute</td>
+<td>Performance scales with total capacity</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note:
+- MoE reduces FLOPs per token but can increase system overhead.
+- Dense models are typically compute-bound, while MoE models are often bandwidth-bound.</p>
+</blockquote>
+<hr />
+<hr />
+<h2 id="4-key-engineering-challenges">4. Key Engineering Challenges<a class="headerlink" href="#4-key-engineering-challenges" title="Permanent link">&para;</a></h2>
+<h3 id="41-load-balancing-and-auxiliary-losses">4.1 Load Balancing and Auxiliary Losses<a class="headerlink" href="#41-load-balancing-and-auxiliary-losses" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong></p>
+<p>Routers tend to over-select a small subset of experts, leading to expert collapse and under-trained experts.</p>
+<p><strong>Solution:</strong></p>
+<p>Auxiliary losses encourage uniform expert utilization by penalizing skewed token distributions. These are often referred to as load balancing or importance losses.</p>
+<p>Common failure modes:</p>
+<ul>
+<li>Expert collapse</li>
+<li>Token dropping due to expert capacity limits</li>
+</ul>
+<hr />
+<h3 id="42-expert-specialization">4.2 Expert Specialization<a class="headerlink" href="#42-expert-specialization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Experts rarely align with human-interpretable domains such as coding or specific languages.</li>
+<li>In practice, experts specialize in syntactic patterns, token statistics, or latent semantic clusters.</li>
+<li>Some experts may become partially redundant.</li>
+</ul>
+<p>Specialization is emergent rather than explicitly supervised.</p>
+<hr />
+<h3 id="43-system-design-and-communication-overhead">4.3 System Design and Communication Overhead<a class="headerlink" href="#43-system-design-and-communication-overhead" title="Permanent link">&para;</a></h3>
+<p>In distributed training or inference:</p>
+<ul>
+<li>Tokens are sharded across devices.</li>
+<li>Experts are distributed across GPUs or nodes.</li>
+<li>Tokens frequently require all-to-all communication to reach the selected experts.</li>
+</ul>
+<blockquote>
+<p>Therefore, Sparse models are often limited by network bandwidth and communication latency rather than raw FLOPs.</p>
+</blockquote>
+<p>During inference, systems may reduce communication overhead using:</p>
+<ul>
+<li>Static expert placement</li>
+<li>Expert parallelism</li>
+<li>Reduced routing flexibility</li>
+</ul>
+<hr />
+<hr />
+<h2 id="5-summary-of-pros-and-cons">5. Summary of Pros and Cons<a class="headerlink" href="#5-summary-of-pros-and-cons" title="Permanent link">&para;</a></h2>
+<h3 id="51-pros-of-sparse-moe">5.1 Pros of Sparse (MoE)<a class="headerlink" href="#51-pros-of-sparse-moe" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Higher model capacity at similar per-token compute</li>
+<li>Improved scaling efficiency at very large parameter counts</li>
+<li>Lower training compute for a given performance target</li>
+</ul>
+<h3 id="52-cons-of-sparse-moe">5.2 Cons of Sparse (MoE)<a class="headerlink" href="#52-cons-of-sparse-moe" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Memory usage scales with total parameters, not active parameters</li>
+<li>Complex training dynamics and sensitivity to routing hyperparameters</li>
+<li>Higher system and serving complexity</li>
+<li>Inference latency can be dominated by communication overhead</li>
+</ul>
+<p><strong>Example:</strong>
+A 47B MoE model with 12B active parameters still requires memory comparable to a 47B dense model.</p>
+<hr />
+<hr />
 
 
 
