@@ -31,6 +31,8 @@ extra_javascript:
 nav:
   - Home: index.md
   - Model Architecture Families:
+      - Encoder Decoder Models: ./model_architecture_families/encoder_decoder_models.md
+      - Dense vs Sparse Models: ./model_architecture_families/dense_vs_sparse_models.md
       - Mixture of Models (MoE): ./model_architecture_families/mixture_of_experts.md
   - Attention Mechanisms:
       - Multi-Head Attention: ./attention_mechanisms/index.md
