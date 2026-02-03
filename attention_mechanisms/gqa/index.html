@@ -20,7 +20,7 @@
     
     
       
-        <title>Welcome to MkDocs - LLM-Architecture_Foundations</title>
+        <title>Gqa - LLM-Architecture_Foundations</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              Gqa
             
           </span>
         </div>
@@ -1256,8 +1256,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1266,18 +1264,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#2-the-attention-mechanism-spectrum" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      2. The Attention Mechanism Spectrum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Attention Mechanism Spectrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-head-attention-mha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Head Attention (MHA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-query-attention-mqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Query Attention (MQA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-query-attention-gqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouped Query Attention (GQA)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mathematical-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Mathematical Formulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-training-vs-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Training vs. Inference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-recent-updates-2025-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Recent Updates (2025-2026)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Interview Questions
     </span>
   </a>
   
@@ -1302,21 +1369,119 @@
   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+  <h1>Gqa</h1>
+
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><strong>Grouped Query Attention (GQA)</strong> has become the industry standard for modern Large Language Models (LLMs) like <strong>Llama 3</strong>, <strong>Mistral</strong>, and <strong>Gemma</strong>. It was introduced to solve a critical bottleneck in transformer architectures: the memory-heavy <strong>KV Cache</strong>.</p>
+<hr />
+<hr />
+<h2 id="2-the-attention-mechanism-spectrum">2. The Attention Mechanism Spectrum<a class="headerlink" href="#2-the-attention-mechanism-spectrum" title="Permanent link">&para;</a></h2>
+<p>To understand GQA, we must place it on a spectrum between two other mechanisms.</p>
+<h3 id="multi-head-attention-mha">Multi-Head Attention (MHA)<a class="headerlink" href="#multi-head-attention-mha" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>Structure:</strong> Each Query head (<span class="arithmatex">\(Q\)</span>) has its own Key (<span class="arithmatex">\(K\)</span>) and Value (<span class="arithmatex">\(V\)</span>) head.</li>
+<li><strong>Pros:</strong> Highest representational power; each head learns different relationships.</li>
+<li><strong>Cons:</strong> Extremely memory-intensive. The KV cache grows linearly with sequence length and number of heads, often exceeding GPU memory for long contexts.</li>
 </ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h3 id="multi-query-attention-mqa">Multi-Query Attention (MQA)<a class="headerlink" href="#multi-query-attention-mqa" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Structure:</strong> Multiple Query heads share a <strong>single</strong> Key and Value head.</li>
+<li><strong>Pros:</strong> Massive reduction in KV cache size (up to 8x–64x). Faster inference.</li>
+<li><strong>Cons:</strong> Significant drop in model quality because all heads are forced to look at the same compressed key-value representations.</li>
+</ul>
+<h3 id="grouped-query-attention-gqa">Grouped Query Attention (GQA)<a class="headerlink" href="#grouped-query-attention-gqa" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Structure:</strong> The "Goldilocks" solution. Query heads are divided into <strong>groups</strong>, and each group shares one KV head.</li>
+<li><strong>Trade-off:</strong> Achieves nearly the performance of MHA with the speed and memory efficiency of MQA.</li>
+</ul>
+<hr />
+<hr />
+<h2 id="3-mathematical-formulation">3. Mathematical Formulation<a class="headerlink" href="#3-mathematical-formulation" title="Permanent link">&para;</a></h2>
+<p>In a standard transformer layer, we have <span class="arithmatex">\(H\)</span> query heads. In GQA, we divide these into <span class="arithmatex">\(G\)</span> groups.</p>
+<p>For each group <span class="arithmatex">\(g \in \{1, \dots, G\}\)</span>:
+1.  There are <span class="arithmatex">\(H/G\)</span> query heads.
+2.  There is <strong>one</strong> shared Key head <span class="arithmatex">\(K_g\)</span> and <strong>one</strong> shared Value head <span class="arithmatex">\(V_g\)</span>.</p>
+<p>The attention for a specific query head <span class="arithmatex">\(i\)</span> within group <span class="arithmatex">\(g\)</span> is:</p>
+<div class="arithmatex">\[\text{Attention}(Q_i, K_g, V_g) = \text{softmax}\left(\frac{Q_i K_g^T}{\sqrt{d_k}}\right) V_g\]</div>
+<ul>
+<li>If <span class="arithmatex">\(G = 1\)</span>, it is <strong>MQA</strong>.</li>
+<li>If <span class="arithmatex">\(G = H\)</span>, it is <strong>MHA</strong>.</li>
+</ul>
+<hr />
+<hr />
+<h2 id="4-training-vs-inference">4. Training vs. Inference<a class="headerlink" href="#4-training-vs-inference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Training Phase</th>
+<th style="text-align: left;">Inference Phase (Generation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Bottleneck</strong></td>
+<td style="text-align: left;"><strong>Compute-Bound:</strong> Training is limited by how many FLOPs the GPU can perform.</td>
+<td style="text-align: left;"><strong>Memory-Bound:</strong> Inference is limited by how fast we can load the KV cache from HBM (High Bandwidth Memory).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Benefit</strong></td>
+<td style="text-align: left;">Slight reduction in parameters, but the primary goal is setting up the structure for inference.</td>
+<td style="text-align: left;"><strong>Primary Benefit:</strong> Significant reduction in memory bandwidth requirements.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KV Cache</strong></td>
+<td style="text-align: left;">Not typically used (parallel processing of the whole sequence).</td>
+<td style="text-align: left;"><strong>Critical:</strong> GQA reduces the KV cache size by a factor of <span class="arithmatex">\(H/G\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Uptraining</strong></td>
+<td style="text-align: left;">Models can be "uptrained" from MHA checkpoints by mean-pooling KV heads.</td>
+<td style="text-align: left;">Allows for much larger <strong>Batch Sizes</strong> and longer <strong>Context Windows</strong>.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Interview Tip:</strong> If asked why GQA is faster, mention <strong>Arithmetic Intensity</strong>. By sharing KV heads, we load less data from memory for the same amount of computation, making the model more efficient on modern hardware like A100/H100s.</p>
+</blockquote>
+<hr />
+<hr />
+<h2 id="5-recent-updates-2025-2026">5. Recent Updates (2025-2026)<a class="headerlink" href="#5-recent-updates-2025-2026" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Asymmetric/Activation-Informed GQA:</strong> Instead of grouping neighboring heads, researchers now use "activation-informed" grouping. They group heads that show similar attention patterns, leading to 7-10% better accuracy on benchmarks like MMLU.</p>
+</li>
+<li>
+<p><strong>Context-Dependent Scaling:</strong> Newer models dynamically adjust the number of groups <span class="arithmatex">\(G\)</span> based on the input sequence length to optimize for latency.</p>
+</li>
+<li>
+<p><strong>MLA (Multi-head Latent Attention):</strong> Popularized by <strong>DeepSeek-V3</strong>, this is seen as an evolution of GQA. It uses low-rank compression to further reduce the KV cache beyond what simple grouping can achieve.</p>
+</li>
+</ul>
+<hr />
+<hr />
+<h2 id="6-interview-questions">6. Interview Questions<a class="headerlink" href="#6-interview-questions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Q: Why does GQA allow for larger batch sizes?</strong></p>
+<ul>
+<li><em>A: Because the KV cache for each sequence is smaller. More sequences can fit into the GPU's VRAM simultaneously.</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Q: How do you convert an MHA model to GQA?</strong></p>
+<ul>
+<li><em>A: You take the <span class="arithmatex">\(H\)</span> original KV heads and "mean-pool" them into <span class="arithmatex">\(G\)</span> heads. Then, you perform a small amount of "uptraining" to let the model adapt.</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Q: Is GQA used in the Encoder or Decoder?</strong></p>
+<ul>
+<li><em>A: It is most valuable in the </em><em>Decoder</em><em> during autoregressive generation, as that is where the KV cache bottleneck exists.</em></li>
+</ul>
+</li>
+</ul>
+<hr />
 
 
 
