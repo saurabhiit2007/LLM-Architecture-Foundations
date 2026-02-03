@@ -20,7 +20,7 @@
     
     
       
-        <title>Welcome to MkDocs - LLM-Architecture_Foundations</title>
+        <title>Sliding window - LLM-Architecture_Foundations</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#1-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              Sliding window
             
           </span>
         </div>
@@ -1256,8 +1256,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1266,18 +1264,117 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      1. Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why it Matters:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-theoretical-receptive-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Theoretical Receptive Field
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#3-training-vs-inference-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      3. Training vs. Inference Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Training vs. Inference Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-the-attention-mask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training (The Attention Mask)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inference-the-rolling-buffer-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inference (The Rolling Buffer Cache)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-recent-updates-2024-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Recent Updates (2024 - 2026)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Recent Updates (2024 - 2026)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-attention-sinks-streamingllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Attention Sinks (StreamingLLM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-variable-window-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Variable Window Sizes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-pro-tips-for-the-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Pro-Tips for the Interview
     </span>
   </a>
   
@@ -1302,21 +1399,98 @@
   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+  <h1>Sliding window</h1>
+
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p><strong>Sliding Window Attention</strong> is a sparse attention mechanism designed to break the <span class="arithmatex">\(O(n^2)\)</span> complexity of standard Transformers. It limits the attention span of each token to a fixed window size <span class="arithmatex">\(W\)</span>, resulting in linear complexity <span class="arithmatex">\(O(n \times W)\)</span>.</p>
+<h3 id="why-it-matters">Why it Matters:<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>Quadratic to Linear:</strong> Standard attention slows down exponentially as sequences grow; SWA maintains a steady pace.</li>
+<li><strong>Memory Efficiency:</strong> Drastically reduces the Key-Value (KV) cache size during inference.</li>
+<li><strong>Modern Usage:</strong> Popularized by models like <strong>Mistral 7B</strong> and <strong>Longformer</strong>.</li>
 </ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<hr />
+<hr />
+<h2 id="2-theoretical-receptive-field">2. Theoretical Receptive Field<a class="headerlink" href="#2-theoretical-receptive-field" title="Permanent link">&para;</a></h2>
+<p>A common question is: <em>"If the window is small, how does the model see the beginning of a long document?"</em></p>
+<ul>
+<li><strong>The Stacking Effect:</strong> Even if a single layer only sees <span class="arithmatex">\(W\)</span> tokens, the information propagates upward. </li>
+<li><strong>Calculation:</strong> In a model with <span class="arithmatex">\(L\)</span> layers, the top layer has a theoretical receptive field of <span class="arithmatex">\(L \times W\)</span>.</li>
+<li><strong>Analogy:</strong> It functions like a Convolutional Neural Network (CNN) where deeper layers have a broader "view" of the input.</li>
+</ul>
+<hr />
+<hr />
+<h2 id="3-training-vs-inference-implementation">3. Training vs. Inference Implementation<a class="headerlink" href="#3-training-vs-inference-implementation" title="Permanent link">&para;</a></h2>
+<h3 id="training-the-attention-mask">Training (The Attention Mask)<a class="headerlink" href="#training-the-attention-mask" title="Permanent link">&para;</a></h3>
+<p>During training, we process tokens in parallel. We enforce the sliding window using a <strong>Band Mask</strong>.
+* The attention matrix is masked so that for any query <span class="arithmatex">\(Q_i\)</span>, it only computes scores for keys <span class="arithmatex">\(K_{j}\)</span> where <span class="arithmatex">\(i - W \le j \le i\)</span>.
+* <strong>Hardware Note:</strong> Modern libraries use "Block-Sparse" kernels to ensure this masking doesn't waste GPU cycles on zeroed-out values.</p>
+<h3 id="inference-the-rolling-buffer-cache">Inference (The Rolling Buffer Cache)<a class="headerlink" href="#inference-the-rolling-buffer-cache" title="Permanent link">&para;</a></h3>
+<p>This is the most critical optimization for deployment. 
+* <strong>Mechanism:</strong> Instead of an ever-growing KV cache, we use a fixed-size circular buffer of size <span class="arithmatex">\(W\)</span>.
+* <strong>The Logic:</strong> When the model generates token <span class="arithmatex">\(i\)</span>, it overwrites the cache at position <span class="arithmatex">\(i \pmod W\)</span>.
+* <strong>Result:</strong> Memory usage stays <strong>constant</strong>, allowing for "infinite" sequence generation without running out of VRAM.</p>
+<hr />
+<hr />
+<h2 id="4-recent-updates-2024-2026">4. Recent Updates (2024 - 2026)<a class="headerlink" href="#4-recent-updates-2024-2026" title="Permanent link">&para;</a></h2>
+<h3 id="a-attention-sinks-streamingllm">A. Attention Sinks (StreamingLLM)<a class="headerlink" href="#a-attention-sinks-streamingllm" title="Permanent link">&para;</a></h3>
+<p><strong>The "Broken" Reality of Naive SWA</strong></p>
+<p>In a standard Sliding Window, as the model generates token 1001, it evicts token 0 from its cache. Researchers found that this causes the model's perplexity to spike (the model "breaks") almost immediately. </p>
+<p><strong>Why the First Tokens?</strong>
+The <strong>Softmax</strong> function in self-attention requires all attention scores to sum to 1. 
+1. <strong>The Anchor Effect:</strong> Because the first token (usually a start-of-sentence token like <code>&lt;s&gt;</code>) is visible to every subsequent token, the model "learns" to use it as a graveyard for unnecessary attention probability. 
+2. <strong>The "Sink":</strong> Even if the first token is semantically useless (a comma or a space), it acts as a <strong>sink</strong> for the "residual" attention that doesn't fit elsewhere.
+3. <strong>The Crash:</strong> When you slide the window and remove that first token, the Softmax distribution has no "sink" to dump extra score into. This forces the attention to be distributed among local tokens that aren't actually relevant, causing the model to hallucinate or produce gibberish.</p>
+<p><strong>The Fix: StreamingLLM Architecture</strong>
+Instead of a simple sliding window, the cache is partitioned into two distinct parts:
+1. <strong>Attention Sinks (Fixed):</strong> The first 1–4 tokens are pinned in memory forever. They occupy very little space but provide the Softmax anchor.
+2. <strong>Sliding Window (Rolling):</strong> The most recent <span class="arithmatex">\(W\)</span> tokens are kept in a rolling buffer for local context.</p>
+<h3 id="b-variable-window-sizes">B. Variable Window Sizes<a class="headerlink" href="#b-variable-window-sizes" title="Permanent link">&para;</a></h3>
+<p>Some recent architectures use <strong>Dilated Sliding Window Attention</strong>.
+* Lower layers use small, dense windows for local context.
+* Higher layers use dilated windows (skipping tokens) to capture long-range dependencies without increasing the number of keys.</p>
+<hr />
+<hr />
+<h2 id="5-summary">5. Summary<a class="headerlink" href="#5-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Vanilla Attention</th>
+<th style="text-align: left;">Sliding Window Attention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Complexity</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(O(n^2)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(O(n \times W)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KV Cache</strong></td>
+<td style="text-align: left;">Grows linearly</td>
+<td style="text-align: left;">Constant/Fixed size</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Best For</strong></td>
+<td style="text-align: left;">Short, dense context</td>
+<td style="text-align: left;">Long-form documents/Chat</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Key Risk</strong></td>
+<td style="text-align: left;">Memory OOM (Out of Memory)</td>
+<td style="text-align: left;">Forgetting distant context</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h2 id="6-pro-tips-for-the-interview">6. Pro-Tips for the Interview<a class="headerlink" href="#6-pro-tips-for-the-interview" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Mention FlashAttention:</strong> Note that SWA can be combined with FlashAttention kernels for maximum hardware throughput.</li>
+<li><strong>The "Forgetfulness" Trade-off:</strong> Be ready to discuss that while SWA is efficient, it literally "forgets" specific details that fall out of the <span class="arithmatex">\(L \times W\)</span> range, unlike standard attention.</li>
+</ul>
+<hr />
 
 
 
