@@ -35,10 +35,10 @@ nav:
       - Dense vs Sparse Models: ./model_architecture_families/dense_vs_sparse_models.md
       - Mixture of Models (MoE): ./model_architecture_families/mixture_of_experts.md
   - Attention Mechanisms:
-      - Multi-Head Attention: ./attention_mechanisms/index.md
-      - Multi Query Attention (MQA): ./attention_mechanisms/index.md
-      - Grouped Query Attention (GQA): ./attention_mechanisms/index.md
-      - Sliding Window: ./attention_mechanisms/index.md
+      - Multi-Head Attention: ./attention_mechanisms/mha.md
+      - Multi Query Attention (MQA): ./attention_mechanisms/mqa.md
+      - Grouped Query Attention (GQA): ./attention_mechanisms/gqa.md
+      - Sliding Window: ./attention_mechanisms/sliding_window.md
   - Real World Model Families:
       - Claude: ./real_world_model_families/claude.md
       - Llama: ./real_world_model_families/llama.md
