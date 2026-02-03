@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-overview" class="md-skip">
+        <a href="#1-encoder-only-models-the-understanders" class="md-skip">
           Skip to content
         </a>
       
@@ -363,28 +363,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
+  <a href="#1-encoder-only-models-the-understanders" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Overview
+      🏗️ 1. Encoder-Only Models (The "Understanders")
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-core-concept-and-intuition" class="md-nav__link">
+  <a href="#2-decoder-only-models-the-generators" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Core Concept and Intuition
+      ✍️ 2. Decoder-Only Models (The "Generators")
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Core Concept and Intuition">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-encoder-decoder-models-the-translators" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 3. Encoder-Decoder Models (The "Translators")
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Comparison Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updates-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Updates (2026)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interview Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interview Questions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-specialist-analogy" class="md-nav__link">
+  <a href="#q1-why-is-the-mask-necessary-in-decoder-training" class="md-nav__link">
     <span class="md-ellipsis">
-      The Specialist Analogy
+      Q1: Why is the "Mask" necessary in Decoder training?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-what-is-the-benefit-of-cross-attention-in-an-encoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: What is the benefit of Cross-Attention in an Encoder-Decoder?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-explain-the-kv-cache-and-why-it-matters-for-decoder-only-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: Explain the KV Cache and why it matters for Decoder-only inference.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-can-you-use-a-decoder-only-model-for-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Can you use a Decoder-only model for Classification?
     </span>
   </a>
   
@@ -392,210 +455,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-architecture-the-sparse-transformer" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Architecture: The Sparse Transformer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Architecture: The Sparse Transformer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#components-of-an-moe-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Components of an MoE Layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#routing-mechanism" class="md-nav__link">
-    <span class="md-ellipsis">
-      Routing Mechanism
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#case-study-mixtral-8x7b" class="md-nav__link">
-    <span class="md-ellipsis">
-      Case Study: Mixtral 8x7B
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-expert-capacity-and-token-dropping" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Expert Capacity and Token Dropping
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Expert Capacity and Token Dropping">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-reduce-routing-weight-even-when-the-expert-is-correct" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Reduce Routing Weight Even When the Expert Is Correct?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-training-dynamics-and-stability" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Training Dynamics and Stability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Training Dynamics and Stability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#benefits-of-moe-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits of MoE Training
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mode-collapse-and-expert-imbalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mode Collapse and Expert Imbalance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auxiliary-losses-for-stability" class="md-nav__link">
-    <span class="md-ellipsis">
-      Auxiliary Losses for Stability
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-emergent-expert-specialization" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Emergent Expert Specialization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-what-moe-improves-and-what-it-does-not" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. What MoE Improves and What It Does Not
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. What MoE Improves and What It Does Not">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#moe-primarily-improves" class="md-nav__link">
-    <span class="md-ellipsis">
-      MoE Primarily Improves
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#moe-does-not-automatically-improve" class="md-nav__link">
-    <span class="md-ellipsis">
-      MoE Does Not Automatically Improve
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-inference-and-deployment-trade-offs" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Inference and Deployment Trade-offs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-training-cost-vs-inference-cost" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Training Cost vs Inference Cost
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-moe-in-the-scaling-toolbox" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. MoE in the Scaling Toolbox
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-key-takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Key Takeaways
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-some-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Some Questions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
   
 </li>
       
@@ -1240,6 +1099,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../tokenization/tiktoken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TikToken
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../tokenization/vocabulary_size_tradeoffs/" class="md-nav__link">
         
   
@@ -1543,28 +1425,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-overview" class="md-nav__link">
+  <a href="#1-encoder-only-models-the-understanders" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Overview
+      🏗️ 1. Encoder-Only Models (The "Understanders")
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-core-concept-and-intuition" class="md-nav__link">
+  <a href="#2-decoder-only-models-the-generators" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Core Concept and Intuition
+      ✍️ 2. Decoder-Only Models (The "Generators")
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Core Concept and Intuition">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-encoder-decoder-models-the-translators" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 3. Encoder-Decoder Models (The "Translators")
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Comparison Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updates-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Updates (2026)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interview Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interview Questions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-specialist-analogy" class="md-nav__link">
+  <a href="#q1-why-is-the-mask-necessary-in-decoder-training" class="md-nav__link">
     <span class="md-ellipsis">
-      The Specialist Analogy
+      Q1: Why is the "Mask" necessary in Decoder training?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-what-is-the-benefit-of-cross-attention-in-an-encoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: What is the benefit of Cross-Attention in an Encoder-Decoder?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-explain-the-kv-cache-and-why-it-matters-for-decoder-only-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: Explain the KV Cache and why it matters for Decoder-only inference.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-can-you-use-a-decoder-only-model-for-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Can you use a Decoder-only model for Classification?
     </span>
   </a>
   
@@ -1572,210 +1517,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-architecture-the-sparse-transformer" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Architecture: The Sparse Transformer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Architecture: The Sparse Transformer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#components-of-an-moe-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Components of an MoE Layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#routing-mechanism" class="md-nav__link">
-    <span class="md-ellipsis">
-      Routing Mechanism
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#case-study-mixtral-8x7b" class="md-nav__link">
-    <span class="md-ellipsis">
-      Case Study: Mixtral 8x7B
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-expert-capacity-and-token-dropping" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Expert Capacity and Token Dropping
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Expert Capacity and Token Dropping">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-reduce-routing-weight-even-when-the-expert-is-correct" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Reduce Routing Weight Even When the Expert Is Correct?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-training-dynamics-and-stability" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Training Dynamics and Stability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Training Dynamics and Stability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#benefits-of-moe-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits of MoE Training
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mode-collapse-and-expert-imbalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mode Collapse and Expert Imbalance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auxiliary-losses-for-stability" class="md-nav__link">
-    <span class="md-ellipsis">
-      Auxiliary Losses for Stability
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-emergent-expert-specialization" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Emergent Expert Specialization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-what-moe-improves-and-what-it-does-not" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. What MoE Improves and What It Does Not
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. What MoE Improves and What It Does Not">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#moe-primarily-improves" class="md-nav__link">
-    <span class="md-ellipsis">
-      MoE Primarily Improves
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#moe-does-not-automatically-improve" class="md-nav__link">
-    <span class="md-ellipsis">
-      MoE Does Not Automatically Improve
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-inference-and-deployment-trade-offs" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Inference and Deployment Trade-offs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-training-cost-vs-inference-cost" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Training Cost vs Inference Cost
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-moe-in-the-scaling-toolbox" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. MoE in the Scaling Toolbox
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-key-takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Key Takeaways
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-some-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Some Questions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
   
 </li>
       
@@ -1800,257 +1541,107 @@
 
   <h1>Encoder Decoder Models</h1>
 
-<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
-<p>Mixture of Experts (MoE) is an architectural paradigm that enables scaling model capacity to frontier levels while keeping per-token inference compute manageable. It allows a model to store far more knowledge than a dense model with similar inference cost, making it a key technique behind models such as GPT-4, Mixtral, and Grok.</p>
-<hr />
-<h2 id="2-core-concept-and-intuition">2. Core Concept and Intuition<a class="headerlink" href="#2-core-concept-and-intuition" title="Permanent link">&para;</a></h2>
-<p>In a standard <strong>dense Transformer</strong>, every parameter participates in processing every token.</p>
-<p><strong>The problem with dense scaling</strong></p>
+<h2 id="1-encoder-only-models-the-understanders">🏗️ 1. Encoder-Only Models (The "Understanders")<a class="headerlink" href="#1-encoder-only-models-the-understanders" title="Permanent link">&para;</a></h2>
+<p>Encoder-only models focus on creating a rich, bidirectional representation of the input.</p>
 <ul>
-<li>Increasing parameters increases capacity</li>
-<li>But inference cost, latency, and memory usage scale linearly with model size</li>
+<li><strong>Mechanism:</strong> Uses <strong>Full (Bidirectional) Self-Attention</strong>. Every token can attend to every other token in the sequence.</li>
+<li><strong>Mathematical Objective:</strong> Typically <strong>Masked Language Modeling (MLM)</strong>.
+    <span class="arithmatex">\(<span class="arithmatex">\(P(w_i | w_1, \dots, w_{i-1}, w_{i+1}, \dots, w_n)\)</span>\)</span></li>
+<li><strong>Key Models:</strong> BERT, RoBERTa, ALBERT.</li>
+<li><strong>When to Prefer:</strong> When the task requires understanding the "whole-sentence" context simultaneously.<ul>
+<li><strong>Tasks:</strong> Sentiment analysis, Named Entity Recognition (NER), and extractive Question Answering.</li>
 </ul>
-<p><strong>The MoE solution</strong></p>
-<p>MoE decouples <strong>model capacity</strong> from <strong>inference compute</strong> by activating only a small subset of parameters for each token.</p>
-<h3 id="the-specialist-analogy">The Specialist Analogy<a class="headerlink" href="#the-specialist-analogy" title="Permanent link">&para;</a></h3>
-<p>Instead of one generalist handling all tasks, imagine a panel of specialists.</p>
-<ul>
-<li>A routing system decides which specialists should handle each input</li>
-<li>Only those specialists are consulted</li>
-</ul>
-<p>Key distinction:</p>
-<ul>
-<li><strong>Total parameters</strong> represent the full knowledge capacity</li>
-<li><strong>Active parameters</strong> determine inference cost for a given token</li>
+</li>
 </ul>
 <hr />
-<h2 id="3-architecture-the-sparse-transformer">3. Architecture: The Sparse Transformer<a class="headerlink" href="#3-architecture-the-sparse-transformer" title="Permanent link">&para;</a></h2>
-<p>An MoE model is identical to a standard Transformer except that the <strong>Feed-Forward Network (FFN)</strong> layers are replaced with <strong>MoE layers</strong>.</p>
-<h3 id="components-of-an-moe-layer">Components of an MoE Layer<a class="headerlink" href="#components-of-an-moe-layer" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Experts (<span class="arithmatex">\(E_i\)</span>)</strong>  </li>
+<hr />
+<h2 id="2-decoder-only-models-the-generators">✍️ 2. Decoder-Only Models (The "Generators")<a class="headerlink" href="#2-decoder-only-models-the-generators" title="Permanent link">&para;</a></h2>
+<p>These are the backbone of modern Generative AI. They are designed for one-way, autoregressive generation.</p>
+<ul>
+<li><strong>Mechanism:</strong> Uses <strong>Causal (Masked) Self-Attention</strong>. A token can only attend to previous tokens in the sequence to prevent "cheating" by looking at the future.</li>
+<li><strong>Mathematical Objective:</strong> <strong>Causal Language Modeling (CLM)</strong> or Next-Token Prediction.
+    <span class="arithmatex">\(<span class="arithmatex">\(P(w_i | w_1, \dots, w_{i-1})\)</span>\)</span></li>
+<li><strong>Key Models:</strong> GPT-4, Llama 3/4, DeepSeek-R1, Mistral.</li>
+<li><strong>When to Prefer:</strong> For open-ended generation, reasoning, and instruction following.<ul>
+<li><strong>Tasks:</strong> Chatbots, creative writing, and code generation.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<hr />
+<h2 id="3-encoder-decoder-models-the-translators">🔄 3. Encoder-Decoder Models (The "Translators")<a class="headerlink" href="#3-encoder-decoder-models-the-translators" title="Permanent link">&para;</a></h2>
+<p>The classic "Seq2Seq" architecture that combines an understanding phase with a generation phase.</p>
+<ul>
+<li><strong>Mechanism:</strong> <ol>
+<li><strong>Encoder:</strong> Processes input bidirectionally.</li>
+<li><strong>Decoder:</strong> Generates output using causal attention + <strong>Cross-Attention</strong> (looking back at the Encoder's output).</li>
 </ol>
-<p>A set of <span class="arithmatex">\(N\)</span> independent FFNs, each with its own parameters.</p>
-<ol>
-<li><strong>Router / Gating Network (<span class="arithmatex">\(G\)</span>)</strong>  </li>
-</ol>
-<p>A small learnable function that scores which experts should process a given token.</p>
-<h3 id="routing-mechanism">Routing Mechanism<a class="headerlink" href="#routing-mechanism" title="Permanent link">&para;</a></h3>
-<p>For an input token representation <span class="arithmatex">\(x\)</span>, the output of an MoE layer is:</p>
-<div class="arithmatex">\[
-y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x)
-\]</div>
-<p>In <strong>sparse MoE</strong>, a <strong>Top-k routing</strong> strategy is used:</p>
-<ul>
-<li>Only the top <span class="arithmatex">\(k\)</span> experts receive non-zero weights</li>
-<li>All other experts are skipped entirely</li>
-<li>Typically <span class="arithmatex">\(k = 1\)</span> or <span class="arithmatex">\(k = 2\)</span></li>
+</li>
+<li><strong>Key Models:</strong> T5, BART, FLAN-T5.</li>
+<li><strong>When to Prefer:</strong> When the input and output are distinct but highly correlated sequences.<ul>
+<li><strong>Tasks:</strong> Machine Translation (English to French) and Abstractive Summarization.</li>
 </ul>
-<p>Only the selected experts are evaluated, making computation and gradient flow sparse.</p>
-<hr />
-<h3 id="case-study-mixtral-8x7b">Case Study: Mixtral 8x7B<a class="headerlink" href="#case-study-mixtral-8x7b" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Total experts:</strong> 8</li>
-<li><strong>Routing:</strong> Top-2 per token</li>
-<li><strong>Active parameters per token:</strong> ~13B</li>
-<li><strong>Total parameters:</strong> ~47B</li>
-</ul>
-<p>The model exhibits capacity comparable to a ~50B dense model while running at the speed of a ~13B model.</p>
-<hr />
-<h2 id="4-expert-capacity-and-token-dropping">4. Expert Capacity and Token Dropping<a class="headerlink" href="#4-expert-capacity-and-token-dropping" title="Permanent link">&para;</a></h2>
-<p>Each expert has a fixed <strong>capacity</strong>, which limits how many tokens it can process in a single batch. This capacity is typically set as a multiple of the expected average load per expert.</p>
-<p>If too many tokens are routed to the same expert in a batch:</p>
-<ul>
-<li>Excess tokens may be dropped entirely</li>
-<li>Or processed with reduced routing weight, meaning their contribution to the expert’s output is scaled down to maintain numerical and compute stability</li>
-<li>Or rerouted to fallback experts, depending on the implementation</li>
-</ul>
-<p>This mechanism prevents individual experts from becoming compute or memory bottlenecks but introduces a trade-off:</p>
-<ul>
-<li>Larger capacity improves training stability and model quality</li>
-<li>Smaller capacity improves efficiency but risks silent quality degradation due to dropped tokens</li>
-</ul>
-<p>Monitoring expert utilization and token dropping rates is therefore critical during training and debugging MoE models.</p>
-<blockquote>
-<h4 id="why-reduce-routing-weight-even-when-the-expert-is-correct">Why Reduce Routing Weight Even When the Expert Is Correct?<a class="headerlink" href="#why-reduce-routing-weight-even-when-the-expert-is-correct" title="Permanent link">&para;</a></h4>
-<p>Routing decides <strong>which expert is best</strong> for a token.<br />
-Capacity limits decide <strong>how much influence that token is allowed to have</strong> in a given batch.</p>
-<p>When an expert exceeds its capacity, all routed tokens are still correct assignments, but the system cannot afford to:</p>
-<ul>
-<li>Process unlimited tokens</li>
-<li>Accumulate unbounded gradients</li>
-<li>Let one expert dominate training</li>
-</ul>
-<p>Reducing the routing weight is a soft fallback:</p>
-<ul>
-<li>The token is still processed by the correct expert</li>
-<li>Its output and gradients are scaled down</li>
-<li>Compute and training stability are preserved</li>
-</ul>
-<p>The reduced weight does <strong>not</strong> indicate lower correctness.
-It limits influence to protect compute budgets and prevent expert collapse while retaining partial learning signal.</p>
-</blockquote>
-<hr />
-<h2 id="5-training-dynamics-and-stability">5. Training Dynamics and Stability<a class="headerlink" href="#5-training-dynamics-and-stability" title="Permanent link">&para;</a></h2>
-<h3 id="benefits-of-moe-training">Benefits of MoE Training<a class="headerlink" href="#benefits-of-moe-training" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Compute efficiency:</strong> Lower validation loss for the same training FLOPs compared to dense models</li>
-<li><strong>Knowledge scaling:</strong> Experts can store long-tail facts and rare patterns efficiently</li>
-<li><strong>Faster convergence:</strong> Sparse FFNs reduce redundant computation</li>
+</li>
 </ul>
 <hr />
-<h3 id="mode-collapse-and-expert-imbalance">Mode Collapse and Expert Imbalance<a class="headerlink" href="#mode-collapse-and-expert-imbalance" title="Permanent link">&para;</a></h3>
-<p>A common failure mode is <strong>expert collapse</strong>:</p>
-<ul>
-<li>Early-random advantages cause one expert to receive more tokens</li>
-<li>That expert improves faster due to more gradients</li>
-<li>Other experts receive fewer updates and remain undertrained</li>
-</ul>
 <hr />
-<h3 id="auxiliary-losses-for-stability">Auxiliary Losses for Stability<a class="headerlink" href="#auxiliary-losses-for-stability" title="Permanent link">&para;</a></h3>
-<p>To prevent collapse, MoE training includes additional losses:</p>
-<ul>
-<li><strong>Load Balancing Loss:</strong> Penalizes uneven token distribution across experts</li>
-<li><strong>Z-Loss:</strong> Penalizes large router logits to improve numerical stability</li>
-</ul>
-<p>These losses are essential for maintaining expert diversity.</p>
-<hr />
-<h2 id="5-emergent-expert-specialization">5. Emergent Expert Specialization<a class="headerlink" href="#5-emergent-expert-specialization" title="Permanent link">&para;</a></h2>
-<p>Experts are not manually assigned domains.</p>
-<p>Specialization emerges implicitly from:</p>
-<ul>
-<li>Routing gradients</li>
-<li>Data distribution</li>
-<li>Load balancing constraints</li>
-</ul>
-<p>In practice, experts often specialize in:</p>
-<ul>
-<li>Syntax and formatting</li>
-<li>Punctuation and boilerplate</li>
-<li>Code versus natural language</li>
-<li>Long-context versus short-context tokens</li>
-</ul>
-<p>MoE does not guarantee clean semantic specialization such as math or biology experts.</p>
-<hr />
-<h2 id="6-what-moe-improves-and-what-it-does-not">6. What MoE Improves and What It Does Not<a class="headerlink" href="#6-what-moe-improves-and-what-it-does-not" title="Permanent link">&para;</a></h2>
-<h3 id="moe-primarily-improves">MoE Primarily Improves<a class="headerlink" href="#moe-primarily-improves" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Factual recall</li>
-<li>Coverage of rare or long-tail patterns</li>
-<li>Knowledge density per inference FLOP</li>
-</ul>
-<h3 id="moe-does-not-automatically-improve">MoE Does Not Automatically Improve<a class="headerlink" href="#moe-does-not-automatically-improve" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Multi-step reasoning</li>
-<li>Logical consistency</li>
-<li>Planning and abstraction</li>
-</ul>
-<p>Reasoning quality depends more on:</p>
-<ul>
-<li>Attention mechanisms</li>
-<li>Data quality</li>
-<li>Post-training alignment and RL</li>
-</ul>
-<hr />
-<h2 id="7-inference-and-deployment-trade-offs">7. Inference and Deployment Trade-offs<a class="headerlink" href="#7-inference-and-deployment-trade-offs" title="Permanent link">&para;</a></h2>
+<h2 id="comparison-table">📊 Comparison Table<a class="headerlink" href="#comparison-table" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Aspect</th>
-<th>Impact</th>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Encoder-Only</th>
+<th style="text-align: left;">Decoder-Only</th>
+<th style="text-align: left;">Encoder-Decoder</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Throughput</td>
-<td>High, due to sparse computation</td>
+<td style="text-align: left;"><strong>Attention</strong></td>
+<td style="text-align: left;">Bidirectional</td>
+<td style="text-align: left;">Causal</td>
+<td style="text-align: left;">Bidirectional (Enc) + Causal (Dec)</td>
 </tr>
 <tr>
-<td>Latency</td>
-<td>Low, driven by active parameter count</td>
+<td style="text-align: left;"><strong>Primary Strength</strong></td>
+<td style="text-align: left;">NLU (Understanding)</td>
+<td style="text-align: left;">NLG (Generation)</td>
+<td style="text-align: left;">Seq2Seq (Transformation)</td>
 </tr>
 <tr>
-<td>VRAM Usage</td>
-<td>Very high, since all experts must be resident</td>
+<td style="text-align: left;"><strong>KV Cache Used</strong></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Yes (Crucial for inference)</td>
+<td style="text-align: left;">Yes (In the decoder)</td>
 </tr>
 <tr>
-<td>Communication</td>
-<td>High, requires all-to-all routing in distributed setups</td>
+<td style="text-align: left;"><strong>Scaling</strong></td>
+<td style="text-align: left;">Diminishing returns</td>
+<td style="text-align: left;">Scales best with compute</td>
+<td style="text-align: left;">Stable for specific tasks</td>
 </tr>
 </tbody>
 </table>
-<p>MoE models are often <strong>memory-bandwidth bound</strong>, not compute-bound.</p>
 <hr />
-<h2 id="8-training-cost-vs-inference-cost">8. Training Cost vs Inference Cost<a class="headerlink" href="#8-training-cost-vs-inference-cost" title="Permanent link">&para;</a></h2>
-<p>MoE reduces inference cost but increases training complexity:</p>
-<ul>
-<li>More communication overhead</li>
-<li>More fragile optimization</li>
-<li>Harder distributed orchestration</li>
-</ul>
-<p>MoE is most effective when:</p>
-<ul>
-<li>A model is trained once</li>
-<li>Served at massive scale</li>
-<li>Inference cost dominates total lifetime cost</li>
-</ul>
-<p>Dense models may be preferable for smaller-scale or latency-critical use cases.</p>
 <hr />
-<h2 id="9-moe-in-the-scaling-toolbox">9. MoE in the Scaling Toolbox<a class="headerlink" href="#9-moe-in-the-scaling-toolbox" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Strategy</th>
-<th>Key Idea</th>
-<th>Trade-off</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Dense scaling</td>
-<td>Increase parameters</td>
-<td>Expensive inference</td>
-</tr>
-<tr>
-<td>MoE</td>
-<td>Sparse activation</td>
-<td>Memory and communication overhead</td>
-</tr>
-<tr>
-<td>Longer training</td>
-<td>More tokens per parameter</td>
-<td>Higher one-time cost</td>
-</tr>
-<tr>
-<td>Quantization</td>
-<td>Lower precision</td>
-<td>Potential accuracy loss</td>
-</tr>
-</tbody>
-</table>
-<p>MoE is a powerful but specialized tool, not a universal solution.</p>
-<hr />
-<h2 id="10-key-takeaways">10. Key Takeaways<a class="headerlink" href="#10-key-takeaways" title="Permanent link">&para;</a></h2>
-<ul>
-<li>MoE decouples capacity from inference compute</li>
-<li>It is most effective for knowledge-heavy scaling</li>
-<li>Training is harder, inference is cheaper</li>
-<li>Many failures stem from routing imbalance and systems constraints</li>
-</ul>
-<p>MoE reflects a broader trend in modern LLMs: scaling is as much a systems problem as it is a modeling problem.</p>
-<hr />
-<h2 id="11-some-questions">11. Some Questions<a class="headerlink" href="#11-some-questions" title="Permanent link">&para;</a></h2>
-<p><strong>Q: Does MoE reduce attention bottlenecks?</strong>
-A: No. MoE typically replaces FFN layers. Attention remains dense, so KV cache memory and attention compute are unchanged.</p>
-<p><strong>Q: Why use Top-2 routing instead of Top-1?</strong>
-A: Top-2 provides smoother gradients and backup information flow, improving training stability.</p>
-<p><strong>Q: What is the main bottleneck when serving MoE models?</strong><br />
-A: Memory bandwidth and communication, not raw FLOPs.</p>
-<hr />
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="updates-2026">🚀  Updates (2026)<a class="headerlink" href="#updates-2026" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="https://huggingface.co/blog/moe">https://huggingface.co/blog/moe</a></li>
+<li><strong>The Shift to Decoder-Only:</strong> Interviewers may ask why BERT is "dead." The answer isn't that it's bad, but that Decoder-only models have shown superior <strong>Scaling Laws</strong>. By scaling a decoder, we get "emergent" understanding capabilities that rival encoders, making them more versatile.</li>
+<li><strong>Linear Attention:</strong> Mention that standard <span class="arithmatex">\(O(n^2)\)</span> attention is being challenged by <strong>Mamba (SSMs)</strong> or <strong>MLA (Multi-head Latent Attention)</strong> used in DeepSeek models to handle massive contexts efficiently.</li>
+<li><strong>Thought Tokens:</strong> With the rise of "reasoning" models (like o1 or R1), the decoder isn't just predicting the next word; it's generating a hidden "Chain of Thought."</li>
 </ol>
+<hr />
+<hr />
+<h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<h3 id="q1-why-is-the-mask-necessary-in-decoder-training">Q1: Why is the "Mask" necessary in Decoder training?<a class="headerlink" href="#q1-why-is-the-mask-necessary-in-decoder-training" title="Permanent link">&para;</a></h3>
+<p><strong>Answer:</strong> Without a causal mask, the model would have access to the "ground truth" token it is trying to predict during the training phase. The mask ensures the model learns to predict <span class="arithmatex">\(t+1\)</span> using only tokens <span class="arithmatex">\(0\)</span> through <span class="arithmatex">\(t\)</span>.</p>
+<h3 id="q2-what-is-the-benefit-of-cross-attention-in-an-encoder-decoder">Q2: What is the benefit of Cross-Attention in an Encoder-Decoder?<a class="headerlink" href="#q2-what-is-the-benefit-of-cross-attention-in-an-encoder-decoder" title="Permanent link">&para;</a></h3>
+<p><strong>Answer:</strong> It allows the decoder to dynamically focus on relevant parts of the input sequence (the encoder's hidden states) at each step of the generation. This is why it outperforms simple decoders for high-precision tasks like translation.</p>
+<h3 id="q3-explain-the-kv-cache-and-why-it-matters-for-decoder-only-inference">Q3: Explain the KV Cache and why it matters for Decoder-only inference.<a class="headerlink" href="#q3-explain-the-kv-cache-and-why-it-matters-for-decoder-only-inference" title="Permanent link">&para;</a></h3>
+<p><strong>Answer:</strong> In autoregressive generation, we generate tokens one by one. Without a KV cache, we would recompute the "Keys" and "Values" for all previous tokens at every single step, leading to <span class="arithmatex">\(O(n^2)\)</span> compute. The KV cache stores these values, reducing the cost of generating the next token to <span class="arithmatex">\(O(n)\)</span>.</p>
+<h3 id="q4-can-you-use-a-decoder-only-model-for-classification">Q4: Can you use a Decoder-only model for Classification?<a class="headerlink" href="#q4-can-you-use-a-decoder-only-model-for-classification" title="Permanent link">&para;</a></h3>
+<p><strong>Answer:</strong> Yes. You can either take the hidden state of the last token and pass it to a classification head, or (more commonly now) simply prompt the model to output a specific word (e.g., "Positive" or "Negative").</p>
+<hr />
 
 
 
