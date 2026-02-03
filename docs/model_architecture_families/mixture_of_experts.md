@@ -4,6 +4,8 @@ Mixture of Experts (MoE) is an architectural paradigm that enables scaling model
 
 ---
 
+---
+
 ## 2. Core Concept and Intuition
 
 In a standard **dense Transformer**, every parameter participates in processing every token.
@@ -17,7 +19,7 @@ In a standard **dense Transformer**, every parameter participates in processing 
 
 MoE decouples **model capacity** from **inference compute** by activating only a small subset of parameters for each token.
 
-### The Specialist Analogy
+**The Specialist Analogy**
 
 Instead of one generalist handling all tasks, imagine a panel of specialists.
 
@@ -28,6 +30,8 @@ Key distinction:
 
 - **Total parameters** represent the full knowledge capacity
 - **Active parameters** determine inference cost for a given token
+
+---
 
 ---
 
@@ -45,6 +49,8 @@ An MoE model is identical to a standard Transformer except that the **Feed-Forwa
 
    A small learnable function that scores which experts should process a given token.
 
+--- 
+
 ### Routing Mechanism
 
 For an input token representation $x$, the output of an MoE layer is:
@@ -57,7 +63,7 @@ In **sparse MoE**, a **Top-k routing** strategy is used:
 
 - Only the top $k$ experts receive non-zero weights
 - All other experts are skipped entirely
-- Typically $k = 1$ or $k = 2$
+- Typically, $k = 1$ or $k = 2$
 
 Only the selected experts are evaluated, making computation and gradient flow sparse.
 
@@ -71,6 +77,8 @@ Only the selected experts are evaluated, making computation and gradient flow sp
 - **Total parameters:** ~47B
 
 The model exhibits capacity comparable to a ~50B dense model while running at the speed of a ~13B model.
+
+---
 
 ---
 
@@ -91,6 +99,7 @@ This mechanism prevents individual experts from becoming compute or memory bottl
 
 Monitoring expert utilization and token dropping rates is therefore critical during training and debugging MoE models.
 
+---
 
 > #### Why Reduce Routing Weight Even When the Expert Is Correct?
 > Routing decides **which expert is best** for a token.  
@@ -113,9 +122,11 @@ Monitoring expert utilization and token dropping rates is therefore critical dur
 
 ---
 
+---
+
 ## 5. Training Dynamics and Stability
 
-### Benefits of MoE Training
+### 5.1 Benefits of MoE Training
 
 - **Compute efficiency:** Lower validation loss for the same training FLOPs compared to dense models
 - **Knowledge scaling:** Experts can store long-tail facts and rare patterns efficiently
@@ -123,7 +134,7 @@ Monitoring expert utilization and token dropping rates is therefore critical dur
 
 ---
 
-### Mode Collapse and Expert Imbalance
+### 5.2 Mode Collapse and Expert Imbalance
 
 A common failure mode is **expert collapse**:
 
@@ -133,7 +144,7 @@ A common failure mode is **expert collapse**:
 
 ---
 
-### Auxiliary Losses for Stability
+### 5.3 Auxiliary Losses for Stability
 
 To prevent collapse, MoE training includes additional losses:
 
@@ -144,7 +155,9 @@ These losses are essential for maintaining expert diversity.
 
 ---
 
-## 5. Emergent Expert Specialization
+---
+
+## 6. Emergent Expert Specialization
 
 Experts are not manually assigned domains.
 
@@ -165,15 +178,17 @@ MoE does not guarantee clean semantic specialization such as math or biology exp
 
 ---
 
-## 6. What MoE Improves and What It Does Not
+---
 
-### MoE Primarily Improves
+## 7. What MoE Improves and What It Does Not
+
+**MoE Primarily Improves**
 
 - Factual recall
 - Coverage of rare or long-tail patterns
 - Knowledge density per inference FLOP
 
-### MoE Does Not Automatically Improve
+**MoE Does Not Automatically Improve**
 
 - Multi-step reasoning
 - Logical consistency
@@ -187,7 +202,9 @@ Reasoning quality depends more on:
 
 ---
 
-## 7. Inference and Deployment Trade-offs
+---
+
+## 8. Inference and Deployment Trade-offs
 
 | Aspect | Impact |
 |------|-------|
@@ -200,7 +217,9 @@ MoE models are often **memory-bandwidth bound**, not compute-bound.
 
 ---
 
-## 8. Training Cost vs Inference Cost
+---
+
+## 9. Training Cost vs Inference Cost
 
 MoE reduces inference cost but increases training complexity:
 
@@ -218,7 +237,9 @@ Dense models may be preferable for smaller-scale or latency-critical use cases.
 
 ---
 
-## 9. MoE in the Scaling Toolbox
+---
+
+## 10. MoE in the Scaling Toolbox
 
 | Strategy | Key Idea | Trade-off |
 |--------|---------|----------|
@@ -231,7 +252,9 @@ MoE is a powerful but specialized tool, not a universal solution.
 
 ---
 
-## 10. Key Takeaways
+---
+
+## 11. Key Takeaways
 
 - MoE decouples capacity from inference compute
 - It is most effective for knowledge-heavy scaling
@@ -242,7 +265,9 @@ MoE reflects a broader trend in modern LLMs: scaling is as much a systems proble
 
 ---
 
-## 11. Some Questions
+---
+
+## 11. Questions
 
 **Q: Does MoE reduce attention bottlenecks?**
 A: No. MoE typically replaces FFN layers. Attention remains dense, so KV cache memory and attention compute are unchanged.
@@ -254,7 +279,3 @@ A: Top-2 provides smoother gradients and backup information flow, improving trai
 A: Memory bandwidth and communication, not raw FLOPs.
 
 ---
-
-## References
-
-1. https://huggingface.co/blog/moe
