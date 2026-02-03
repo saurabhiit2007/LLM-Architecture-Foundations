@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../mha/">
+      
+      
+        <link rel="next" href="../gqa/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Mqa - LLM-Architecture_Foundations</title>
+        <title>Multi Query Attention (MQA) - LLM-Architecture_Foundations</title>
       
     
     
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mqa
+              Multi Query Attention (MQA)
             
           </span>
         </div>
@@ -386,20 +390,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -415,7 +419,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Attention Mechanisms
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../mha/" class="md-nav__link">
         
   
   
@@ -449,10 +453,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Multi Query Attention (MQA)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -463,6 +487,150 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-the-kv-cache-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Problem: The KV Cache Bottleneck
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-architecture-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Architecture Comparison
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Architecture Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-head-attention-mha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Head Attention (MHA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-query-attention-mqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Query Attention (MQA)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Why it Matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-training-vs-inference-the-impact-of-mqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Training vs. Inference: The Impact of MQA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Training vs. Inference: The Impact of MQA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-during-training-parallel-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. During Training (Parallel Processing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-during-inference-autoregressive-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. During Inference (Autoregressive Decoding)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-the-recent-evolution-grouped-query-attention-gqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. The Recent Evolution: Grouped-Query Attention (GQA)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-comparison-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Comparison Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-potential-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Potential Interview Questions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -475,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../gqa/" class="md-nav__link">
         
   
   
@@ -498,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../sliding_window/" class="md-nav__link">
         
   
   
@@ -1408,7 +1576,7 @@
   
 
 
-  <h1>Mqa</h1>
+  <h1>Multi Query Attention (MQA)</h1>
 
 <h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
 <p><strong>Multi-Query Attention (MQA)</strong> is a variation of the standard Multi-Head Attention (MHA) designed to significantly reduce the memory and computational overhead during inference, specifically by optimizing the <strong>KV (Key-Value) Cache</strong>.</p>

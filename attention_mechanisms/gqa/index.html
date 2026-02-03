@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../mqa/">
+      
+      
+        <link rel="next" href="../sliding_window/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Gqa - LLM-Architecture_Foundations</title>
+        <title>Grouped Query Attention (GQA) - LLM-Architecture_Foundations</title>
       
     
     
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gqa
+              Grouped Query Attention (GQA)
             
           </span>
         </div>
@@ -386,20 +390,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -415,7 +419,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Attention Mechanisms
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../mha/" class="md-nav__link">
         
   
   
@@ -452,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../mqa/" class="md-nav__link">
         
   
   
@@ -472,10 +476,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Grouped Query Attention (GQA)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -486,6 +510,111 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-attention-mechanism-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. The Attention Mechanism Spectrum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Attention Mechanism Spectrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-head-attention-mha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Head Attention (MHA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-query-attention-mqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Query Attention (MQA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-query-attention-gqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouped Query Attention (GQA)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mathematical-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Mathematical Formulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-training-vs-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Training vs. Inference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-recent-updates-2025-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Recent Updates (2025-2026)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Interview Questions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -498,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../sliding_window/" class="md-nav__link">
         
   
   
@@ -1369,7 +1498,7 @@
   
 
 
-  <h1>Gqa</h1>
+  <h1>Grouped Query Attention (GQA)</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><strong>Grouped Query Attention (GQA)</strong> has become the industry standard for modern Large Language Models (LLMs) like <strong>Llama 3</strong>, <strong>Mistral</strong>, and <strong>Gemma</strong>. It was introduced to solve a critical bottleneck in transformer architectures: the memory-heavy <strong>KV Cache</strong>.</p>

@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../gqa/">
+      
+      
+        <link rel="next" href="../../real_world_model_families/claude/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Sliding window - LLM-Architecture_Foundations</title>
+        <title>Sliding Window - LLM-Architecture_Foundations</title>
       
     
     
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sliding window
+              Sliding Window
             
           </span>
         </div>
@@ -386,20 +390,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -415,7 +419,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Attention Mechanisms
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../mha/" class="md-nav__link">
         
   
   
@@ -452,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../mqa/" class="md-nav__link">
         
   
   
@@ -475,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+      <a href="../gqa/" class="md-nav__link">
         
   
   
@@ -495,10 +499,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../index.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Sliding Window
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -509,6 +533,141 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why it Matters:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-theoretical-receptive-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Theoretical Receptive Field
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-training-vs-inference-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Training vs. Inference Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Training vs. Inference Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-the-attention-mask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training (The Attention Mask)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inference-the-rolling-buffer-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inference (The Rolling Buffer Cache)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-recent-updates-2024-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Recent Updates (2024 - 2026)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Recent Updates (2024 - 2026)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-attention-sinks-streamingllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Attention Sinks (StreamingLLM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-variable-window-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Variable Window Sizes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-pro-tips-for-the-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Pro-Tips for the Interview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1399,7 +1558,7 @@
   
 
 
-  <h1>Sliding window</h1>
+  <h1>Sliding Window</h1>
 
 <h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
 <p><strong>Sliding Window Attention</strong> is a sparse attention mechanism designed to break the <span class="arithmatex">\(O(n^2)\)</span> complexity of standard Transformers. It limits the attention span of each token to a fixed window size <span class="arithmatex">\(W\)</span>, resulting in linear complexity <span class="arithmatex">\(O(n \times W)\)</span>.</p>

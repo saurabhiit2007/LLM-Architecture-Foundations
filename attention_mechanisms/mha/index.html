@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../llama/">
+        <link rel="prev" href="../../model_architecture_families/mixture_of_experts/">
       
       
-        <link rel="next" href="../openai/">
+        <link rel="next" href="../mqa/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Gemini - LLM-Architecture_Foundations</title>
+        <title>Multi-Head Attention - LLM-Architecture_Foundations</title>
       
     
     
@@ -75,11 +75,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#1-recent-gemini-models-tiers" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -112,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gemini
+              Multi-Head Attention
             
           </span>
         </div>
@@ -390,20 +385,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -419,7 +414,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Attention Mechanisms
@@ -430,10 +425,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../attention_mechanisms/mha/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -444,6 +446,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -456,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../attention_mechanisms/mqa/" class="md-nav__link">
+      <a href="../mqa/" class="md-nav__link">
         
   
   
@@ -479,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../attention_mechanisms/gqa/" class="md-nav__link">
+      <a href="../gqa/" class="md-nav__link">
         
   
   
@@ -502,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../attention_mechanisms/sliding_window/" class="md-nav__link">
+      <a href="../sliding_window/" class="md-nav__link">
         
   
   
@@ -529,20 +532,20 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -558,7 +561,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Real World Model Families
@@ -572,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../claude/" class="md-nav__link">
+      <a href="../../real_world_model_families/claude/" class="md-nav__link">
         
   
   
@@ -595,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../llama/" class="md-nav__link">
+      <a href="../../real_world_model_families/llama/" class="md-nav__link">
         
   
   
@@ -615,30 +618,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Gemini
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../real_world_model_families/gemini/" class="md-nav__link">
         
   
   
@@ -649,84 +632,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-recent-gemini-models-tiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Recent Gemini Models &amp; Tiers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-training-strategy-the-gemini-difference" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Training Strategy: The Gemini Difference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-system-1-vs-system-2-thinking" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. System 1 vs. System 2 Thinking
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. System 1 vs. System 2 Thinking">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#system-1-intuitive-fast" class="md-nav__link">
-    <span class="md-ellipsis">
-      System 1: Intuitive &amp; Fast
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#system-2-analytical-deliberative" class="md-nav__link">
-    <span class="md-ellipsis">
-      System 2: Analytical &amp; Deliberative
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comparison Summary
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -739,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../openai/" class="md-nav__link">
+      <a href="../../real_world_model_families/openai/" class="md-nav__link">
         
   
   
@@ -762,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mistral/" class="md-nav__link">
+      <a href="../../real_world_model_families/mistral/" class="md-nav__link">
         
   
   
@@ -785,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dense_vs_MoE_comparison/" class="md-nav__link">
+      <a href="../../real_world_model_families/dense_vs_MoE_comparison/" class="md-nav__link">
         
   
   
@@ -808,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../general_comparison/" class="md-nav__link">
+      <a href="../../real_world_model_families/general_comparison/" class="md-nav__link">
         
   
   
@@ -1359,74 +1264,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-recent-gemini-models-tiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Recent Gemini Models &amp; Tiers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-training-strategy-the-gemini-difference" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Training Strategy: The Gemini Difference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-system-1-vs-system-2-thinking" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. System 1 vs. System 2 Thinking
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. System 1 vs. System 2 Thinking">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#system-1-intuitive-fast" class="md-nav__link">
-    <span class="md-ellipsis">
-      System 1: Intuitive &amp; Fast
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#system-2-analytical-deliberative" class="md-nav__link">
-    <span class="md-ellipsis">
-      System 2: Analytical &amp; Deliberative
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comparison Summary
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1444,113 +1281,9 @@
   
 
 
-  <h1>Gemini</h1>
+  <h1>Multi-Head Attention</h1>
 
-<h2 id="1-recent-gemini-models-tiers">1. Recent Gemini Models &amp; Tiers<a class="headerlink" href="#1-recent-gemini-models-tiers" title="Permanent link">&para;</a></h2>
-<p>The Gemini ecosystem has evolved into a sophisticated suite of models designed to balance <strong>speed (System 1)</strong> with <strong>deep reasoning (System 2)</strong>.</p>
-<p>As of early 2026, the lineup is categorized by its "agentic" capabilities - the ability to plan and use tools autonomously.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Model</th>
-<th style="text-align: left;">Role</th>
-<th style="text-align: left;">Key Strength</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Gemini 3 Pro</strong></td>
-<td style="text-align: left;">The Flagship</td>
-<td style="text-align: left;">Advanced reasoning for complex math, coding, and multi-step planning.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Gemini 3 Flash</strong></td>
-<td style="text-align: left;">The Workhorse</td>
-<td style="text-align: left;">Pro-level intelligence at high speed; the standard for daily AI interaction.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Gemini 2.5 Series</strong></td>
-<td style="text-align: left;">The Foundation</td>
-<td style="text-align: left;">The bridge that first introduced "Thinking" budgets and native tool-use.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Nano Banana</strong></td>
-<td style="text-align: left;">On-Device</td>
-<td style="text-align: left;">Optimized for high-fidelity image generation and editing on local hardware.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Veo 3</strong></td>
-<td style="text-align: left;">Video/Audio</td>
-<td style="text-align: left;">Specialist model for high-fidelity video generation with natively synced audio.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<hr />
-<h2 id="2-training-strategy-the-gemini-difference">2. Training Strategy: The Gemini Difference<a class="headerlink" href="#2-training-strategy-the-gemini-difference" title="Permanent link">&para;</a></h2>
-<p>What separates Gemini from previous Large Language Models (LLMs) is its <strong>Native Multimodal</strong> architecture.</p>
-<ul>
-<li>
-<p><strong>Integrated Training:</strong> Unlike models that "stitch" together a vision encoder and a text model, Gemini was trained on text, images, audio, video, and code <strong>simultaneously</strong>. This allows for a deeper understanding of spatial relationships and temporal context (like timing in a video).</p>
-</li>
-<li>
-<p><strong>Dynamic Reasoning Optimization:</strong> This strategy allows the model to allocate a "thinking budget." Instead of predicting the next token instantly, the model can pause to generate internal "thought tokens" to verify its logic before responding.</p>
-</li>
-<li>
-<p><strong>RLAIF (Reinforcement Learning from AI Feedback):</strong> To scale beyond human limitations, Google uses a "Teacher" model to provide feedback to "Student" models, accelerating the learning of complex logic and safety protocols.</p>
-</li>
-</ul>
-<hr />
-<hr />
-<h2 id="3-system-1-vs-system-2-thinking">3. System 1 vs. System 2 Thinking<a class="headerlink" href="#3-system-1-vs-system-2-thinking" title="Permanent link">&para;</a></h2>
-<p>Based on the dual-process theory of cognition, Gemini models are now categorized by how they process information.</p>
-<h3 id="system-1-intuitive-fast"><strong>System 1: Intuitive &amp; Fast</strong><a class="headerlink" href="#system-1-intuitive-fast" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Models:</strong> Gemini 3 Flash, Gemini 1.5 Flash.</li>
-<li><strong>Behavior:</strong> Fast, reactive, and pattern-based. It is ideal for creative writing, summarization, and casual chat.</li>
-<li><strong>Goal:</strong> Efficiency and low latency.</li>
-</ul>
-<h3 id="system-2-analytical-deliberative"><strong>System 2: Analytical &amp; Deliberative</strong><a class="headerlink" href="#system-2-analytical-deliberative" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Models:</strong> Gemini 3 Pro, Gemini 3 Flash (Thinking Mode).</li>
-<li><strong>Behavior:</strong> These models engage in <strong>Chain-of-Thought (CoT)</strong> reasoning. They "think" before they speak, often checking their own work and correcting errors in a hidden scratchpad before delivering the final answer.</li>
-<li><strong>Goal:</strong> Accuracy and logical depth for STEM and complex reasoning.</li>
-</ul>
-<hr />
-<hr />
-<h2 id="comparison-summary">Comparison Summary<a class="headerlink" href="#comparison-summary" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Feature</th>
-<th style="text-align: left;">System 1 (Flash)</th>
-<th style="text-align: left;">System 2 (Pro/Thinking)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Response Time</strong></td>
-<td style="text-align: left;">Milliseconds</td>
-<td style="text-align: left;">Seconds</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Complexity</strong></td>
-<td style="text-align: left;">Low to Medium</td>
-<td style="text-align: left;">High / Expert Level</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Reasoning</strong></td>
-<td style="text-align: left;">Pattern Recognition</td>
-<td style="text-align: left;">Logical Deduction</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Primary Use</strong></td>
-<td style="text-align: left;">Search &amp; Summarize</td>
-<td style="text-align: left;">Research &amp; Engineering</td>
-</tr>
-</tbody>
-</table>
-<hr />
+
 
 
 
