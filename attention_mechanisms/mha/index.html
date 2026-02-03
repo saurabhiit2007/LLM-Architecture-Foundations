@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -435,6 +440,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Multi-Head Attention
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -446,6 +464,218 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-mathematical-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. The Mathematical Mechanism
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Mathematical Mechanism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-step-by-step-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Step-by-Step Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-advanced-concepts-recent-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Advanced Concepts &amp; Recent Updates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Advanced Concepts &amp; Recent Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-grouped-query-attention-gqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Grouped-Query Attention (GQA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-flashattention-v2v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. FlashAttention (v2/v3)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-rotary-positional-embeddings-rope" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Rotary Positional Embeddings (RoPE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Interview Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Interview Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-why-is-the-scaling-factor-sqrtd_k-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: Why is the scaling factor \(\sqrt{d_k}\) necessary?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-dot-product-attention-recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Dot product attention recap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-dot-products-grow-with-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Why dot products grow with dimension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-effect-on-softmax-without-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Effect on softmax without scaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-how-scaling-by-d_k-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How scaling by √d_k helps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-numerical-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Numerical example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Numerical example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-small-dimension-d_k-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case 1: Small dimension (d_k = 4)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-larger-dimension-d_k-64" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case 2: Larger dimension (d_k = 64)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-what-is-the-difference-between-multi-head-mha-multi-query-mqa-and-grouped-query-gqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: What is the difference between Multi-Head (MHA), Multi-Query (MQA), and Grouped-Query (GQA)?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-how-does-the-complexity-change-if-we-double-the-sequence-length-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: How does the complexity change if we double the sequence length (\(N\))?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-can-multi-head-attention-be-computed-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Can Multi-Head Attention be computed in parallel?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1264,6 +1494,209 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-mathematical-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. The Mathematical Mechanism
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Mathematical Mechanism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-step-by-step-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Step-by-Step Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-advanced-concepts-recent-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Advanced Concepts &amp; Recent Updates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Advanced Concepts &amp; Recent Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-grouped-query-attention-gqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Grouped-Query Attention (GQA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-flashattention-v2v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. FlashAttention (v2/v3)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-rotary-positional-embeddings-rope" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Rotary Positional Embeddings (RoPE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Interview Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Interview Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-why-is-the-scaling-factor-sqrtd_k-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: Why is the scaling factor \(\sqrt{d_k}\) necessary?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-dot-product-attention-recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Dot product attention recap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-dot-products-grow-with-dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Why dot products grow with dimension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-effect-on-softmax-without-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Effect on softmax without scaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-how-scaling-by-d_k-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How scaling by √d_k helps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-numerical-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Numerical example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Numerical example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-small-dimension-d_k-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case 1: Small dimension (d_k = 4)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-larger-dimension-d_k-64" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case 2: Larger dimension (d_k = 64)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-what-is-the-difference-between-multi-head-mha-multi-query-mqa-and-grouped-query-gqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: What is the difference between Multi-Head (MHA), Multi-Query (MQA), and Grouped-Query (GQA)?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-how-does-the-complexity-change-if-we-double-the-sequence-length-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: How does the complexity change if we double the sequence length (\(N\))?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-can-multi-head-attention-be-computed-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Can Multi-Head Attention be computed in parallel?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1283,7 +1716,136 @@
 
   <h1>Multi-Head Attention</h1>
 
-
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>Multi-Head Attention is the fundamental mechanism that allows Transformers to focus on different parts of an input sequence simultaneously. Instead of one "viewpoint," the model gets multiple parallel perspectives.</p>
+<hr />
+<hr />
+<h2 id="2-the-mathematical-mechanism">2. The Mathematical Mechanism<a class="headerlink" href="#2-the-mathematical-mechanism" title="Permanent link">&para;</a></h2>
+<p>The MHA process involves transforming input embeddings into three distinct spaces: <strong>Queries (Q)</strong>, <strong>Keys (K)</strong>, and <strong>Values (V)</strong>.</p>
+<h3 id="the-step-by-step-flow">The Step-by-Step Flow<a class="headerlink" href="#the-step-by-step-flow" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Linear Projection</strong>: For <span class="arithmatex">\(h\)</span> heads, the input <span class="arithmatex">\(X\)</span> is projected using learned weights <span class="arithmatex">\(W_i^Q, W_i^K, W_i^V\)</span>.</li>
+<li><strong>Scaled Dot-Product Attention</strong>: Each head computes attention independently:
+   <span class="arithmatex">\(<span class="arithmatex">\(\text{Head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\)</span>\)</span></li>
+<li><strong>Concatenation</strong>: All heads are joined: <span class="arithmatex">\(\text{Concat}(\text{Head}_1, ..., \text{Head}_h)\)</span>.</li>
+<li><strong>Final Output Projection</strong>: The result is multiplied by <span class="arithmatex">\(W^O\)</span> to return to the original model dimension.</li>
+</ol>
+<hr />
+<hr />
+<h2 id="3-advanced-concepts-recent-updates">3. Advanced Concepts &amp; Recent Updates<a class="headerlink" href="#3-advanced-concepts-recent-updates" title="Permanent link">&para;</a></h2>
+<p>If you are interviewing for a Senior or Research role, these updates are critical:</p>
+<h3 id="a-grouped-query-attention-gqa">A. Grouped-Query Attention (GQA)<a class="headerlink" href="#a-grouped-query-attention-gqa" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>The Context</strong>: Standard MHA is slow during inference because the "KV Cache" grows too large for GPU memory.</li>
+<li><strong>The Innovation</strong>: Instead of every Query head having its own Key/Value head, <strong>GQA</strong> shares one KV head among a group of Query heads.</li>
+<li><strong>Why it matters</strong>: It’s the standard for <strong>Llama 3</strong> and <strong>Mistral</strong>, offering a perfect balance between speed and accuracy.</li>
+</ul>
+<h3 id="b-flashattention-v2v3">B. FlashAttention (v2/v3)<a class="headerlink" href="#b-flashattention-v2v3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>The Context</strong>: The <span class="arithmatex">\(O(N^2)\)</span> complexity of attention makes long sequences (like books) hard to process.</li>
+<li><strong>The Innovation</strong>: It utilizes "Tiling" to compute attention in blocks within the GPU's fast SRAM, avoiding the bottleneck of slower main memory (HBM).</li>
+<li><strong>Interview Tip</strong>: If asked how to scale Transformers to 100k+ tokens, mention <strong>FlashAttention</strong> and <strong>GQA</strong>.</li>
+</ul>
+<h3 id="c-rotary-positional-embeddings-rope">C. Rotary Positional Embeddings (RoPE)<a class="headerlink" href="#c-rotary-positional-embeddings-rope" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Modern MHA (used in Llama) uses <strong>RoPE</strong> instead of additive positional encoding. It encodes position by rotating the Q and K vectors in a complex space, which naturally captures the <em>relative</em> distance between tokens.</li>
+</ul>
+<hr />
+<hr />
+<h2 id="4-interview-questions">4. Interview Questions<a class="headerlink" href="#4-interview-questions" title="Permanent link">&para;</a></h2>
+<h3 id="q1-why-is-the-scaling-factor-sqrtd_k-necessary">Q1: Why is the scaling factor <span class="arithmatex">\(\sqrt{d_k}\)</span> necessary?<a class="headerlink" href="#q1-why-is-the-scaling-factor-sqrtd_k-necessary" title="Permanent link">&para;</a></h3>
+<p><strong>Answer:</strong> The scaling factor √d_k in scaled dot product attention is used to keep attention scores numerically stable and to prevent the softmax from becoming overly sharp as the dimensionality of the keys and queries increases.</p>
+<p><strong>Detailed Explanation</strong></p>
+<blockquote>
+<h3 id="1-dot-product-attention-recap">1. Dot product attention recap<a class="headerlink" href="#1-dot-product-attention-recap" title="Permanent link">&para;</a></h3>
+<p>n dot product attention, the raw attention score between a query vector q and a key vector k is computed as:</p>
+<p>$$
+    q \cdot k = \sum_{i=1}^{d_k} q_i k_i
+    $$</p>
+<p>hese scores are then passed through a softmax to obtain attention weights.</p>
+<p>Softmax is highly sensitive to the magnitude of its inputs. Larger values lead to very peaked distributions, while smaller values lead to smoother distributions.</p>
+<hr />
+<h3 id="2-why-dot-products-grow-with-dimension">2. Why dot products grow with dimension<a class="headerlink" href="#2-why-dot-products-grow-with-dimension" title="Permanent link">&para;</a></h3>
+<p>Assume a standard training scenario:</p>
+<ul>
+<li>Each component of q and k has zero mean</li>
+<li>Each component has variance 1</li>
+<li>Components are independent</li>
+</ul>
+<p>Each term <span class="arithmatex">\(q_i k_i\)</span> has:
+- Mean 0
+- Variance 1</p>
+<p>Since the dot product is the sum of <span class="arithmatex">\(d_k\)</span> such terms, its variance is:</p>
+<div class="arithmatex">\[
+\text{Var}(q \cdot k) = d_k
+\]</div>
+<p>This means the typical magnitude of the dot product grows proportionally to:</p>
+<div class="arithmatex">\[
+\sqrt{d_k}
+\]</div>
+<p>As a result, simply increasing the dimensionality increases attention scores even if the semantic similarity stays the same.</p>
+<hr />
+<h3 id="3-effect-on-softmax-without-scaling">3. Effect on softmax without scaling<a class="headerlink" href="#3-effect-on-softmax-without-scaling" title="Permanent link">&para;</a></h3>
+<p>As attention logits grow larger:</p>
+<ul>
+<li>Softmax outputs become close to one hot vectors</li>
+<li>One key dominates the attention</li>
+<li>Gradients through the softmax become very small</li>
+</ul>
+<p>This leads to slow learning and unstable optimization, especially in early training.</p>
+<hr />
+<h3 id="4-how-scaling-by-d_k-helps">4. How scaling by √d_k helps<a class="headerlink" href="#4-how-scaling-by-d_k-helps" title="Permanent link">&para;</a></h3>
+<p>Scaled dot product attention divides the dot product by √d_k:</p>
+<div class="arithmatex">\[
+\frac{q \cdot k}{\sqrt{d_k}}
+\]</div>
+<p>This normalizes the variance:</p>
+<div class="arithmatex">\[
+\text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = 1
+\]</div>
+<p>As a result, attention logits have a consistent scale regardless of the dimensionality, keeping softmax in an effective operating range.</p>
+<p>This idea is closely related to variance preserving techniques such as Xavier initialization.</p>
+<hr />
+<h3 id="5-numerical-example">5. Numerical example<a class="headerlink" href="#5-numerical-example" title="Permanent link">&para;</a></h3>
+<h4 id="case-1-small-dimension-d_k-4">Case 1: Small dimension (d_k = 4)<a class="headerlink" href="#case-1-small-dimension-d_k-4" title="Permanent link">&para;</a></h4>
+<p>Typical dot product magnitude:
+$$
+\sqrt{4} = 2
+$$</p>
+<p>Logits like:
+$$
+[2.1, 1.8, 2.4]
+$$</p>
+<p>Softmax remains relatively smooth.</p>
+<hr />
+<h4 id="case-2-larger-dimension-d_k-64">Case 2: Larger dimension (d_k = 64)<a class="headerlink" href="#case-2-larger-dimension-d_k-64" title="Permanent link">&para;</a></h4>
+<p>Typical dot product magnitude:
+$$
+\sqrt{64} = 8
+$$</p>
+<p>Logits might look like:
+$$
+[8.3, 7.9, 8.7]
+$$</p>
+<p>Softmax becomes very sharp, even though relative differences are similar.</p>
+<p>After scaling:
+$$
+\frac{[8.3, 7.9, 8.7]}{8} \approx [1.04, 0.99, 1.09]
+$$</p>
+<p>Softmax behavior is now comparable to the small dimension case.</p>
+<hr />
+</blockquote>
+<h3 id="q2-what-is-the-difference-between-multi-head-mha-multi-query-mqa-and-grouped-query-gqa">Q2: What is the difference between Multi-Head (MHA), Multi-Query (MQA), and Grouped-Query (GQA)?<a class="headerlink" href="#q2-what-is-the-difference-between-multi-head-mha-multi-query-mqa-and-grouped-query-gqa" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>MHA</strong>: Each Query head has a unique Key and Value head. (High memory, high quality).</li>
+<li><strong>MQA</strong>: All Query heads share a single Key and Value head. (Low memory, lower quality).</li>
+<li><strong>GQA</strong>: Query heads are partitioned into groups; each group shares one KV head. (Optimal balance).</li>
+</ul>
+<h3 id="q3-how-does-the-complexity-change-if-we-double-the-sequence-length-n">Q3: How does the complexity change if we double the sequence length (<span class="arithmatex">\(N\)</span>)?<a class="headerlink" href="#q3-how-does-the-complexity-change-if-we-double-the-sequence-length-n" title="Permanent link">&para;</a></h3>
+<p><strong>Answer:</strong> Because attention is <span class="arithmatex">\(O(N^2)\)</span>, doubling the sequence length quadruples the computational cost and memory requirement. This is the "Quadratic Bottleneck."</p>
+<h3 id="q4-can-multi-head-attention-be-computed-in-parallel">Q4: Can Multi-Head Attention be computed in parallel?<a class="headerlink" href="#q4-can-multi-head-attention-be-computed-in-parallel" title="Permanent link">&para;</a></h3>
+<p><strong>Answer:</strong> Yes. Unlike RNNs which are sequential, all heads in MHA can be computed simultaneously. Furthermore, the attention for all tokens in a sequence can be computed in parallel during training.</p>
+<hr />
 
 
 
