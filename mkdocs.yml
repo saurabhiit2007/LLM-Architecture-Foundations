@@ -55,6 +55,7 @@ nav:
       - Unigram: ./tokenization/unigram.md
       - Sentence Piece Unigram: ./tokenization/sentence_piece_unigram.md
       - Byte Pair Encoding: ./tokenization/byte_pair_encoding.md
+      - TikToken: ./tokenization/tiktoken.md
       - Vocabulary Size Tradeoffs:  ./tokenization/vocabulary_size_tradeoffs.md
   - Positional Encodings:
       - RoPE: ./positional_encodings/RoPE.md
