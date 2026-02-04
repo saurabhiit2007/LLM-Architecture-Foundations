@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../../real_world_model_families/general_comparison/">
+      
+      
+        <link rel="next" href="../activation_functions/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Advanced transformer components and layers - LLM-Architecture_Foundations</title>
+        <title>Normalization Techniques - LLM-Architecture_Foundations</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-normalization-rmsnorm" class="md-skip">
+        <a href="#1-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Advanced transformer components and layers
+              Normalization Techniques
             
           </span>
         </div>
@@ -733,20 +737,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -762,7 +766,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Transformer Components
@@ -773,20 +777,253 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Normalization Techniques
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Normalization Techniques
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-layer-normalization-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Layer Normalization (LayerNorm)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Layer Normalization (LayerNorm)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      What it does
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rms-normalization-rmsnorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RMS Normalization (RMSNorm)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. RMS Normalization (RMSNorm)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What it does
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formula_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences-from-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences from LayerNorm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pre-ln-vs-post-ln" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Pre-LN vs Post-LN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pre-LN vs Post-LN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-ln-original-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-LN (Original Transformer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-ln-modern-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-LN (Modern Standard)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-practical-implementation-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Practical Implementation Tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Practical Implementation Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layernorm-in-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      LayerNorm in PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rmsnorm-in-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      RMSNorm in PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Common Interview Questions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -799,35 +1036,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../activation_functions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Home
+    Activation Functions
     
   </span>
   
@@ -1287,28 +1501,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-normalization-rmsnorm" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Normalization: RMSNorm
+      1. Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Normalization: RMSNorm">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-layer-normalization-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Layer Normalization (LayerNorm)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Layer Normalization (LayerNorm)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-math" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
-      The Math
+      What it does
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
+  <a href="#formula" class="md-nav__link">
     <span class="md-ellipsis">
-      Takeaways
+      Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
     </span>
   </a>
   
@@ -1320,28 +1561,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-structural-shift-pre-norm-architecture" class="md-nav__link">
+  <a href="#3-rms-normalization-rmsnorm" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Structural Shift: Pre-Norm Architecture
+      3. RMS Normalization (RMSNorm)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Structural Shift: Pre-Norm Architecture">
+    <nav class="md-nav" aria-label="3. RMS Normalization (RMSNorm)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#formulation" class="md-nav__link">
+  <a href="#what-it-does_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Formulation
+      What it does
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#takeaways_1" class="md-nav__link">
+  <a href="#formula_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Takeaways
+      Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences-from-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences from LayerNorm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
     </span>
   </a>
   
@@ -1353,28 +1612,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-activation-excellence-swiglu" class="md-nav__link">
+  <a href="#4-pre-ln-vs-post-ln" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Activation Excellence: SwiGLU
+      4. Pre-LN vs Post-LN
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Activation Excellence: SwiGLU">
+    <nav class="md-nav" aria-label="4. Pre-LN vs Post-LN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-math_1" class="md-nav__link">
+  <a href="#post-ln-original-transformer" class="md-nav__link">
     <span class="md-ellipsis">
-      The Math
+      Post-LN (Original Transformer)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#takeaways_2" class="md-nav__link">
+  <a href="#pre-ln-modern-standard" class="md-nav__link">
     <span class="md-ellipsis">
-      Takeaways
+      Pre-LN (Modern Standard)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison
     </span>
   </a>
   
@@ -1386,19 +1654,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-stability-choice-bias-free-linear-layers" class="md-nav__link">
+  <a href="#5-practical-implementation-tips" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Stability Choice: Bias-Free Linear Layers
+      5. Practical Implementation Tips
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Stability Choice: Bias-Free Linear Layers">
+    <nav class="md-nav" aria-label="5. Practical Implementation Tips">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#takeaways_3" class="md-nav__link">
+  <a href="#layernorm-in-pytorch" class="md-nav__link">
     <span class="md-ellipsis">
-      Takeaways
+      LayerNorm in PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rmsnorm-in-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      RMSNorm in PyTorch
     </span>
   </a>
   
@@ -1410,219 +1687,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-positional-encoding-rotary-positional-embeddings-rope" class="md-nav__link">
+  <a href="#6-common-interview-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Positional Encoding: Rotary Positional Embeddings (RoPE)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Positional Encoding: Rotary Positional Embeddings (RoPE)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-efficient-attention-grouped-query-attention-gqa" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Efficient Attention: Grouped-Query Attention (GQA)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Efficient Attention: Grouped-Query Attention (GQA)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-attention-kernel-optimization-flashattention" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Attention Kernel Optimization: FlashAttention
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Attention Kernel Optimization: FlashAttention">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-parallel-attention-and-ffn" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Parallel Attention and FFN
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Parallel Attention and FFN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-context-extension-beyond-rope" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Context Extension Beyond RoPE
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Context Extension Beyond RoPE">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#91-rope-scaling-and-interpolation" class="md-nav__link">
-    <span class="md-ellipsis">
-      9.1 RoPE Scaling and Interpolation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#92-sliding-window-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      9.2 Sliding Window Attention
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-mixture-of-experts-moe" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Mixture of Experts (MoE)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="10. Mixture of Experts (MoE)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-kv-cache-optimizations" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. KV Cache Optimizations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="11. KV Cache Optimizations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-weight-tying-and-parameter-sharing" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Weight Tying and Parameter Sharing
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="12. Weight Tying and Parameter Sharing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#takeaways_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary-table" class="md-nav__link">
-    <span class="md-ellipsis">
-      📊 Summary Table
+      6. Common Interview Questions
     </span>
   </a>
   
@@ -1647,239 +1714,187 @@
   
 
 
-  <h1>Advanced transformer components and layers</h1>
+  <h1>Normalization Techniques</h1>
 
-<p>This section covers the architectural evolutions that define the <strong>Modern Transformer</strong>, as used in Llama 3, Mistral, PaLM, GPT-4, and similar large-scale language models. Moving beyond the original 2017 Transformer is a common requirement for senior-level AI and ML engineering interviews.</p>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>Normalization is critical for training deep neural networks, especially transformers. It stabilizes training, speeds up convergence, and enables deeper architectures.</p>
 <hr />
-<h2 id="1-normalization-rmsnorm">1. Normalization: RMSNorm<a class="headerlink" href="#1-normalization-rmsnorm" title="Permanent link">&para;</a></h2>
-<p><strong>Replaces:</strong> LayerNorm (LN)</p>
-<p>Traditional LayerNorm centers the input by subtracting the mean and then scales it by the variance. <strong>RMSNorm</strong> (Root Mean Square Layer Normalization) simplifies this by removing the mean-centering step and only normalizing by the root mean square.</p>
-<h3 id="the-math">The Math<a class="headerlink" href="#the-math" title="Permanent link">&para;</a></h3>
-<div class="arithmatex">\[
-\bar{a}_i = \frac{a_i}{\text{RMS}(\mathbf{a})} g_i
-\quad \text{where} \quad
-\text{RMS}(\mathbf{a}) = \sqrt{\frac{1}{n} \sum_{i=1}^n a_i^2 + \epsilon}
-\]</div>
+<hr />
+<h2 id="2-layer-normalization-layernorm">2. Layer Normalization (LayerNorm)<a class="headerlink" href="#2-layer-normalization-layernorm" title="Permanent link">&para;</a></h2>
+<h3 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link">&para;</a></h3>
+<p>Normalizes activations across the feature dimension for each sample independently.</p>
+<h3 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>LayerNorm(x) = γ * (x - μ) / √(σ² + ε) + β
+</code></pre></div>
 <p>Where:</p>
 <ul>
-<li>
-<p><strong><span class="arithmatex">\(\mathbf{a} \in \mathbb{R}^n\)</span></strong>: Input activation vector to the normalization layer, typically corresponding to a single token representation across the hidden dimension.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(a_i\)</span></strong>: The <span class="arithmatex">\(i\)</span>-th component of the input activation vector <span class="arithmatex">\(\mathbf{a}\)</span>.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(n\)</span></strong>: Dimensionality of the hidden representation, equal to the model hidden size.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(\text{RMS}(\mathbf{a})\)</span></strong>: Root Mean Square of the activation vector, used to normalize the input magnitude without mean-centering.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(\epsilon\)</span></strong>: Small positive constant added for numerical stability to prevent division by zero, especially important for low-precision training.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(g_i\)</span></strong>: Learnable scaling parameter applied element-wise after normalization. This replaces the gain parameter in LayerNorm while omitting the additive bias.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(\bar{a}_i\)</span></strong>: The normalized and rescaled output activation for the <span class="arithmatex">\(i\)</span>-th dimension.</p>
-</li>
+<li><code>μ</code> = mean across features</li>
+<li><code>σ²</code> = variance across features</li>
+<li><code>γ</code>, <code>β</code> = learnable scale and shift parameters</li>
+<li><code>ε</code> = small constant for numerical stability (typically 1e-5)</li>
 </ul>
-<h3 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h3>
+<h3 id="key-properties">Key Properties<a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Efficiency:</strong> Eliminates mean computation and subtraction, reducing arithmetic and synchronization overhead on accelerators.</li>
-<li><strong>Stability:</strong> Avoids cancellation errors from mean-centering, which is especially beneficial in low-precision FP16 and BF16 training.</li>
-<li><strong>Simplicity:</strong> Removes the additive bias term since normalization already controls activation scale, leaving only a learnable gain.</li>
+<li><strong>Per-sample normalization</strong>: Unlike BatchNorm, works on each sample independently</li>
+<li><strong>Feature-wise statistics</strong>: Computes mean/variance across the feature dimension</li>
+<li><strong>No batch dependency</strong>: Works with batch size = 1, crucial for inference</li>
+<li><strong>Commonly used in</strong>: Transformers, RNNs</li>
+</ul>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>For input shape <code>[batch_size, seq_len, hidden_dim]</code>:</p>
+<ul>
+<li>Normalize across <code>hidden_dim</code> for each token independently</li>
+<li>Each token gets normalized using its own mean and variance</li>
 </ul>
 <hr />
-<h2 id="2-structural-shift-pre-norm-architecture">2. Structural Shift: Pre-Norm Architecture<a class="headerlink" href="#2-structural-shift-pre-norm-architecture" title="Permanent link">&para;</a></h2>
-<p><strong>The Change:</strong> Normalization is applied before attention or FFN blocks instead of after the residual connection.</p>
-<h3 id="formulation">Formulation<a class="headerlink" href="#formulation" title="Permanent link">&para;</a></h3>
-<p><strong>Post-Norm (Original):</strong>
-$$
-x_{next} = \text{Norm}(x + \text{Sublayer}(x))
-$$</p>
-<p><strong>Pre-Norm (Modern):</strong>
-$$
-x_{next} = x + \text{Sublayer}(\text{Norm}(x))
-$$</p>
-<h3 id="takeaways_1">Takeaways<a class="headerlink" href="#takeaways_1" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="3-rms-normalization-rmsnorm">3. RMS Normalization (RMSNorm)<a class="headerlink" href="#3-rms-normalization-rmsnorm" title="Permanent link">&para;</a></h2>
+<h3 id="what-it-does_1">What it does<a class="headerlink" href="#what-it-does_1" title="Permanent link">&para;</a></h3>
+<p>Simplified version of LayerNorm that only uses root mean square for normalization, without mean centering.</p>
+<h3 id="formula_1">Formula<a class="headerlink" href="#formula_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>RMSNorm(x) = γ * x / RMS(x)
+where RMS(x) = √(mean(x²) + ε)
+</code></pre></div>
+<h3 id="key-differences-from-layernorm">Key Differences from LayerNorm<a class="headerlink" href="#key-differences-from-layernorm" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Gradient Flow:</strong> Clean residual paths enable stable training of very deep models</li>
-<li><strong>Optimization Robustness:</strong> Reduces reliance on fragile learning rate warmup</li>
-<li><strong>Industry Standard:</strong> Used in essentially all modern decoder-only LLMs</li>
+<li><strong>No mean subtraction</strong>: Doesn't center the data</li>
+<li><strong>No bias term</strong>: Only has scale parameter γ (no β)</li>
+<li><strong>Faster</strong>: ~15-20% faster than LayerNorm</li>
+<li><strong>Similar performance</strong>: Empirically performs as well as LayerNorm in practice</li>
+</ul>
+<h3 id="when-to-use">When to use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Modern LLMs (LLaMA, GPT-J, etc.) prefer RMSNorm for efficiency</li>
+<li>When training speed matters and you don't need mean centering</li>
 </ul>
 <hr />
-<h2 id="3-activation-excellence-swiglu">3. Activation Excellence: SwiGLU<a class="headerlink" href="#3-activation-excellence-swiglu" title="Permanent link">&para;</a></h2>
-<p><strong>Replaces:</strong> ReLU, GELU</p>
-<p><strong>SwiGLU</strong> is a gated linear unit variant that uses two linear projections, one gated by the Swish (SiLU) activation.</p>
-<h3 id="the-math_1">The Math<a class="headerlink" href="#the-math_1" title="Permanent link">&para;</a></h3>
-<div class="arithmatex">\[
-\text{SwiGLU}(x) = \text{Swish}(xW + b) \otimes (xV + c)
-\]</div>
-<h3 id="takeaways_2">Takeaways<a class="headerlink" href="#takeaways_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Higher Expressivity:</strong> Multiplicative gating enables richer feature interactions</li>
-<li><strong>Better Scaling:</strong> Improves convergence and downstream quality at large scale</li>
-<li><strong>Default Choice:</strong> Used in Llama, PaLM, and most modern LLM families</li>
-</ul>
 <hr />
-<h2 id="4-stability-choice-bias-free-linear-layers">4. Stability Choice: Bias-Free Linear Layers<a class="headerlink" href="#4-stability-choice-bias-free-linear-layers" title="Permanent link">&para;</a></h2>
-<p><strong>The Change:</strong> Remove additive bias terms from linear layers.</p>
-<h3 id="takeaways_3">Takeaways<a class="headerlink" href="#takeaways_3" title="Permanent link">&para;</a></h3>
+<h2 id="4-pre-ln-vs-post-ln">4. Pre-LN vs Post-LN<a class="headerlink" href="#4-pre-ln-vs-post-ln" title="Permanent link">&para;</a></h2>
+<p>The placement of normalization layers significantly impacts training stability and performance.</p>
+<h3 id="post-ln-original-transformer">Post-LN (Original Transformer)<a class="headerlink" href="#post-ln-original-transformer" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture</strong>:
+<div class="highlight"><pre><span></span><code>x → MultiHeadAttention → Add → LayerNorm
+       ↑___________________|
+
+x → FeedForward → Add → LayerNorm
+   ↑______________|
+</code></pre></div></p>
+<p><strong>Characteristics</strong>:</p>
 <ul>
-<li><strong>Training Stability:</strong> Reduces activation spikes in deep or wide networks</li>
-<li><strong>Length Extrapolation:</strong> Improves robustness to longer sequences than seen during training</li>
-<li><strong>Redundancy Removal:</strong> Bias is largely unnecessary when paired with normalization</li>
+<li>Normalization applied <strong>after</strong> the residual connection</li>
+<li>Original design in "Attention is All You Need"</li>
+<li><strong>Challenges</strong>:</li>
+<li>Harder to train deep models</li>
+<li>Requires careful learning rate warmup</li>
+<li>Gradients can become unstable</li>
 </ul>
-<hr />
-<h2 id="5-positional-encoding-rotary-positional-embeddings-rope">5. Positional Encoding: Rotary Positional Embeddings (RoPE)<a class="headerlink" href="#5-positional-encoding-rotary-positional-embeddings-rope" title="Permanent link">&para;</a></h2>
-<p><strong>Replaces:</strong> Absolute or learned positional embeddings</p>
-<p>RoPE encodes positional information by rotating query and key vectors in a complex plane.</p>
-<h3 id="takeaways_4">Takeaways<a class="headerlink" href="#takeaways_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Relative Positioning:</strong> Attention depends on relative token distance</li>
-<li><strong>Natural Decay:</strong> Long-range attention strength decreases smoothly</li>
-<li><strong>Context Extension:</strong> Enables interpolation and scaling for long context windows</li>
-</ul>
-<hr />
-<h2 id="6-efficient-attention-grouped-query-attention-gqa">6. Efficient Attention: Grouped-Query Attention (GQA)<a class="headerlink" href="#6-efficient-attention-grouped-query-attention-gqa" title="Permanent link">&para;</a></h2>
-<p><strong>The Middle Ground:</strong> Between Multi-Head Attention (MHA) and Multi-Query Attention (MQA)</p>
-<p>In GQA, multiple query heads share a smaller set of key and value heads.</p>
-<h3 id="takeaways_5">Takeaways<a class="headerlink" href="#takeaways_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>KV Cache Efficiency:</strong> Substantially reduces inference memory usage</li>
-<li><strong>Quality Retention:</strong> Maintains accuracy close to full MHA</li>
-<li><strong>Inference Speed:</strong> Critical for fast generation on modern hardware</li>
-</ul>
-<hr />
-<h2 id="7-attention-kernel-optimization-flashattention">7. Attention Kernel Optimization: FlashAttention<a class="headerlink" href="#7-attention-kernel-optimization-flashattention" title="Permanent link">&para;</a></h2>
-<p><strong>What It Is:</strong> A fused attention kernel that avoids materializing the full attention matrix in memory.</p>
-<h3 id="takeaways_6">Takeaways<a class="headerlink" href="#takeaways_6" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Memory Bandwidth Optimization:</strong> Turns attention into a compute-efficient operation</li>
-<li><strong>Asymptotic Improvement:</strong> Reduces memory from O(n²) to O(n)</li>
-<li><strong>Production Standard:</strong> Used in nearly all state-of-the-art LLM stacks</li>
-</ul>
-<hr />
-<h2 id="8-parallel-attention-and-ffn">8. Parallel Attention and FFN<a class="headerlink" href="#8-parallel-attention-and-ffn" title="Permanent link">&para;</a></h2>
-<p><strong>The Change:</strong> Attention and FFN blocks are computed in parallel rather than sequentially within a transformer layer.</p>
-<h3 id="takeaways_7">Takeaways<a class="headerlink" href="#takeaways_7" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Lower Latency:</strong> Improves throughput in training and inference</li>
-<li><strong>Scalability:</strong> Works well at large model scales</li>
-<li><strong>Adopted By:</strong> PaLM and related architectures</li>
-</ul>
-<hr />
-<h2 id="9-context-extension-beyond-rope">9. Context Extension Beyond RoPE<a class="headerlink" href="#9-context-extension-beyond-rope" title="Permanent link">&para;</a></h2>
-<h3 id="91-rope-scaling-and-interpolation">9.1 RoPE Scaling and Interpolation<a class="headerlink" href="#91-rope-scaling-and-interpolation" title="Permanent link">&para;</a></h3>
-<ul>
-<li>NTK-aware scaling</li>
-<li>Linear or dynamic position scaling</li>
-</ul>
-<h3 id="92-sliding-window-attention">9.2 Sliding Window Attention<a class="headerlink" href="#92-sliding-window-attention" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Restricts attention to a fixed recent context</li>
-<li>Prevents unbounded KV cache growth</li>
-</ul>
-<h3 id="takeaways_8">Takeaways<a class="headerlink" href="#takeaways_8" title="Permanent link">&para;</a></h3>
-<ul>
-<li>These are architectural inference-time decisions</li>
-<li>Often combined with GQA for long-context efficiency</li>
-</ul>
-<hr />
-<h2 id="10-mixture-of-experts-moe">10. Mixture of Experts (MoE)<a class="headerlink" href="#10-mixture-of-experts-moe" title="Permanent link">&para;</a></h2>
-<p><strong>What Changes:</strong> Dense FFNs are replaced with multiple expert FFNs and a learned routing mechanism.</p>
-<h3 id="takeaways_9">Takeaways<a class="headerlink" href="#takeaways_9" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Sparse Activation:</strong> Only a small subset of experts is active per token</li>
-<li><strong>Efficient Scaling:</strong> Parameter count increases without proportional compute</li>
-<li><strong>Systems Complexity:</strong> Routing and load balancing dominate implementation challenges</li>
-</ul>
-<hr />
-<h2 id="11-kv-cache-optimizations">11. KV Cache Optimizations<a class="headerlink" href="#11-kv-cache-optimizations" title="Permanent link">&para;</a></h2>
-<p>Beyond GQA, modern systems apply several cache-level improvements:</p>
-<ul>
-<li>Reduced precision KV storage</li>
-<li>Prefix and prompt caching</li>
-<li>Cache eviction or compression strategies</li>
-</ul>
-<h3 id="takeaways_10">Takeaways<a class="headerlink" href="#takeaways_10" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Inference performance is usually memory-bound</li>
-<li>KV cache design often dominates real-world latency</li>
-</ul>
-<hr />
-<h2 id="12-weight-tying-and-parameter-sharing">12. Weight Tying and Parameter Sharing<a class="headerlink" href="#12-weight-tying-and-parameter-sharing" title="Permanent link">&para;</a></h2>
-<p><strong>What It Is:</strong> Sharing token embedding and output projection weights.</p>
-<h3 id="takeaways_11">Takeaways<a class="headerlink" href="#takeaways_11" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Improves sample efficiency</li>
-<li>Reduces total parameter count</li>
-<li>Remains standard in decoder-only LLMs</li>
-</ul>
-<hr />
-<h2 id="summary-table">📊 Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h2>
+<h3 id="pre-ln-modern-standard">Pre-LN (Modern Standard)<a class="headerlink" href="#pre-ln-modern-standard" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture</strong>:
+<div class="highlight"><pre><span></span><code>x → LayerNorm → MultiHeadAttention → Add
+   ↑_____________________________|
+
+x → LayerNorm → FeedForward → Add
+   ↑______________________|
+</code></pre></div></p>
+<p><strong>Characteristics</strong>:
+- Normalization applied <strong>before</strong> the sublayer (attention/FFN)
+- <strong>Advantages</strong>:
+  - More stable training for deep networks
+  - Can train without warmup
+  - Better gradient flow
+  - Easier to scale to deeper models
+- <strong>Widely adopted</strong>: GPT-2, GPT-3, BERT variants, modern LLMs</p>
+<h3 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Modern Standard</th>
-<th>Key Advantage</th>
+<th>Aspect</th>
+<th>Post-LN</th>
+<th>Pre-LN</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Normalization</td>
-<td>RMSNorm</td>
-<td>Stable and efficient normalization</td>
+<td>Training Stability</td>
+<td>Lower</td>
+<td>Higher</td>
 </tr>
 <tr>
-<td>Norm Placement</td>
-<td>Pre-Norm</td>
-<td>Enables deep transformer training</td>
+<td>Warmup Required</td>
+<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
-<td>Activation</td>
-<td>SwiGLU</td>
-<td>Improved expressivity and convergence</td>
+<td>Deep Model Support</td>
+<td>Harder</td>
+<td>Easier</td>
 </tr>
 <tr>
-<td>Positional Encoding</td>
-<td>RoPE + Scaling</td>
-<td>Relative positioning and long context</td>
+<td>Original Paper</td>
+<td>✓</td>
+<td>✗</td>
 </tr>
 <tr>
-<td>Attention Type</td>
-<td>GQA</td>
-<td>Efficient KV cache usage</td>
-</tr>
-<tr>
-<td>Attention Kernel</td>
-<td>FlashAttention</td>
-<td>Memory-efficient long-context attention</td>
-</tr>
-<tr>
-<td>FFN Structure</td>
-<td>Parallel FFN</td>
-<td>Reduced latency</td>
-</tr>
-<tr>
-<td>Linear Layers</td>
-<td>Bias-Free</td>
-<td>Stability at scale</td>
-</tr>
-<tr>
-<td>Context Handling</td>
-<td>Sliding Window</td>
-<td>Bounded memory growth</td>
-</tr>
-<tr>
-<td>Scaling Strategy</td>
-<td>MoE</td>
-<td>Sparse compute scaling</td>
+<td>Modern Usage</td>
+<td>Rare</td>
+<td>Standard</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<hr />
+<h2 id="5-practical-implementation-tips">5. Practical Implementation Tips<a class="headerlink" href="#5-practical-implementation-tips" title="Permanent link">&para;</a></h2>
+<h3 id="layernorm-in-pytorch">LayerNorm in PyTorch<a class="headerlink" href="#layernorm-in-pytorch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+
+<span class="c1"># Standard LayerNorm</span>
+<span class="n">layer_norm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
+
+<span class="c1"># Pre-LN Transformer Block</span>
+<span class="k">class</span> <span class="nc">PreLNBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attn</span> <span class="o">=</span> <span class="n">MultiHeadAttention</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Pre-LN: normalize before sublayer</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">attn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">x</span>
+</code></pre></div>
+<h3 id="rmsnorm-in-pytorch">RMSNorm in PyTorch<a class="headerlink" href="#rmsnorm-in-pytorch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">RMSNorm</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="n">eps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">rms</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">rms</span>
+</code></pre></div>
+<hr />
+<hr />
+<h2 id="6-common-interview-questions">6. Common Interview Questions<a class="headerlink" href="#6-common-interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Q: Why use LayerNorm instead of BatchNorm in transformers?</strong>
+- Transformers process variable-length sequences; BatchNorm's statistics depend on batch composition
+- LayerNorm works per-sample, making it suitable for varying sequence lengths and batch sizes of 1
+- More stable for NLP where samples in a batch can be very different</p>
+<p><strong>Q: Why is Pre-LN more stable than Post-LN?</strong>
+- In Pre-LN, gradients flow through normalized activations, preventing extreme values
+- Post-LN can have large activations before normalization, leading to gradient explosions
+- Pre-LN provides better conditioning of the optimization landscape</p>
+<p><strong>Q: What's the trade-off between LayerNorm and RMSNorm?</strong>
+- RMSNorm: faster (no mean subtraction), simpler, performs similarly in practice
+- LayerNorm: theoretically more complete normalization, marginally better in some tasks
+- Modern trend: RMSNorm for efficiency in large-scale models</p>
+<p><strong>Q: Can you explain the residual connection's role with normalization?</strong>
+- Residual connections provide gradient highways for deep networks
+- Normalization stabilizes the scale of these residuals
+- Pre-LN normalizes before adding to residual, keeping residual path clean</p>
 <hr />
 
 
