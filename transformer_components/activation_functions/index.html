@@ -876,27 +876,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-swiglu-swish-gated-linear-unit" class="md-nav__link">
+  <a href="#4-swiglu-swish-gated-linear-unit" class="md-nav__link">
     <span class="md-ellipsis">
-      3. SwiGLU (Swish-Gated Linear Unit)
+      4. SwiGLU (Swish-Gated Linear Unit)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-geglu-gelu-gated-linear-unit" class="md-nav__link">
+  <a href="#5-geglu-gelu-gated-linear-unit" class="md-nav__link">
     <span class="md-ellipsis">
-      4. GeGLU (GELU-Gated Linear Unit)
+      5. GeGLU (GELU-Gated Linear Unit)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-reglu-relu-gated-linear-unit" class="md-nav__link">
+  <a href="#6-reglu-relu-gated-linear-unit" class="md-nav__link">
     <span class="md-ellipsis">
-      5. ReGLU (ReLU-Gated Linear Unit)
+      6. ReGLU (ReLU-Gated Linear Unit)
     </span>
   </a>
   
@@ -921,18 +921,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-takeaways-for-interviews" class="md-nav__link">
+  <a href="#interview-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Takeaways for Interviews
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      Interview Questions
     </span>
   </a>
   
@@ -1423,27 +1414,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-swiglu-swish-gated-linear-unit" class="md-nav__link">
+  <a href="#4-swiglu-swish-gated-linear-unit" class="md-nav__link">
     <span class="md-ellipsis">
-      3. SwiGLU (Swish-Gated Linear Unit)
+      4. SwiGLU (Swish-Gated Linear Unit)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-geglu-gelu-gated-linear-unit" class="md-nav__link">
+  <a href="#5-geglu-gelu-gated-linear-unit" class="md-nav__link">
     <span class="md-ellipsis">
-      4. GeGLU (GELU-Gated Linear Unit)
+      5. GeGLU (GELU-Gated Linear Unit)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-reglu-relu-gated-linear-unit" class="md-nav__link">
+  <a href="#6-reglu-relu-gated-linear-unit" class="md-nav__link">
     <span class="md-ellipsis">
-      5. ReGLU (ReLU-Gated Linear Unit)
+      6. ReGLU (ReLU-Gated Linear Unit)
     </span>
   </a>
   
@@ -1468,18 +1459,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-takeaways-for-interviews" class="md-nav__link">
+  <a href="#interview-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Takeaways for Interviews
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      Interview Questions
     </span>
   </a>
   
@@ -1519,6 +1501,52 @@
 <p><strong>Formula:</strong>
 <div class="highlight"><pre><span></span><code>GLU(x) = (xW + b) ⊙ σ(xV + c)
 </code></pre></div></p>
+<p><strong>Detailed Explanation:</strong></p>
+<p>GLU introduces a <strong>gating mechanism</strong> that controls information flow through element-wise multiplication. Unlike fixed activation functions (ReLU, tanh), GLU learns to gate features based on the input context.</p>
+<p>The mechanism works in two parallel paths:
+1. <strong>Value path:</strong> <code>xW + b</code> - computes the candidate values to output
+2. <strong>Gate path:</strong> <code>σ(xV + c)</code> - computes gating coefficients ∈ [0, 1]</p>
+<p>The sigmoid ensures smooth, differentiable gating where:</p>
+<ul>
+<li>σ(x) → 1: fully pass the value through</li>
+<li>σ(x) → 0: suppress the value</li>
+<li>σ(x) ≈ 0.5: partial activation</li>
+</ul>
+<p><strong>Key Advantage:</strong> The gate is <strong>input-dependent</strong> and <strong>learned</strong>, allowing the network to dynamically control which features are relevant for a given input pattern.</p>
+<p><strong>Toy Example:</strong></p>
+<p>Let's say we have input <code>x ∈ ℝ³</code> and want output dimension 2.
+<div class="highlight"><pre><span></span><code>Input: x = [1.0, -0.5, 2.0]
+
+Learned parameters:
+W = [[0.5, -0.3],      V = [[0.2,  0.8],
+     [0.2,  0.6],           [-0.5, 0.3],
+     [-0.1, 0.4]]           [0.7, -0.2]]
+
+Bias: b = [0.1, -0.2]      c = [0.0, 0.5]
+</code></pre></div></p>
+<p><strong>Step 1: Compute value path</strong>
+<div class="highlight"><pre><span></span><code>xW + b = [1.0, -0.5, 2.0] @ W + [0.1, -0.2]
+       = [0.5×1 + 0.2×(-0.5) + (-0.1)×2,  -0.3×1 + 0.6×(-0.5) + 0.4×2] + [0.1, -0.2]
+       = [0.2, 0.3] + [0.1, -0.2]
+       = [0.3, 0.1]
+</code></pre></div></p>
+<p><strong>Step 2: Compute gate path</strong>
+<div class="highlight"><pre><span></span><code>xV + c = [1.0, -0.5, 2.0] @ V + [0.0, 0.5]
+       = [0.2×1 + (-0.5)×(-0.5) + 0.7×2,  0.8×1 + 0.3×(-0.5) + (-0.2)×2] + [0.0, 0.5]
+       = [1.85, 0.25] + [0.0, 0.5]
+       = [1.85, 0.75]
+
+σ(xV + c) = [σ(1.85), σ(0.75)]
+          = [0.864, 0.679]
+</code></pre></div></p>
+<p><strong>Step 3: Element-wise multiplication (gating)</strong>
+<div class="highlight"><pre><span></span><code>GLU(x) = [0.3, 0.1] ⊙ [0.864, 0.679]
+       = [0.259, 0.068]
+</code></pre></div></p>
+<p><strong>Interpretation:</strong>
+- First dimension: value=0.3 gets 86.4% activation → 0.259
+- Second dimension: value=0.1 gets 67.9% activation → 0.068</p>
+<p>The network learned that for this input pattern, the first dimension should be emphasized more (high gate value) while the second dimension should be partially suppressed.</p>
 <p><strong>Key Points:</strong>
 - Uses sigmoid (σ) as the gate
 - Splits input into two linear transformations
@@ -1527,7 +1555,9 @@
 <p><strong>Characteristics:</strong>
 - Gates values between 0 and 1
 - Smooth gating mechanism
-- Can suppress or allow information flow</p>
+- Can suppress or allow information flow
+- The gating is <strong>content-dependent</strong>: different inputs produce different gate values
+- More expressive than fixed activations: can learn complex, non-linear feature selection</p>
 <hr />
 <hr />
 <h2 id="3-gelu-gaussian-error-linear-unit">3. GELU (Gaussian Error Linear Unit)<a class="headerlink" href="#3-gelu-gaussian-error-linear-unit" title="Permanent link">&para;</a></h2>
@@ -1538,11 +1568,11 @@ where Φ(x) is the cumulative distribution function of standard normal distribut
 <p><strong>Approximation (commonly used):</strong>
 <div class="highlight"><pre><span></span><code>GELU(x) ≈ 0.5x(1 + tanh[√(2/π)(x + 0.044715x³)])
 </code></pre></div></p>
-<figure markdown>
-  ![GELU](../images/gelu.png){ width=500 }
-  <figcaption>GELU v/s ReLU</figcaption>
+<figure>
+<p><img alt="GELU" src="../../images/gelu.png" width="500" />
+  </p>
+<figcaption>GELU v/s ReLU</figcaption>
 </figure>
-
 <p><strong>Key Points:</strong>
 - Not strictly a GLU variant, but often grouped with them
 - Used in BERT, GPT-2, GPT-3
@@ -1552,22 +1582,91 @@ where Φ(x) is the cumulative distribution function of standard normal distribut
 - Default activation in many modern transformers
 - Better gradient flow than ReLU in deep networks</p>
 <hr />
-<h2 id="3-swiglu-swish-gated-linear-unit">3. SwiGLU (Swish-Gated Linear Unit)<a class="headerlink" href="#3-swiglu-swish-gated-linear-unit" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="4-swiglu-swish-gated-linear-unit">4. SwiGLU (Swish-Gated Linear Unit)<a class="headerlink" href="#4-swiglu-swish-gated-linear-unit" title="Permanent link">&para;</a></h2>
 <p><strong>Formula:</strong>
 <div class="highlight"><pre><span></span><code>SwiGLU(x) = Swish(xW) ⊙ (xV)
 </code></pre></div>
-where Swish(x) = x · σ(βx)</p>
+where Swish(x) = x · σ(βx), and β is typically set to 1.</p>
+<p>Expanding this:
+<div class="highlight"><pre><span></span><code>SwiGLU(x) = [(xW) · σ(xW)] ⊙ (xV)
+</code></pre></div></p>
+<figure>
+<p><img alt="SwiGLU" src="../../images/swiglu.png" width="500" /></p>
+</figure>
+<p><strong>Detailed Explanation:</strong></p>
+<p>SwiGLU combines the <strong>Swish activation</strong> (also called SiLU - Sigmoid Linear Unit) with the gating mechanism. This creates a two-stage gating process:</p>
+<ol>
+<li><strong>First gating (Swish internal):</strong> <code>xW</code> is self-gated by its own sigmoid: <code>(xW) · σ(xW)</code></li>
+<li><strong>Second gating (GLU mechanism):</strong> The result is then used to gate the value path <code>xV</code></li>
+</ol>
+<p><strong>Why Swish?</strong></p>
+<p>Swish has several advantages over simpler activations:
+- <strong>Smooth and non-monotonic:</strong> Unlike ReLU (hard threshold at 0), Swish smoothly transitions
+- <strong>Self-gating property:</strong> The <code>x · σ(x)</code> formulation means the function gates itself
+- <strong>Bounded below, unbounded above:</strong> Values can grow without bound for positive inputs, but are bounded near 0 for negative inputs
+- <strong>Better gradient flow:</strong> Smoother derivatives help with training deep networks</p>
+<p><strong>Visual Intuition:</strong></p>
+<p>For Swish(x) = x · σ(x):
+- When x = -5: Swish ≈ -0.033 (nearly zero, but not exactly)
+- When x = 0: Swish = 0
+- When x = 5: Swish ≈ 4.966 (nearly linear for large positive values)
+- The function dips slightly below zero for negative inputs before recovering</p>
+<p><strong>Toy Example:</strong></p>
+<p>Let's trace through SwiGLU with input <code>x ∈ ℝ³</code> and output dimension 2.
+<div class="highlight"><pre><span></span><code>Input: x = [2.0, -1.0, 1.5]
+
+Learned parameters:
+W = [[0.4,  0.2],      V = [[0.3, -0.5],
+     [-0.3, 0.5],           [0.6,  0.2],
+     [0.2,  0.1]]           [-0.2, 0.4]]
+</code></pre></div></p>
+<p><strong>Step 1: Compute xW (pre-activation for gate)</strong>
+<div class="highlight"><pre><span></span><code>xW = [2.0, -1.0, 1.5] @ W
+   = [0.4×2 + (-0.3)×(-1) + 0.2×1.5,  0.2×2 + 0.5×(-1) + 0.1×1.5]
+   = [1.4, 0.05]
+</code></pre></div></p>
+<p><strong>Step 2: Apply Swish to get the gate</strong>
+<div class="highlight"><pre><span></span><code>Swish(xW) = (xW) · σ(xW)
+          = [1.4, 0.05] · [σ(1.4), σ(0.05)]
+          = [1.4, 0.05] · [0.802, 0.512]
+          = [1.123, 0.026]
+</code></pre></div></p>
+<p><strong>Step 3: Compute value path</strong>
+<div class="highlight"><pre><span></span><code>xV = [2.0, -1.0, 1.5] @ V
+   = [0.3×2 + 0.6×(-1) + (-0.2)×1.5,  -0.5×2 + 0.2×(-1) + 0.4×1.5]
+   = [-0.3, -0.6]
+</code></pre></div>
+<strong>Step 4: Apply gating</strong>
+<div class="highlight"><pre><span></span><code>SwiGLU(x) = Swish(xW) ⊙ (xV)
+          = [1.123, 0.026] ⊙ [-0.3, -0.6]
+          = [-0.337, -0.016]
+</code></pre></div></p>
+<p><strong>Interpretation:</strong>
+- First dimension: value=-0.3 gets amplified by gate=1.123 → -0.337
+- Second dimension: value=-0.6 gets heavily suppressed by gate=0.026 → -0.016</p>
+<p>Notice that unlike sigmoid (bounded [0,1]), Swish can produce gate values &gt; 1, allowing <strong>amplification</strong> not just suppression!</p>
+<p><strong>Key Advantages of SwiGLU:</strong></p>
+<ol>
+<li><strong>Enhanced expressiveness:</strong> The Swish gate can amplify (gate &gt; 1) or suppress (gate &lt; 1), unlike sigmoid which only suppresses</li>
+<li><strong>Smoother gradients:</strong> Swish's smoothness helps optimization in very deep networks</li>
+<li><strong>Empirically superior:</strong> Consistently outperforms other GLU variants in large-scale experiments</li>
+<li><strong>Widely adopted:</strong> Current best practice in production LLMs (LLaMA, PaLM, Mistral, etc.)</li>
+</ol>
 <p><strong>Key Points:</strong>
 - Combines Swish activation with gating
-- Used in PaLM, LLaMA models
+- Used in PaLM, LLaMA, Mistral, and most modern LLMs
 - β is typically set to 1
-- Empirically outperforms other GLU variants in large language models</p>
+- Empirically outperforms other GLU variants in large language models
+- Gates can amplify (&gt;1) not just suppress, unlike sigmoid-based GLU</p>
 <p><strong>Why it's important:</strong>
 - State-of-the-art for LLMs
 - Better performance-to-parameter ratio
-- Industry standard in many modern architectures</p>
+- Industry standard in modern architectures
+- The go-to choice for new transformer implementations</p>
 <hr />
-<h2 id="4-geglu-gelu-gated-linear-unit">4. GeGLU (GELU-Gated Linear Unit)<a class="headerlink" href="#4-geglu-gelu-gated-linear-unit" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="5-geglu-gelu-gated-linear-unit">5. GeGLU (GELU-Gated Linear Unit)<a class="headerlink" href="#5-geglu-gelu-gated-linear-unit" title="Permanent link">&para;</a></h2>
 <p><strong>Formula:</strong>
 <div class="highlight"><pre><span></span><code>GeGLU(x) = GELU(xW) ⊙ (xV)
 </code></pre></div></p>
@@ -1577,7 +1676,8 @@ where Swish(x) = x · σ(βx)</p>
 - Slightly better than standard FFN in transformers
 - More common in vision transformers</p>
 <hr />
-<h2 id="5-reglu-relu-gated-linear-unit">5. ReGLU (ReLU-Gated Linear Unit)<a class="headerlink" href="#5-reglu-relu-gated-linear-unit" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="6-reglu-relu-gated-linear-unit">6. ReGLU (ReLU-Gated Linear Unit)<a class="headerlink" href="#6-reglu-relu-gated-linear-unit" title="Permanent link">&para;</a></h2>
 <p><strong>Formula:</strong>
 <div class="highlight"><pre><span></span><code>ReGLU(x) = ReLU(xW) ⊙ (xV)
 </code></pre></div></p>
@@ -1648,7 +1748,8 @@ GLU variants require <strong>~1.5x parameters</strong> compared to standard acti
 </tbody>
 </table>
 <hr />
-<h2 id="key-takeaways-for-interviews">Key Takeaways for Interviews<a class="headerlink" href="#key-takeaways-for-interviews" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Why GLU variants?</strong> They provide learnable, dynamic gating that helps models control information flow more effectively than static activations.</p>
@@ -1672,13 +1773,6 @@ GLU variants require <strong>~1.5x parameters</strong> compared to standard acti
 </li>
 </ol>
 <hr />
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<ul>
-<li>"Language Modeling with Gated Convolutional Networks" (Dauphin et al., 2017)</li>
-<li>"GLU Variants Improve Transformer" (Shazeer, 2020)</li>
-<li>"Gaussian Error Linear Units (GELUs)" (Hendrycks &amp; Gimpel, 2016)</li>
-<li>LLaMA paper (Touvron et al., 2023)</li>
-</ul>
 
 
 
