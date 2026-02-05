@@ -48,9 +48,8 @@ nav:
       - Dense vs MoE Comparison: ./real_world_model_families/dense_vs_MoE_comparison.md
       - General Comparison: ./real_world_model_families/general_comparison.md
   - Transformer Components:
-      - RMSNorm: ./index.md
-      - LayerNorm: ./index.md
-      - SwiGLU: ./index.md
+      - Normalization Techniques: ./transformer_components/normalization_techniques.md
+      - Activation Functions: ./transformer_components/activation_functions.md
   - Tokenization:
       - Unigram: ./tokenization/unigram.md
       - Sentence Piece Unigram: ./tokenization/sentence_piece_unigram.md
@@ -83,3 +82,5 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.inlinehilite
   - pymdownx.magiclink
+  - attr_list
+  - md_in_html
