@@ -12,6 +12,7 @@ In standard Transformers, as the sequence length and batch size grow, the memory
 ## 2. Architecture Comparison
 
 ### Multi-Head Attention (MHA)
+
 * **Structure:** Each head has its own $Q$, $K$, and $V$ linear projections.
 * **Memory:** If there are $h$ heads, we store $h$ sets of Keys and Values.
 * **Math:** $Q_i = XW^Q_i, K_i = XW^K_i, V_i = XW^V_i$ for $i \in \{1, \dots, h\}$.
@@ -19,6 +20,7 @@ In standard Transformers, as the sequence length and batch size grow, the memory
 
 
 ### Multi-Query Attention (MQA)
+
 * **Structure:** Multiple **Query** heads remain, but they all share a **single Key head** and a **single Value head**.
 * **Memory:** Reduces the KV cache size by a factor of $h$.
 * **Math:** $Q_i = XW^Q_i$, but $K = XW^K$ and $V = XW^V$ (no index $i$ for K and V).
@@ -53,6 +55,7 @@ During training, we use **Teacher Forcing**, meaning the entire sequence is proc
 
 ### B. During Inference (Autoregressive Decoding)
 During inference, we generate one token at a time. This is where MQA shines.
+
 * **The KV Cache Bottleneck:** In autoregressive generation, we store every previous token's Key and Value so we don't recompute them. In MHA, this "KV Cache" grows so large it can't fit in the fast on-chip memory (SRAM) and spills into slower VRAM (HBM).
 * **Memory Bandwidth:** Inference is **memory-bound**, not compute-bound. The GPU spends most of its time "waiting" for the KV Cache to load from memory.
 * **The MQA Advantage:** By reducing KV heads to 1, we reduce the data movement by $h$ times (where $h$ is the number of heads). This allows for:

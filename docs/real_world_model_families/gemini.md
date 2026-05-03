@@ -37,11 +37,13 @@ What separates Gemini from previous Large Language Models (LLMs) is its **Native
 Based on the dual-process theory of cognition, Gemini models are now categorized by how they process information.
 
 ### **System 1: Intuitive & Fast**
+
 * **Models:** Gemini 3 Flash, Gemini 1.5 Flash.
 * **Behavior:** Fast, reactive, and pattern-based. It is ideal for creative writing, summarization, and casual chat.
 * **Goal:** Efficiency and low latency.
 
 ### **System 2: Analytical & Deliberative**
+
 * **Models:** Gemini 3 Pro, Gemini 3 Flash (Thinking Mode).
 * **Behavior:** These models engage in **Chain-of-Thought (CoT)** reasoning. They "think" before they speak, often checking their own work and correcting errors in a hidden scratchpad before delivering the final answer.
 * **Goal:** Accuracy and logical depth for STEM and complex reasoning.

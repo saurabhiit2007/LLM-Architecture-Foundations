@@ -36,6 +36,7 @@ To understand GQA, we must place it on a spectrum between two other mechanisms.
 In a standard transformer layer, we have $H$ query heads. In GQA, we divide these into $G$ groups.
 
 For each group $g \in \{1, \dots, G\}$:
+
 1.  There are $H/G$ query heads.
 2.  There is **one** shared Key head $K_g$ and **one** shared Value head $V_g$.
 

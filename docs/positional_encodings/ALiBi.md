@@ -217,6 +217,7 @@ $$
 $$
 
 Observation:
+
 - The dot product depends only on the positional difference $(3 - 1)$.
 - Vector magnitude is preserved.
 - Relative distance is directly encoded into attention.

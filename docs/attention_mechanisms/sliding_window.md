@@ -3,6 +3,7 @@
 **Sliding Window Attention** is a sparse attention mechanism designed to break the $O(n^2)$ complexity of standard Transformers. It limits the attention span of each token to a fixed window size $W$, resulting in linear complexity $O(n \times W)$.
 
 ### Why it Matters:
+
 * **Quadratic to Linear:** Standard attention slows down exponentially as sequences grow; SWA maintains a steady pace.
 * **Memory Efficiency:** Drastically reduces the Key-Value (KV) cache size during inference.
 * **Modern Usage:** Popularized by models like **Mistral 7B** and **Longformer**.
@@ -28,11 +29,13 @@ A common question is: *"If the window is small, how does the model see the begin
 ### Training (The Attention Mask)
 
 During training, we process tokens in parallel. We enforce the sliding window using a **Band Mask**.
+
 * The attention matrix is masked so that for any query $Q_i$, it only computes scores for keys $K_{j}$ where $i - W \le j \le i$.
 * **Hardware Note:** Modern libraries use "Block-Sparse" kernels to ensure this masking doesn't waste GPU cycles on zeroed-out values.
 
 ### Inference (The Rolling Buffer Cache)
 This is the most critical optimization for deployment. 
+
 * **Mechanism:** Instead of an ever-growing KV cache, we use a fixed-size circular buffer of size $W$.
 * **The Logic:** When the model generates token $i$, it overwrites the cache at position $i \pmod W$.
 * **Result:** Memory usage stays **constant**, allowing for "infinite" sequence generation without running out of VRAM.
@@ -51,12 +54,14 @@ In a standard Sliding Window, as the model generates token 1001, it evicts token
 
 **Why the First Tokens?**
 The **Softmax** function in self-attention requires all attention scores to sum to 1. 
+
 1. **The Anchor Effect:** Because the first token (usually a start-of-sentence token like `<s>`) is visible to every subsequent token, the model "learns" to use it as a graveyard for unnecessary attention probability. 
 2. **The "Sink":** Even if the first token is semantically useless (a comma or a space), it acts as a **sink** for the "residual" attention that doesn't fit elsewhere.
 3. **The Crash:** When you slide the window and remove that first token, the Softmax distribution has no "sink" to dump extra score into. This forces the attention to be distributed among local tokens that aren't actually relevant, causing the model to hallucinate or produce gibberish.
 
 **The Fix: StreamingLLM Architecture**
 Instead of a simple sliding window, the cache is partitioned into two distinct parts:
+
 1. **Attention Sinks (Fixed):** The first 1–4 tokens are pinned in memory forever. They occupy very little space but provide the Softmax anchor.
 2. **Sliding Window (Rolling):** The most recent $W$ tokens are kept in a rolling buffer for local context.
 
@@ -64,6 +69,7 @@ Instead of a simple sliding window, the cache is partitioned into two distinct p
 ### B. Variable Window Sizes
 
 Some recent architectures use **Dilated Sliding Window Attention**.
+
 * Lower layers use small, dense windows for local context.
 * Higher layers use dilated windows (skipping tokens) to capture long-range dependencies without increasing the number of keys.
 

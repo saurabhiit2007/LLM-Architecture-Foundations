@@ -4,6 +4,7 @@ Encoder-only models focus on creating a rich, bidirectional representation of th
 * **Mechanism:** Uses **Full (Bidirectional) Self-Attention**. Every token can attend to every other token in the sequence.
 * **Mathematical Objective:** Typically **Masked Language Modeling (MLM)**.
     $$P(w_i | w_1, \dots, w_{i-1}, w_{i+1}, \dots, w_n)$$
+
 * **Key Models:** BERT, RoBERTa, ALBERT.
 * **When to Prefer:** When the task requires understanding the "whole-sentence" context simultaneously.
     * **Tasks:** Sentiment analysis, Named Entity Recognition (NER), and extractive Question Answering.
@@ -18,6 +19,7 @@ These are the backbone of modern Generative AI. They are designed for one-way, a
 * **Mechanism:** Uses **Causal (Masked) Self-Attention**. A token can only attend to previous tokens in the sequence to prevent "cheating" by looking at the future.
 * **Mathematical Objective:** **Causal Language Modeling (CLM)** or Next-Token Prediction.
     $$P(w_i | w_1, \dots, w_{i-1})$$
+
 * **Key Models:** GPT-4, Llama 3/4, DeepSeek-R1, Mistral.
 * **When to Prefer:** For open-ended generation, reasoning, and instruction following.
     * **Tasks:** Chatbots, creative writing, and code generation.

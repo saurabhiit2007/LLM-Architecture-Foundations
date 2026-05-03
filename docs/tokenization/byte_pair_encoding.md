@@ -99,6 +99,7 @@ V = S + N_{\text{merges}}
 $$
 
 Where:
+
 - $S$ is the number of base symbols
 - $N_{\text{merges}}$ is the number of merge operations
 
@@ -244,14 +245,17 @@ These effects explain why small formatting changes can significantly alter model
 
 ### The Spelling Paradox
 LLMs struggle to count letters in words.
+
 - Reason: words often appear as single tokens, hiding character-level structure.
 
 ### The Arithmetic Paradox
 LLMs fail at digit-wise arithmetic on large numbers.
+
 - Reason: numbers are split inconsistently across tokens.
 
 ### The Case Sensitivity Trap
 `Hello`, `hello`, and `HELLO` are distinct tokens.
+
 - Effect: the model must learn redundant representations.
 
 ---
@@ -259,11 +263,13 @@ LLMs fail at digit-wise arithmetic on large numbers.
 ## 8. Pros and Cons of BPE
 
 ### Pros
+
 - Adaptive to training data
 - No OOV failures
 - Balanced embedding matrix size (typically 32k–100k tokens)
 
 ### Cons
+
 - Greedy and irreversible merges
 - English-centric bias
 - Poor handling of low-resource languages

@@ -23,6 +23,7 @@ Because it is implemented in Rust, it can handle massive datasets much faster th
 
 ### B. Efficiency (The GPT-4o Update)
 The recent shift to **o200k_base** is a major milestone.
+
 * **Token Compression:** It packs more text into fewer tokens.
 * **Multilingual Support:** Older tokenizers were "English-centric." The new version reduces costs for users writing in languages like Hindi, Japanese, or Arabic by reducing the token count for the same meaning.
 

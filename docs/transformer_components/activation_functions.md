@@ -27,6 +27,7 @@ GLU(x) = (xW + b) ⊙ σ(xV + c)
 GLU introduces a **gating mechanism** that controls information flow through element-wise multiplication. Unlike fixed activation functions (ReLU, tanh), GLU learns to gate features based on the input context.
 
 The mechanism works in two parallel paths:
+
 1. **Value path:** `xW + b` - computes the candidate values to output
 2. **Gate path:** `σ(xV + c)` - computes gating coefficients ∈ [0, 1]
 
@@ -78,18 +79,21 @@ GLU(x) = [0.3, 0.1] ⊙ [0.864, 0.679]
 ```
 
 **Interpretation:**
+
 - First dimension: value=0.3 gets 86.4% activation → 0.259
 - Second dimension: value=0.1 gets 67.9% activation → 0.068
 
 The network learned that for this input pattern, the first dimension should be emphasized more (high gate value) while the second dimension should be partially suppressed.
 
 **Key Points:**
+
 - Uses sigmoid (σ) as the gate
 - Splits input into two linear transformations
 - One path is gated by the sigmoid of the other
 - Introduced in "Language Modeling with Gated Convolutional Networks" (2017)
 
 **Characteristics:**
+
 - Gates values between 0 and 1
 - Smooth gating mechanism
 - Can suppress or allow information flow
@@ -119,12 +123,14 @@ GELU(x) ≈ 0.5x(1 + tanh[√(2/π)(x + 0.044715x³)])
 </figure>
 
 **Key Points:**
+
 - Not strictly a GLU variant, but often grouped with them
 - Used in BERT, GPT-2, GPT-3
 - Smooth, non-monotonic activation
 - Stochastic regularizer interpretation: multiplies input by Bernoulli distributed mask
 
 **Why it matters:**
+
 - Default activation in many modern transformers
 - Better gradient flow than ReLU in deep networks
 
@@ -159,6 +165,7 @@ SwiGLU combines the **Swish activation** (also called SiLU - Sigmoid Linear Unit
 **Why Swish?**
 
 Swish has several advantages over simpler activations:
+
 - **Smooth and non-monotonic:** Unlike ReLU (hard threshold at 0), Swish smoothly transitions
 - **Self-gating property:** The `x · σ(x)` formulation means the function gates itself
 - **Bounded below, unbounded above:** Values can grow without bound for positive inputs, but are bounded near 0 for negative inputs
@@ -167,6 +174,7 @@ Swish has several advantages over simpler activations:
 **Visual Intuition:**
 
 For Swish(x) = x · σ(x):
+
 - When x = -5: Swish ≈ -0.033 (nearly zero, but not exactly)
 - When x = 0: Swish = 0
 - When x = 5: Swish ≈ 4.966 (nearly linear for large positive values)
@@ -213,6 +221,7 @@ SwiGLU(x) = Swish(xW) ⊙ (xV)
 ```
 
 **Interpretation:**
+
 - First dimension: value=-0.3 gets amplified by gate=1.123 → -0.337
 - Second dimension: value=-0.6 gets heavily suppressed by gate=0.026 → -0.016
 
@@ -226,6 +235,7 @@ Notice that unlike sigmoid (bounded [0,1]), Swish can produce gate values > 1, a
 4. **Widely adopted:** Current best practice in production LLMs (LLaMA, PaLM, Mistral, etc.)
 
 **Key Points:**
+
 - Combines Swish activation with gating
 - Used in PaLM, LLaMA, Mistral, and most modern LLMs
 - β is typically set to 1
@@ -233,6 +243,7 @@ Notice that unlike sigmoid (bounded [0,1]), Swish can produce gate values > 1, a
 - Gates can amplify (>1) not just suppress, unlike sigmoid-based GLU
 
 **Why it's important:**
+
 - State-of-the-art for LLMs
 - Better performance-to-parameter ratio
 - Industry standard in modern architectures
@@ -250,6 +261,7 @@ GeGLU(x) = GELU(xW) ⊙ (xV)
 ```
 
 **Key Points:**
+
 - Uses GELU as the gating function
 - Proposed in "GLU Variants Improve Transformer" (2020)
 - Slightly better than standard FFN in transformers
@@ -266,6 +278,7 @@ ReGLU(x) = ReLU(xW) ⊙ (xV)
 ```
 
 **Key Points:**
+
 - Uses ReLU as gating function
 - Simpler and faster than smooth variants
 - Good baseline for comparison
@@ -292,6 +305,7 @@ output = hidden @ W2            # W2: d_ff → d_model
 ```
 
 To maintain the same parameter count, implementations often use:
+
 - d_ff = (2/3) × original_d_ff when using GLU variants
 
 ---

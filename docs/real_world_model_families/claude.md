@@ -19,16 +19,19 @@ Anthropic uses a "Tier" system (Haiku, Sonnet, Opus) across generations. As of 2
 Anthropic maintains three tiers (Haiku, Sonnet, Opus). In the 2025–2026 era, their roles have shifted toward specific agentic behaviors.
 
 ### **Tier 1: Haiku (The "System 1" Specialist)**
+
 * **Mode:** Primarily System 1.
 * **Role:** High-speed, high-volume tasks.
 * **Context:** Used as the "Router" or "Small Brain" in agentic workflows to handle simple classification or fast sub-tasks.
 
 ### **Tier 2: Sonnet (The "Hybrid/Agentic" Workhorse)**
+
 * **Mode:** Hybrid.
 * **Role:** This is Anthropic's flagship tier for **Agents**. 
 * **Key Feature:** **Computer Use.** Sonnet 3.5 and 4.5 are specifically tuned to use tools, navigate UIs, and write code via the `Claude Code` CLI.
 
 ### **Tier 3: Opus (The "System 2" Frontier)**
+
 * **Mode:** Deep System 2.
 * **Role:** Reserved for tasks where accuracy is more important than speed (e.g., drug discovery, complex legal analysis). 
 * **Context:**  **Inference-Time Scaling Laws** - the idea that more "thinking time" leads to higher IQ.
@@ -55,6 +58,7 @@ While "System 2" refers to **how the model thinks**, "Agentic" refers to **what 
 Anthropic’s defining strategy is **Constitutional AI**, which enables **RLAIF** (Reinforcement Learning from AI Feedback).
 
 ### The Training Pipeline
+
 1. **The Constitution:** A set of rules (e.g., "Be helpful, honest, and harmless") used as a rubric.
 2. **Critique and Revision:** The model generates an initial response, then critiques itself based on the Constitution, and finally rewrites it.
 3. **Preference Model (RLAIF):** A separate AI model evaluates thousands of these pairs to create a "Reward Model." 
@@ -71,11 +75,13 @@ Anthropic’s defining strategy is **Constitutional AI**, which enables **RLAIF*
 Anthropic has moved beyond "prompting for step-by-step" into true **Inference-Time Scaling**.
 
 ### System 1: Fast/Intuitive
+
 - **Mechanism:** Standard next-token prediction.
 - **Latency:** Instant.
 - **Use Case:** Brainstorming, simple chat, data extraction.
 
 ### System 2: Deliberate/Extended Thinking
+
 - **Mechanism:** The model generates **Thinking Tokens** (visible or hidden) before producing the final answer. This allows the model to "plan" and "search" through different solution paths.
 - **Scaling Law:** Performance improves as you increase the **Thinking Budget** (more compute at inference = higher intelligence).
 - **Models:** Claude 3.7 Sonnet and Claude 4.5 Opus.

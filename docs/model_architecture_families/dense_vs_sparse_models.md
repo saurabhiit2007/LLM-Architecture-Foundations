@@ -54,6 +54,7 @@ y = \sum_{i \in \text{TopK}} G(x)_i \cdot E_i(x)
 $$
 
 Where:
+
 - $G(x)_i$ is the routing probability for expert $i$
 - $E_i(x)$ is the output of expert $i$
 - Most models use **Top-2 routing during training** and often **Top-1 routing during inference**
@@ -135,11 +136,13 @@ During inference, systems may reduce communication overhead using:
 ## 5. Summary of Pros and Cons
 
 ### 5.1 Pros of Sparse (MoE)
+
 - Higher model capacity at similar per-token compute
 - Improved scaling efficiency at very large parameter counts
 - Lower training compute for a given performance target
 
 ### 5.2 Cons of Sparse (MoE)
+
 - Memory usage scales with total parameters, not active parameters
 - Complex training dynamics and sensitivity to routing hyperparameters
 - Higher system and serving complexity

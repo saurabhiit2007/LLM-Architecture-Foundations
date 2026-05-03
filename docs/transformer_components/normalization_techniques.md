@@ -24,6 +24,7 @@ Where:
 - `ε` = small constant for numerical stability (typically 1e-5)
 
 ### Key Properties
+
 - **Per-sample normalization**: Unlike BatchNorm, works on each sample independently
 - **Feature-wise statistics**: Computes mean/variance across the feature dimension
 - **No batch dependency**: Works with batch size = 1, crucial for inference
@@ -52,12 +53,14 @@ where RMS(x) = √(mean(x²) + ε)
 ```
 
 ### Key Differences from LayerNorm
+
 - **No mean subtraction**: Doesn't center the data
 - **No bias term**: Only has scale parameter γ (no β)
 - **Faster**: ~15-20% faster than LayerNorm
 - **Similar performance**: Empirically performs as well as LayerNorm in practice
 
 ### When to use
+
 - Modern LLMs (LLaMA, GPT-J, etc.) prefer RMSNorm for efficiency
 - When training speed matters and you don't need mean centering
 
@@ -101,6 +104,7 @@ x → LayerNorm → FeedForward → Add
 ```
 
 **Characteristics**:
+
 - Normalization applied **before** the sublayer (attention/FFN)
 - **Advantages**:
   - More stable training for deep networks
@@ -168,21 +172,25 @@ class RMSNorm(nn.Module):
 ## 6. Common Interview Questions
 
 **Q: Why use LayerNorm instead of BatchNorm in transformers?**
+
 - Transformers process variable-length sequences; BatchNorm's statistics depend on batch composition
 - LayerNorm works per-sample, making it suitable for varying sequence lengths and batch sizes of 1
 - More stable for NLP where samples in a batch can be very different
 
 **Q: Why is Pre-LN more stable than Post-LN?**
+
 - In Pre-LN, gradients flow through normalized activations, preventing extreme values
 - Post-LN can have large activations before normalization, leading to gradient explosions
 - Pre-LN provides better conditioning of the optimization landscape
 
 **Q: What's the trade-off between LayerNorm and RMSNorm?**
+
 - RMSNorm: faster (no mean subtraction), simpler, performs similarly in practice
 - LayerNorm: theoretically more complete normalization, marginally better in some tasks
 - Modern trend: RMSNorm for efficiency in large-scale models
 
 **Q: Can you explain the residual connection's role with normalization?**
+
 - Residual connections provide gradient highways for deep networks
 - Normalization stabilizes the scale of these residuals
 - Pre-LN normalizes before adding to residual, keeping residual path clean

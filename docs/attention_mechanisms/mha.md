@@ -11,9 +11,11 @@ Multi-Head Attention is the fundamental mechanism that allows Transformers to fo
 The MHA process involves transforming input embeddings into three distinct spaces: **Queries (Q)**, **Keys (K)**, and **Values (V)**.
 
 ### The Step-by-Step Flow
+
 1. **Linear Projection**: For $h$ heads, the input $X$ is projected using learned weights $W_i^Q, W_i^K, W_i^V$.
 2. **Scaled Dot-Product Attention**: Each head computes attention independently:
    $$\text{Head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
 3. **Concatenation**: All heads are joined: $\text{Concat}(\text{Head}_1, ..., \text{Head}_h)$.
 4. **Final Output Projection**: The result is multiplied by $W^O$ to return to the original model dimension.
 
@@ -26,16 +28,19 @@ The MHA process involves transforming input embeddings into three distinct space
 If you are interviewing for a Senior or Research role, these updates are critical:
 
 ### A. Grouped-Query Attention (GQA)
+
 * **The Context**: Standard MHA is slow during inference because the "KV Cache" grows too large for GPU memory.
 * **The Innovation**: Instead of every Query head having its own Key/Value head, **GQA** shares one KV head among a group of Query heads.
 * **Why it matters**: It’s the standard for **Llama 3** and **Mistral**, offering a perfect balance between speed and accuracy.
 
 ### B. FlashAttention (v2/v3)
+
 * **The Context**: The $O(N^2)$ complexity of attention makes long sequences (like books) hard to process.
 * **The Innovation**: It utilizes "Tiling" to compute attention in blocks within the GPU's fast SRAM, avoiding the bottleneck of slower main memory (HBM).
 * **Interview Tip**: If asked how to scale Transformers to 100k+ tokens, mention **FlashAttention** and **GQA**.
 
 ### C. Rotary Positional Embeddings (RoPE)
+
 * Modern MHA (used in Llama) uses **RoPE** instead of additive positional encoding. It encodes position by rotating the Q and K vectors in a complex space, which naturally captures the *relative* distance between tokens.
 
 ---
