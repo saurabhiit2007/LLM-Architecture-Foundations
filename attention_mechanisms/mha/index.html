@@ -1725,9 +1725,13 @@
 <h3 id="the-step-by-step-flow">The Step-by-Step Flow<a class="headerlink" href="#the-step-by-step-flow" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Linear Projection</strong>: For <span class="arithmatex">\(h\)</span> heads, the input <span class="arithmatex">\(X\)</span> is projected using learned weights <span class="arithmatex">\(W_i^Q, W_i^K, W_i^V\)</span>.</li>
-<li><strong>Scaled Dot-Product Attention</strong>: Each head computes attention independently:
-   <span class="arithmatex">\(<span class="arithmatex">\(\text{Head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\)</span>\)</span></li>
-<li><strong>Concatenation</strong>: All heads are joined: <span class="arithmatex">\(\text{Concat}(\text{Head}_1, ..., \text{Head}_h)\)</span>.</li>
+<li>
+<p><strong>Scaled Dot-Product Attention</strong>: Each head computes attention independently:
+   <span class="arithmatex">\(<span class="arithmatex">\(\text{Head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\)</span>\)</span></p>
+</li>
+<li>
+<p><strong>Concatenation</strong>: All heads are joined: <span class="arithmatex">\(\text{Concat}(\text{Head}_1, ..., \text{Head}_h)\)</span>.</p>
+</li>
 <li><strong>Final Output Projection</strong>: The result is multiplied by <span class="arithmatex">\(W^O\)</span> to return to the original model dimension.</li>
 </ol>
 <hr />

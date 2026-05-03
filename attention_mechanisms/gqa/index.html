@@ -1527,9 +1527,11 @@
 <hr />
 <h2 id="3-mathematical-formulation">3. Mathematical Formulation<a class="headerlink" href="#3-mathematical-formulation" title="Permanent link">&para;</a></h2>
 <p>In a standard transformer layer, we have <span class="arithmatex">\(H\)</span> query heads. In GQA, we divide these into <span class="arithmatex">\(G\)</span> groups.</p>
-<p>For each group <span class="arithmatex">\(g \in \{1, \dots, G\}\)</span>:
-1.  There are <span class="arithmatex">\(H/G\)</span> query heads.
-2.  There is <strong>one</strong> shared Key head <span class="arithmatex">\(K_g\)</span> and <strong>one</strong> shared Value head <span class="arithmatex">\(V_g\)</span>.</p>
+<p>For each group <span class="arithmatex">\(g \in \{1, \dots, G\}\)</span>:</p>
+<ol>
+<li>There are <span class="arithmatex">\(H/G\)</span> query heads.</li>
+<li>There is <strong>one</strong> shared Key head <span class="arithmatex">\(K_g\)</span> and <strong>one</strong> shared Value head <span class="arithmatex">\(V_g\)</span>.</li>
+</ol>
 <p>The attention for a specific query head <span class="arithmatex">\(i\)</span> within group <span class="arithmatex">\(g\)</span> is:</p>
 <div class="arithmatex">\[\text{Attention}(Q_i, K_g, V_g) = \text{softmax}\left(\frac{Q_i K_g^T}{\sqrt{d_k}}\right) V_g\]</div>
 <ul>

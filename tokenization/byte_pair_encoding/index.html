@@ -2126,9 +2126,11 @@ wid est _ <br></p>
 <div class="arithmatex">\[
 V = S + N_{\text{merges}}
 \]</div>
-<p>Where:
-- <span class="arithmatex">\(S\)</span> is the number of base symbols
-- <span class="arithmatex">\(N_{\text{merges}}\)</span> is the number of merge operations</p>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(S\)</span> is the number of base symbols</li>
+<li><span class="arithmatex">\(N_{\text{merges}}\)</span> is the number of merge operations</li>
+</ul>
 <p>Each merge permanently adds one new token.</p>
 <hr />
 <h3 id="23-key-properties">2.3 Key Properties<a class="headerlink" href="#23-key-properties" title="Permanent link">&para;</a></h3>
@@ -2263,14 +2265,20 @@ become single tokens, reducing sequence length and improving efficiency.</li>
 <hr />
 <h2 id="7-tokenization-paradoxes-interview-level-insights">7. Tokenization Paradoxes (Interview-Level Insights)<a class="headerlink" href="#7-tokenization-paradoxes-interview-level-insights" title="Permanent link">&para;</a></h2>
 <h3 id="the-spelling-paradox">The Spelling Paradox<a class="headerlink" href="#the-spelling-paradox" title="Permanent link">&para;</a></h3>
-<p>LLMs struggle to count letters in words.
-- Reason: words often appear as single tokens, hiding character-level structure.</p>
+<p>LLMs struggle to count letters in words.</p>
+<ul>
+<li>Reason: words often appear as single tokens, hiding character-level structure.</li>
+</ul>
 <h3 id="the-arithmetic-paradox">The Arithmetic Paradox<a class="headerlink" href="#the-arithmetic-paradox" title="Permanent link">&para;</a></h3>
-<p>LLMs fail at digit-wise arithmetic on large numbers.
-- Reason: numbers are split inconsistently across tokens.</p>
+<p>LLMs fail at digit-wise arithmetic on large numbers.</p>
+<ul>
+<li>Reason: numbers are split inconsistently across tokens.</li>
+</ul>
 <h3 id="the-case-sensitivity-trap">The Case Sensitivity Trap<a class="headerlink" href="#the-case-sensitivity-trap" title="Permanent link">&para;</a></h3>
-<p><code>Hello</code>, <code>hello</code>, and <code>HELLO</code> are distinct tokens.
-- Effect: the model must learn redundant representations.</p>
+<p><code>Hello</code>, <code>hello</code>, and <code>HELLO</code> are distinct tokens.</p>
+<ul>
+<li>Effect: the model must learn redundant representations.</li>
+</ul>
 <hr />
 <h2 id="8-pros-and-cons-of-bpe">8. Pros and Cons of BPE<a class="headerlink" href="#8-pros-and-cons-of-bpe" title="Permanent link">&para;</a></h2>
 <h3 id="pros">Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h3>

@@ -1656,9 +1656,11 @@
 <h3 id="b-teacher-student-distillation">B. Teacher-Student Distillation<a class="headerlink" href="#b-teacher-student-distillation" title="Permanent link">&para;</a></h3>
 <p>For Llama 3.2 and 3.3, Meta used their largest model (405B) to generate high-quality synthetic data. The smaller models were then trained on these "perfect" reasoning traces, effectively inheriting the logic of the larger model without the massive hardware requirements.</p>
 <h3 id="c-iterative-alignment">C. Iterative Alignment<a class="headerlink" href="#c-iterative-alignment" title="Permanent link">&para;</a></h3>
-<p>Meta uses a combination of:
-* <strong>Rejection Sampling:</strong> Generating multiple outputs and selecting only the highest quality for the next training round.
-* <strong>Direct Preference Optimization (DPO):</strong> Aligning the model to prefer specific styles of reasoning over others based on human feedback.</p>
+<p>Meta uses a combination of:</p>
+<ul>
+<li><strong>Rejection Sampling:</strong> Generating multiple outputs and selecting only the highest quality for the next training round.</li>
+<li><strong>Direct Preference Optimization (DPO):</strong> Aligning the model to prefer specific styles of reasoning over others based on human feedback.</li>
+</ul>
 <hr />
 <hr />
 <h2 id="3-system-1-vs-system-2-reasoning">3. System 1 vs. System 2 Reasoning<a class="headerlink" href="#3-system-1-vs-system-2-reasoning" title="Permanent link">&para;</a></h2>
@@ -1679,22 +1681,32 @@
 <h2 id="4-engineering-deep-dive-llama-specifics">4. Engineering Deep-Dive: Llama Specifics<a class="headerlink" href="#4-engineering-deep-dive-llama-specifics" title="Permanent link">&para;</a></h2>
 <p>If you are asked "What makes the Llama 3/4 lineage unique compared to GPT or Claude?", focus on these four pillars:</p>
 <h3 id="a-grouped-query-attention-gqa">A. Grouped-Query Attention (GQA)<a class="headerlink" href="#a-grouped-query-attention-gqa" title="Permanent link">&para;</a></h3>
-<p>Unlike Llama 2 (where only the large models had GQA), <strong>every model in the Llama 3/4 family</strong> uses GQA.
-* <strong>Impact:</strong> Explain that GQA reduces the memory footprint of the KV (Key-Value) cache. This allows for higher throughput and larger context windows (like the 128k jump in Llama 3.1) without requiring linear increases in VRAM. It is the reason these models are so performant on consumer-grade GPUs.</p>
+<p>Unlike Llama 2 (where only the large models had GQA), <strong>every model in the Llama 3/4 family</strong> uses GQA.</p>
+<ul>
+<li><strong>Impact:</strong> Explain that GQA reduces the memory footprint of the KV (Key-Value) cache. This allows for higher throughput and larger context windows (like the 128k jump in Llama 3.1) without requiring linear increases in VRAM. It is the reason these models are so performant on consumer-grade GPUs.</li>
+</ul>
 <h3 id="b-the-128k-tokenizer-efficiency">B. The 128K Tokenizer Efficiency<a class="headerlink" href="#b-the-128k-tokenizer-efficiency" title="Permanent link">&para;</a></h3>
-<p>Llama 3/4 uses a <strong>Tiktoken-based tokenizer</strong> with a 128k vocabulary (up from 32k).
-* <strong>The "So What?":</strong> A larger vocabulary means the model represents more text with fewer tokens. This improves inference speed and performance on non-English languages and code, as the model doesn't have to "break down" common words into as many tiny sub-fragments.</p>
+<p>Llama 3/4 uses a <strong>Tiktoken-based tokenizer</strong> with a 128k vocabulary (up from 32k).</p>
+<ul>
+<li><strong>The "So What?":</strong> A larger vocabulary means the model represents more text with fewer tokens. This improves inference speed and performance on non-English languages and code, as the model doesn't have to "break down" common words into as many tiny sub-fragments.</li>
+</ul>
 <h3 id="c-scaling-the-post-training-stack">C. Scaling the "Post-Training" Stack<a class="headerlink" href="#c-scaling-the-post-training-stack" title="Permanent link">&para;</a></h3>
-<p>Meta has moved the "magic" from the Pre-training phase to the <strong>Post-training phase</strong>.
-* <strong>Key Terms:</strong> Mention <strong>PPO (Proximal Policy Optimization)</strong> vs. <strong>DPO (Direct Preference Optimization)</strong>. 
-* <strong>The Nuance:</strong> Meta uses Llama 3.1 405B to generate "Preference Data" for the smaller models. If asked about "System 2," explain that this involves <strong>Rejection Sampling</strong>, where the model explores multiple "reasoning traces" and is only rewarded for the one that leads to the correct answer.</p>
+<p>Meta has moved the "magic" from the Pre-training phase to the <strong>Post-training phase</strong>.</p>
+<ul>
+<li><strong>Key Terms:</strong> Mention <strong>PPO (Proximal Policy Optimization)</strong> vs. <strong>DPO (Direct Preference Optimization)</strong>. </li>
+<li><strong>The Nuance:</strong> Meta uses Llama 3.1 405B to generate "Preference Data" for the smaller models. If asked about "System 2," explain that this involves <strong>Rejection Sampling</strong>, where the model explores multiple "reasoning traces" and is only rewarded for the one that leads to the correct answer.</li>
+</ul>
 <h3 id="d-rope-rotary-positional-embeddings-scaling">D. RoPE (Rotary Positional Embeddings) Scaling<a class="headerlink" href="#d-rope-rotary-positional-embeddings-scaling" title="Permanent link">&para;</a></h3>
-<p>To achieve the 128k context window in Llama 3.1, Meta had to modify the <strong>RoPE base frequency</strong>.
-* <strong>Technical Detail:</strong> They increased the base frequency (theta) to <strong>500,000</strong>. 
-* <strong>Insight:</strong> If asked how they handled long-range dependencies, mention that this scaling allows the model to "attend" to tokens that are much further apart in the sequence without losing the relative positional logic.</p>
+<p>To achieve the 128k context window in Llama 3.1, Meta had to modify the <strong>RoPE base frequency</strong>.</p>
+<ul>
+<li><strong>Technical Detail:</strong> They increased the base frequency (theta) to <strong>500,000</strong>. </li>
+<li><strong>Insight:</strong> If asked how they handled long-range dependencies, mention that this scaling allows the model to "attend" to tokens that are much further apart in the sequence without losing the relative positional logic.</li>
+</ul>
 <h3 id="e-tool-use-environment-impact">E. Tool Use &amp; Environment Impact<a class="headerlink" href="#e-tool-use-environment-impact" title="Permanent link">&para;</a></h3>
-<p>Llama 3.1 was the first to be "natively" trained for tool use (Search, Wolfram Alpha, Code Interpreter).
-* <strong>System 1 vs. 2 Link:</strong> Standard models "hallucinate" tool arguments (System 1). Llama 4 uses <strong>Agentic Loops</strong> (System 2) to "call a tool -&gt; observe the error -&gt; try again," which is a fundamental shift in how the model handles external APIs.</p>
+<p>Llama 3.1 was the first to be "natively" trained for tool use (Search, Wolfram Alpha, Code Interpreter).</p>
+<ul>
+<li><strong>System 1 vs. 2 Link:</strong> Standard models "hallucinate" tool arguments (System 1). Llama 4 uses <strong>Agentic Loops</strong> (System 2) to "call a tool -&gt; observe the error -&gt; try again," which is a fundamental shift in how the model handles external APIs.</li>
+</ul>
 <hr />
 
 

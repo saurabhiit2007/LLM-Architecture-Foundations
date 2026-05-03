@@ -1796,14 +1796,16 @@ x → FeedForward → Add → LayerNorm
 x → LayerNorm → FeedForward → Add
    ↑______________________|
 </code></pre></div></p>
-<p><strong>Characteristics</strong>:
-- Normalization applied <strong>before</strong> the sublayer (attention/FFN)
-- <strong>Advantages</strong>:
-  - More stable training for deep networks
-  - Can train without warmup
-  - Better gradient flow
-  - Easier to scale to deeper models
-- <strong>Widely adopted</strong>: GPT-2, GPT-3, BERT variants, modern LLMs</p>
+<p><strong>Characteristics</strong>:</p>
+<ul>
+<li>Normalization applied <strong>before</strong> the sublayer (attention/FFN)</li>
+<li><strong>Advantages</strong>:</li>
+<li>More stable training for deep networks</li>
+<li>Can train without warmup</li>
+<li>Better gradient flow</li>
+<li>Easier to scale to deeper models</li>
+<li><strong>Widely adopted</strong>: GPT-2, GPT-3, BERT variants, modern LLMs</li>
+</ul>
 <h3 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1879,22 +1881,30 @@ x → LayerNorm → FeedForward → Add
 <hr />
 <hr />
 <h2 id="6-common-interview-questions">6. Common Interview Questions<a class="headerlink" href="#6-common-interview-questions" title="Permanent link">&para;</a></h2>
-<p><strong>Q: Why use LayerNorm instead of BatchNorm in transformers?</strong>
-- Transformers process variable-length sequences; BatchNorm's statistics depend on batch composition
-- LayerNorm works per-sample, making it suitable for varying sequence lengths and batch sizes of 1
-- More stable for NLP where samples in a batch can be very different</p>
-<p><strong>Q: Why is Pre-LN more stable than Post-LN?</strong>
-- In Pre-LN, gradients flow through normalized activations, preventing extreme values
-- Post-LN can have large activations before normalization, leading to gradient explosions
-- Pre-LN provides better conditioning of the optimization landscape</p>
-<p><strong>Q: What's the trade-off between LayerNorm and RMSNorm?</strong>
-- RMSNorm: faster (no mean subtraction), simpler, performs similarly in practice
-- LayerNorm: theoretically more complete normalization, marginally better in some tasks
-- Modern trend: RMSNorm for efficiency in large-scale models</p>
-<p><strong>Q: Can you explain the residual connection's role with normalization?</strong>
-- Residual connections provide gradient highways for deep networks
-- Normalization stabilizes the scale of these residuals
-- Pre-LN normalizes before adding to residual, keeping residual path clean</p>
+<p><strong>Q: Why use LayerNorm instead of BatchNorm in transformers?</strong></p>
+<ul>
+<li>Transformers process variable-length sequences; BatchNorm's statistics depend on batch composition</li>
+<li>LayerNorm works per-sample, making it suitable for varying sequence lengths and batch sizes of 1</li>
+<li>More stable for NLP where samples in a batch can be very different</li>
+</ul>
+<p><strong>Q: Why is Pre-LN more stable than Post-LN?</strong></p>
+<ul>
+<li>In Pre-LN, gradients flow through normalized activations, preventing extreme values</li>
+<li>Post-LN can have large activations before normalization, leading to gradient explosions</li>
+<li>Pre-LN provides better conditioning of the optimization landscape</li>
+</ul>
+<p><strong>Q: What's the trade-off between LayerNorm and RMSNorm?</strong></p>
+<ul>
+<li>RMSNorm: faster (no mean subtraction), simpler, performs similarly in practice</li>
+<li>LayerNorm: theoretically more complete normalization, marginally better in some tasks</li>
+<li>Modern trend: RMSNorm for efficiency in large-scale models</li>
+</ul>
+<p><strong>Q: Can you explain the residual connection's role with normalization?</strong></p>
+<ul>
+<li>Residual connections provide gradient highways for deep networks</li>
+<li>Normalization stabilizes the scale of these residuals</li>
+<li>Pre-LN normalizes before adding to residual, keeping residual path clean</li>
+</ul>
 <hr />
 
 

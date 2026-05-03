@@ -1621,12 +1621,16 @@
 <li><strong>The "Cost":</strong> Training with MQA is actually <strong>harder</strong>. Because all query heads share one KV head, the model has fewer parameters to learn distinct relationships, which can lead to training instability or slightly higher perplexity (lower accuracy).</li>
 </ul>
 <h3 id="b-during-inference-autoregressive-decoding">B. During Inference (Autoregressive Decoding)<a class="headerlink" href="#b-during-inference-autoregressive-decoding" title="Permanent link">&para;</a></h3>
-<p>During inference, we generate one token at a time. This is where MQA shines.
-* <strong>The KV Cache Bottleneck:</strong> In autoregressive generation, we store every previous token's Key and Value so we don't recompute them. In MHA, this "KV Cache" grows so large it can't fit in the fast on-chip memory (SRAM) and spills into slower VRAM (HBM).
-* <strong>Memory Bandwidth:</strong> Inference is <strong>memory-bound</strong>, not compute-bound. The GPU spends most of its time "waiting" for the KV Cache to load from memory.
-* <strong>The MQA Advantage:</strong> By reducing KV heads to 1, we reduce the data movement by <span class="arithmatex">\(h\)</span> times (where <span class="arithmatex">\(h\)</span> is the number of heads). This allows for:
-    * <strong>Larger Batch Sizes:</strong> Fit more users/requests on one GPU.
-    * <strong>Lower Latency:</strong> Tokens are generated much faster because the "memory bottleneck" is cleared.</p>
+<p>During inference, we generate one token at a time. This is where MQA shines.</p>
+<ul>
+<li><strong>The KV Cache Bottleneck:</strong> In autoregressive generation, we store every previous token's Key and Value so we don't recompute them. In MHA, this "KV Cache" grows so large it can't fit in the fast on-chip memory (SRAM) and spills into slower VRAM (HBM).</li>
+<li><strong>Memory Bandwidth:</strong> Inference is <strong>memory-bound</strong>, not compute-bound. The GPU spends most of its time "waiting" for the KV Cache to load from memory.</li>
+<li><strong>The MQA Advantage:</strong> By reducing KV heads to 1, we reduce the data movement by <span class="arithmatex">\(h\)</span> times (where <span class="arithmatex">\(h\)</span> is the number of heads). This allows for:<ul>
+<li><strong>Larger Batch Sizes:</strong> Fit more users/requests on one GPU.</li>
+<li><strong>Lower Latency:</strong> Tokens are generated much faster because the "memory bottleneck" is cleared.</li>
+</ul>
+</li>
+</ul>
 <hr />
 <hr />
 <h2 id="5-the-recent-evolution-grouped-query-attention-gqa">5. The Recent Evolution: Grouped-Query Attention (GQA)<a class="headerlink" href="#5-the-recent-evolution-grouped-query-attention-gqa" title="Permanent link">&para;</a></h2>

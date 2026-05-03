@@ -1626,10 +1626,12 @@
 <div class="arithmatex">\[
 y = \sum_{i \in \text{TopK}} G(x)_i \cdot E_i(x)
 \]</div>
-<p>Where:
-- <span class="arithmatex">\(G(x)_i\)</span> is the routing probability for expert <span class="arithmatex">\(i\)</span>
-- <span class="arithmatex">\(E_i(x)\)</span> is the output of expert <span class="arithmatex">\(i\)</span>
-- Most models use <strong>Top-2 routing during training</strong> and often <strong>Top-1 routing during inference</strong></p>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(G(x)_i\)</span> is the routing probability for expert <span class="arithmatex">\(i\)</span></li>
+<li><span class="arithmatex">\(E_i(x)\)</span> is the output of expert <span class="arithmatex">\(i\)</span></li>
+<li>Most models use <strong>Top-2 routing during training</strong> and often <strong>Top-1 routing during inference</strong></li>
+</ul>
 <blockquote>
 <p>Note: Detailed description of MoE is available <a href="../mixture_of_experts/">here</a></p>
 </blockquote>

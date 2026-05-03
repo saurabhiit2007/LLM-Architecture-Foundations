@@ -1522,9 +1522,13 @@
 <p>Encoder-only models focus on creating a rich, bidirectional representation of the input.</p>
 <ul>
 <li><strong>Mechanism:</strong> Uses <strong>Full (Bidirectional) Self-Attention</strong>. Every token can attend to every other token in the sequence.</li>
-<li><strong>Mathematical Objective:</strong> Typically <strong>Masked Language Modeling (MLM)</strong>.
-    <span class="arithmatex">\(<span class="arithmatex">\(P(w_i | w_1, \dots, w_{i-1}, w_{i+1}, \dots, w_n)\)</span>\)</span></li>
-<li><strong>Key Models:</strong> BERT, RoBERTa, ALBERT.</li>
+<li>
+<p><strong>Mathematical Objective:</strong> Typically <strong>Masked Language Modeling (MLM)</strong>.
+    <span class="arithmatex">\(<span class="arithmatex">\(P(w_i | w_1, \dots, w_{i-1}, w_{i+1}, \dots, w_n)\)</span>\)</span></p>
+</li>
+<li>
+<p><strong>Key Models:</strong> BERT, RoBERTa, ALBERT.</p>
+</li>
 <li><strong>When to Prefer:</strong> When the task requires understanding the "whole-sentence" context simultaneously.<ul>
 <li><strong>Tasks:</strong> Sentiment analysis, Named Entity Recognition (NER), and extractive Question Answering.</li>
 </ul>
@@ -1536,9 +1540,13 @@
 <p>These are the backbone of modern Generative AI. They are designed for one-way, autoregressive generation.</p>
 <ul>
 <li><strong>Mechanism:</strong> Uses <strong>Causal (Masked) Self-Attention</strong>. A token can only attend to previous tokens in the sequence to prevent "cheating" by looking at the future.</li>
-<li><strong>Mathematical Objective:</strong> <strong>Causal Language Modeling (CLM)</strong> or Next-Token Prediction.
-    <span class="arithmatex">\(<span class="arithmatex">\(P(w_i | w_1, \dots, w_{i-1})\)</span>\)</span></li>
-<li><strong>Key Models:</strong> GPT-4, Llama 3/4, DeepSeek-R1, Mistral.</li>
+<li>
+<p><strong>Mathematical Objective:</strong> <strong>Causal Language Modeling (CLM)</strong> or Next-Token Prediction.
+    <span class="arithmatex">\(<span class="arithmatex">\(P(w_i | w_1, \dots, w_{i-1})\)</span>\)</span></p>
+</li>
+<li>
+<p><strong>Key Models:</strong> GPT-4, Llama 3/4, DeepSeek-R1, Mistral.</p>
+</li>
 <li><strong>When to Prefer:</strong> For open-ended generation, reasoning, and instruction following.<ul>
 <li><strong>Tasks:</strong> Chatbots, creative writing, and code generation.</li>
 </ul>

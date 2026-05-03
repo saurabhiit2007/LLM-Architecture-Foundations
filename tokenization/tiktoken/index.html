@@ -1518,9 +1518,11 @@
 <h3 id="a-performance-speed">A. Performance &amp; Speed<a class="headerlink" href="#a-performance-speed" title="Permanent link">&para;</a></h3>
 <p>Because it is implemented in Rust, it can handle massive datasets much faster than the <code>transformers</code> library's Python implementation. This is critical for real-time applications.</p>
 <h3 id="b-efficiency-the-gpt-4o-update">B. Efficiency (The GPT-4o Update)<a class="headerlink" href="#b-efficiency-the-gpt-4o-update" title="Permanent link">&para;</a></h3>
-<p>The recent shift to <strong>o200k_base</strong> is a major milestone.
-* <strong>Token Compression:</strong> It packs more text into fewer tokens.
-* <strong>Multilingual Support:</strong> Older tokenizers were "English-centric." The new version reduces costs for users writing in languages like Hindi, Japanese, or Arabic by reducing the token count for the same meaning.</p>
+<p>The recent shift to <strong>o200k_base</strong> is a major milestone.</p>
+<ul>
+<li><strong>Token Compression:</strong> It packs more text into fewer tokens.</li>
+<li><strong>Multilingual Support:</strong> Older tokenizers were "English-centric." The new version reduces costs for users writing in languages like Hindi, Japanese, or Arabic by reducing the token count for the same meaning.</li>
+</ul>
 <h3 id="c-visualizing-the-process">C. Visualizing the Process<a class="headerlink" href="#c-visualizing-the-process" title="Permanent link">&para;</a></h3>
 <p>The BPE algorithm starts with individual bytes and iteratively merges the most frequent adjacent pairs.</p>
 <hr />

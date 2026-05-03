@@ -1737,10 +1737,12 @@ w          | 0.08
 ...
 </code></pre></div>
 <h3 id="tokenizing-lowest">Tokenizing "lowest"<a class="headerlink" href="#tokenizing-lowest" title="Permanent link">&para;</a></h3>
-<p><strong>Possible segmentations:</strong>
-1. <code>low</code> + <code>est</code> → 0.15 × 0.13 = <strong>0.0195</strong> ✓ (Best)
-2. <code>lo</code> + <code>w</code> + <code>est</code> → 0.12 × 0.08 × 0.13 = 0.001248
-3. <code>l</code> + <code>o</code> + <code>w</code> + <code>e</code> + <code>s</code> + <code>t</code> → (very low probability)</p>
+<p><strong>Possible segmentations:</strong></p>
+<ol>
+<li><code>low</code> + <code>est</code> → 0.15 × 0.13 = <strong>0.0195</strong> ✓ (Best)</li>
+<li><code>lo</code> + <code>w</code> + <code>est</code> → 0.12 × 0.08 × 0.13 = 0.001248</li>
+<li><code>l</code> + <code>o</code> + <code>w</code> + <code>e</code> + <code>s</code> + <code>t</code> → (very low probability)</li>
+</ol>
 <p><strong>Selected</strong>: <code>low</code> + <code>est</code> (highest probability)</p>
 <h2 id="comparison-with-other-methods">Comparison with Other Methods<a class="headerlink" href="#comparison-with-other-methods" title="Permanent link">&para;</a></h2>
 <table>
@@ -1787,31 +1789,37 @@ w          | 0.08
 <p><strong>Answer:</strong> Unigram breaks unseen words into known subword units using the most probable segmentation. It includes individual characters as fallback, ensuring no out-of-vocabulary (OOV) words. For example, "unbreakable" might become "un" + "break" + "able" or fallback to character-level if needed.</p>
 <hr />
 <h3 id="q3-explain-the-role-of-the-em-algorithm-in-unigram">Q3: Explain the role of the EM algorithm in Unigram.<a class="headerlink" href="#q3-explain-the-role-of-the-em-algorithm-in-unigram" title="Permanent link">&para;</a></h3>
-<p><strong>Answer:</strong> The EM algorithm estimates token probabilities:
-- <strong>E-step</strong>: Calculate expected counts of each token across all possible segmentations
-- <strong>M-step</strong>: Update token probabilities based on expected counts
-- <strong>Iterate</strong>: Repeat until convergence</p>
+<p><strong>Answer:</strong> The EM algorithm estimates token probabilities:</p>
+<ul>
+<li><strong>E-step</strong>: Calculate expected counts of each token across all possible segmentations</li>
+<li><strong>M-step</strong>: Update token probabilities based on expected counts</li>
+<li><strong>Iterate</strong>: Repeat until convergence</li>
+</ul>
 <p>This ensures probabilities reflect each token's importance in the training corpus.</p>
 <hr />
 <h3 id="q4-what-is-the-viterbi-algorithms-role">Q4: What is the Viterbi algorithm's role?<a class="headerlink" href="#q4-what-is-the-viterbi-algorithms-role" title="Permanent link">&para;</a></h3>
 <p><strong>Answer:</strong> Viterbi finds the most probable segmentation efficiently using dynamic programming. Instead of exploring all exponential segmentations (2^n), it computes the optimal path in O(n²) time, where n is the word length.</p>
 <hr />
 <h3 id="q5-how-do-you-determine-vocabulary-size">Q5: How do you determine vocabulary size?<a class="headerlink" href="#q5-how-do-you-determine-vocabulary-size" title="Permanent link">&para;</a></h3>
-<p><strong>Answer:</strong> Vocabulary size is a hyperparameter (typically 8K-32K tokens) determined by:
-- Task requirements and language complexity
-- Corpus size and diversity
-- Model size and computational constraints
-- Downstream task performance</p>
+<p><strong>Answer:</strong> Vocabulary size is a hyperparameter (typically 8K-32K tokens) determined by:</p>
+<ul>
+<li>Task requirements and language complexity</li>
+<li>Corpus size and diversity</li>
+<li>Model size and computational constraints</li>
+<li>Downstream task performance</li>
+</ul>
 <p>Start with a large vocabulary (10x target) and prune to desired size.</p>
 <hr />
 <h3 id="q6-what-are-unigrams-advantages">Q6: What are Unigram's advantages?<a class="headerlink" href="#q6-what-are-unigrams-advantages" title="Permanent link">&para;</a></h3>
-<p><strong>Answer:</strong>
-- Theoretically principled (optimizes clear objective)
-- Handles ambiguity through probabilistic approach
-- Better for morphologically rich languages
-- Language and script agnostic
-- No pre-tokenization required
-- Robust to noisy input (typos, code-switching)</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>Theoretically principled (optimizes clear objective)</li>
+<li>Handles ambiguity through probabilistic approach</li>
+<li>Better for morphologically rich languages</li>
+<li>Language and script agnostic</li>
+<li>No pre-tokenization required</li>
+<li>Robust to noisy input (typos, code-switching)</li>
+</ul>
 <hr />
 <h3 id="q7-how-does-vocabulary-pruning-work">Q7: How does vocabulary pruning work?<a class="headerlink" href="#q7-how-does-vocabulary-pruning-work" title="Permanent link">&para;</a></h3>
 <p><strong>Answer:</strong> 
@@ -1825,11 +1833,13 @@ w          | 0.08
 <p>Tokens are redundant if other combinations can represent the same text with minimal probability loss.</p>
 <hr />
 <h3 id="q8-when-would-you-prefer-unigram-over-bpe">Q8: When would you prefer Unigram over BPE?<a class="headerlink" href="#q8-when-would-you-prefer-unigram-over-bpe" title="Permanent link">&para;</a></h3>
-<p><strong>Answer:</strong> Prefer Unigram for:
-- <strong>Multilingual models</strong> (handles 100+ languages without pre-processing)
-- <strong>Morphologically rich languages</strong> (Finnish, Turkish, Japanese)
-- <strong>Noisy text</strong> (social media, user-generated content)
-- <strong>Mixed scripts</strong> (e.g., "I love 寿司")</p>
+<p><strong>Answer:</strong> Prefer Unigram for:</p>
+<ul>
+<li><strong>Multilingual models</strong> (handles 100+ languages without pre-processing)</li>
+<li><strong>Morphologically rich languages</strong> (Finnish, Turkish, Japanese)</li>
+<li><strong>Noisy text</strong> (social media, user-generated content)</li>
+<li><strong>Mixed scripts</strong> (e.g., "I love 寿司")</li>
+</ul>
 <p>Used in: Google NMT, T5, XLM-R, mBART</p>
 <hr />
 <h3 id="q9-how-does-unigram-handle-multilingual-scenarios">Q9: How does Unigram handle multilingual scenarios?<a class="headerlink" href="#q9-how-does-unigram-handle-multilingual-scenarios" title="Permanent link">&para;</a></h3>
