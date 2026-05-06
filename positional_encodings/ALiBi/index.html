@@ -16,7 +16,7 @@
         <link rel="prev" href="../RoPE/">
       
       
-        <link rel="next" href="../..">
+        <link rel="next" href="../../pretraining/next_token_prediction/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-the-core-concept" class="md-skip">
+        <a href="#alibi-attention-with-linear-biases" class="md-skip">
           Skip to content
         </a>
       
@@ -285,9 +287,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -401,9 +401,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -540,9 +538,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -748,9 +744,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -841,9 +835,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1064,6 +1056,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -1096,6 +1090,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1104,183 +1100,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-the-core-concept" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      1. The Core Concept
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. The Core Concept">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-rotate" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why rotate?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why rotate?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why This Matters
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-the-algorithm" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. The Algorithm
+      1. Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-where-exactly-is-rope-applied" class="md-nav__link">
+  <a href="#2-core-idea" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Where Exactly Is RoPE Applied?
+      2. Core Idea
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-why-rope-works-for-dot-product-attention" class="md-nav__link">
+  <a href="#3-head-specific-slopes" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Why RoPE Works for Dot-Product Attention
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Why RoPE Works for Dot-Product Attention">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-by-step-intuition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step-by-Step Intuition
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-rope-and-multi-head-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. RoPE and Multi-Head Attention
+      3. Head-Specific Slopes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-comparison-why-rope-won" class="md-nav__link">
+  <a href="#4-why-it-extrapolates" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Comparison: Why RoPE Won
+      4. Why It Extrapolates
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-small-intuitive-example" class="md-nav__link">
+  <a href="#5-alibi-vs-rope" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Small Intuitive Example
+      5. ALiBi vs RoPE
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="7. Small Intuitive Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#position-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Position 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#position-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Position 3
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-interview-deep-dive-topics" class="md-nav__link">
+  <a href="#6-limitations" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Interview Deep Dive Topics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Interview Deep Dive Topics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-context-window-extension-rope-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      A. Context Window Extension (RoPE Scaling)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-long-term-decay-property" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. Long-Term Decay Property
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-rope-vs-alibi" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. RoPE vs ALiBi
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-practical-limitations-and-caveats" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Practical Limitations and Caveats
+      6. Limitations
     </span>
   </a>
   
@@ -1317,9 +1184,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1327,7 +1192,7 @@
   
   
   <span class="md-ellipsis">
-    Pretraining objective
+    Pretraining Objective
     
   </span>
   
@@ -1338,7 +1203,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Pretraining objective
+            Pretraining Objective
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1349,12 +1214,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../pretraining/next_token_prediction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Next Token Prediction
     
   </span>
   
@@ -1387,9 +1252,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1397,7 +1260,7 @@
   
   
   <span class="md-ellipsis">
-    Scaling laws
+    Scaling Laws
     
   </span>
   
@@ -1408,7 +1271,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            Scaling laws
+            Scaling Laws
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1419,12 +1282,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../scaling_laws/scaling_laws/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Chinchilla & Compute-Optimal Training
     
   </span>
   
@@ -1449,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references.md" class="md-nav__link">
+      <a href="../../references/" class="md-nav__link">
         
   
   
@@ -1481,6 +1344,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1489,183 +1354,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-the-core-concept" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      1. The Core Concept
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. The Core Concept">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-rotate" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why rotate?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why rotate?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why This Matters
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-the-algorithm" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. The Algorithm
+      1. Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-where-exactly-is-rope-applied" class="md-nav__link">
+  <a href="#2-core-idea" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Where Exactly Is RoPE Applied?
+      2. Core Idea
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-why-rope-works-for-dot-product-attention" class="md-nav__link">
+  <a href="#3-head-specific-slopes" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Why RoPE Works for Dot-Product Attention
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Why RoPE Works for Dot-Product Attention">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-by-step-intuition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step-by-Step Intuition
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-rope-and-multi-head-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. RoPE and Multi-Head Attention
+      3. Head-Specific Slopes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-comparison-why-rope-won" class="md-nav__link">
+  <a href="#4-why-it-extrapolates" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Comparison: Why RoPE Won
+      4. Why It Extrapolates
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-small-intuitive-example" class="md-nav__link">
+  <a href="#5-alibi-vs-rope" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Small Intuitive Example
+      5. ALiBi vs RoPE
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="7. Small Intuitive Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#position-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Position 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#position-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Position 3
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-interview-deep-dive-topics" class="md-nav__link">
+  <a href="#6-limitations" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Interview Deep Dive Topics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Interview Deep Dive Topics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-context-window-extension-rope-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      A. Context Window Extension (RoPE Scaling)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-long-term-decay-property" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. Long-Term Decay Property
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-rope-vs-alibi" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. RoPE vs ALiBi
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-practical-limitations-and-caveats" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Practical Limitations and Caveats
+      6. Limitations
     </span>
   </a>
   
@@ -1690,267 +1426,90 @@
   
 
 
-  <h1>ALiBi</h1>
-
-<p>Rotary Positional Embedding (RoPE) is the state-of-the-art method for encoding positional information in Transformers. It is the default choice for modern LLMs, including <strong>Llama 2/3, Mistral, and PaLM</strong>.</p>
+<h1 id="alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)<a class="headerlink" href="#alibi-attention-with-linear-biases" title="Permanent link">&para;</a></h1>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>ALiBi (Attention with Linear Biases) is a positional encoding method introduced by Press et al. (2022) that replaces learned or rotary position embeddings with a simple <strong>linear penalty added directly to attention logits</strong>. Its key property is strong <strong>length extrapolation</strong>: a model trained on sequences of length 1024 can generalize to sequences of length 2048 or longer at inference time without any fine-tuning.</p>
+<p>Used in: <strong>BLOOM</strong> (176B), <strong>MPT</strong>, and several other open models.</p>
 <hr />
-<h2 id="1-the-core-concept">1. The Core Concept<a class="headerlink" href="#1-the-core-concept" title="Permanent link">&para;</a></h2>
-<p>Traditional embeddings like Sinusoidal or Learned Absolute Embeddings are <strong>additive</strong>:</p>
-<div class="arithmatex">\[
-x_i = e_i + p_i
-\]</div>
-<p><strong>RoPE</strong> is <strong>multiplicative</strong>. It treats the embedding vector as a set of complex numbers and rotates them in a high-dimensional space based on their position.</p>
-<h3 id="why-rotate">Why rotate?<a class="headerlink" href="#why-rotate" title="Permanent link">&para;</a></h3>
-<p>The primary goal of RoPE is to ensure that the <strong>dot product</strong> between two tokens (Query and Key) depends only on their <strong>relative distance</strong>, not their absolute positions.</p>
-<div class="arithmatex">\[
-\langle f_q(x_m, m), f_k(x_n, n) \rangle = g(x_m, x_n, m - n)
-\]</div>
+<h2 id="2-core-idea">2. Core Idea<a class="headerlink" href="#2-core-idea" title="Permanent link">&para;</a></h2>
+<p>Standard attention computes:</p>
+<div class="arithmatex">\[\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]</div>
+<p>ALiBi adds a fixed, non-learned bias matrix to the pre-softmax scores:</p>
+<div class="arithmatex">\[\text{Attention} = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}} + m \cdot B\right)V\]</div>
 <p>Where:</p>
 <ul>
-<li>
-<p><strong><span class="arithmatex">\(x_m, x_n\)</span></strong> : The original content embeddings of the tokens at positions <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span>. These vectors come from the token embedding layer or the previous Transformer block and do not yet include positional information.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(m, n\)</span></strong>: The absolute token positions in the sequence. For example, <span class="arithmatex">\(m = 5\)</span> and <span class="arithmatex">\(n = 12\)</span>.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(f_q(x_m, m)\)</span></strong>: The position-aware <strong>Query</strong> representation at position <span class="arithmatex">\(m\)</span>.<br />
-  This function applies the RoPE rotation to the query vector derived from <span class="arithmatex">\(x_m\)</span>.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(f_k(x_n, n)\)</span></strong>: The position-aware <strong>Key</strong> representation at position <span class="arithmatex">\(n\)</span>.<br />
-  This function applies the same RoPE rotation scheme to the key vector derived from <span class="arithmatex">\(x_n\)</span>.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(\langle \cdot , \cdot \rangle\)</span></strong>: The dot product used in scaled dot-product attention to compute attention scores.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(g(x_m, x_n, m - n)\)</span></strong>: A function whose output depends on the token contents and <strong>only the relative position</strong> <span class="arithmatex">\((m - n)\)</span>, not on the absolute positions themselves.</p>
-</li>
+<li><span class="arithmatex">\(B_{ij} = -(i - j)\)</span> for <span class="arithmatex">\(j \leq i\)</span> — the distance between query position <span class="arithmatex">\(i\)</span> and key position <span class="arithmatex">\(j\)</span></li>
+<li><span class="arithmatex">\(m\)</span> is a <strong>head-specific scalar slope</strong> (fixed, not learned)</li>
 </ul>
-<h4 id="why-this-matters">Why This Matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h4>
-<p>This equation states that after applying RoPE:</p>
-<ul>
-<li>Absolute positions <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span> do not independently affect the attention score.</li>
-<li>Only the relative distance <span class="arithmatex">\((m - n)\)</span> influences how strongly two tokens attend to each other.</li>
-<li>This property enables strong length extrapolation, a natural locality bias, and robust long-context behavior.</li>
-<li>This allows the model to understand relationships between tokens regardless of where they appear in the sequence.</li>
-</ul>
-<p>In contrast, additive positional embeddings typically produce attention scores that depend on both absolute and relative positions, which limits generalization to longer sequences.</p>
+<p>The bias penalizes attending to distant tokens proportionally to their distance. The further away a token is, the more its logit is suppressed.</p>
 <hr />
-<h2 id="2-the-algorithm">2. The Algorithm<a class="headerlink" href="#2-the-algorithm" title="Permanent link">&para;</a></h2>
-<p>RoPE works by pairing elements of the <span class="arithmatex">\(d\)</span>-dimensional embedding and applying a 2D rotation matrix to each pair.</p>
-<p>For a pair of dimensions <span class="arithmatex">\([x^{(1)}, x^{(2)}]\)</span> at position <span class="arithmatex">\(m\)</span>, the transformation is:</p>
-<div class="arithmatex">\[
-\begin{pmatrix}
-\cos m\theta &amp; -\sin m\theta \\
-\sin m\theta &amp; \cos m\theta
-\end{pmatrix}
-\begin{pmatrix}
-x^{(1)} \\
-x^{(2)}
-\end{pmatrix}
-\]</div>
+<h2 id="3-head-specific-slopes">3. Head-Specific Slopes<a class="headerlink" href="#3-head-specific-slopes" title="Permanent link">&para;</a></h2>
+<p>Each attention head gets a different slope <span class="arithmatex">\(m\)</span>, forming a geometric sequence. For <span class="arithmatex">\(n\)</span> heads:</p>
+<div class="arithmatex">\[m_h = 2^{-8h/n}, \quad h = 1, \ldots, n\]</div>
+<p>For 8 heads, slopes are <span class="arithmatex">\(\frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \ldots, \frac{1}{256}\)</span></p>
 <ul>
-<li>
-<p><strong>The Angle (<span class="arithmatex">\(\theta\)</span>)</strong>: The rotation frequency follows a geometric progression<br />
-  $$
-  \theta_i = 10000^{-2i/d}
-  $$
-  similar to sinusoidal embeddings.</p>
-</li>
-<li>
-<p><strong>The Result</strong>: As position <span class="arithmatex">\(m\)</span> increases, the vector rotates further. Because the rotation matrix is orthogonal, the vector norm is preserved while positional information is encoded.</p>
-</li>
+<li><strong>Steep slope (large <span class="arithmatex">\(m\)</span>)</strong>: head strongly prefers nearby tokens — local attention behavior</li>
+<li><strong>Shallow slope (small <span class="arithmatex">\(m\)</span>)</strong>: head can attend more globally — long-range dependencies</li>
 </ul>
+<p>This gives the model a spectrum of attention ranges across heads with zero learned parameters.</p>
 <hr />
-<h2 id="3-where-exactly-is-rope-applied">3. Where Exactly Is RoPE Applied?<a class="headerlink" href="#3-where-exactly-is-rope-applied" title="Permanent link">&para;</a></h2>
-<p>RoPE is applied <strong>only to the Query and Key vectors</strong> in self-attention.</p>
-<ul>
-<li>Queries and Keys are rotated based on token position.</li>
-<li>Values are left unchanged.</li>
-</ul>
-<p>Reason:</p>
-<ul>
-<li>Attention scores are computed using the dot product <span class="arithmatex">\(QK^\top\)</span>.</li>
-<li>RoPE ensures this dot product captures relative position.</li>
-<li>Applying RoPE to Values does not improve positional reasoning and can degrade performance.</li>
-</ul>
+<h2 id="4-why-it-extrapolates">4. Why It Extrapolates<a class="headerlink" href="#4-why-it-extrapolates" title="Permanent link">&para;</a></h2>
+<p>Standard positional encodings (absolute or RoPE) struggle beyond their training context length because the model has never seen position indices larger than its training maximum. ALiBi avoids this by using <strong>distance</strong> rather than absolute position — a query-key pair 500 tokens apart receives the same bias whether it sits at positions (100, 600) or (1000, 1500). The bias function generalizes naturally to any distance.</p>
+<p><strong>Key result (Press et al.):</strong> A model trained with ALiBi at 1024 tokens matches or exceeds a RoPE baseline trained at 2048 tokens when evaluated at 2048 — it extrapolates past its training length better than RoPE trained directly at the target length.</p>
 <hr />
-<h2 id="4-why-rope-works-for-dot-product-attention">4. Why RoPE Works for Dot-Product Attention<a class="headerlink" href="#4-why-rope-works-for-dot-product-attention" title="Permanent link">&para;</a></h2>
-<p>The key mathematical insight behind RoPE is <strong>rotation composition</strong>.</p>
-<p>Consider the equation:</p>
-<div class="arithmatex">\[
-\langle R(m)x, R(n)y \rangle = \langle x, R(n - m)y \rangle
-\]</div>
-<p>Where:</p>
-<ul>
-<li>
-<p><strong><span class="arithmatex">\(x, y\)</span></strong>: Content vectors representing token embeddings after linear projection into Query or Key space. These vectors do not contain positional information by themselves.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(m, n\)</span></strong>: Absolute token positions in the sequence. For example, <span class="arithmatex">\(m = 4\)</span> and <span class="arithmatex">\(n = 10\)</span></p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(R(m)\)</span>, <span class="arithmatex">\(R(n)\)</span></strong>: Orthogonal rotation matrices parameterized by position.<br />
-  Each matrix applies a set of 2D rotations across paired embedding dimensions, with rotation angles proportional to the position index.</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(\langle \cdot , \cdot \rangle\)</span></strong>: The standard dot product used in attention score computation.</p>
-</li>
-</ul>
-<hr />
-<h4 id="step-by-step-intuition">Step-by-Step Intuition<a class="headerlink" href="#step-by-step-intuition" title="Permanent link">&para;</a></h4>
-<ol>
-<li>
-<p><strong>Position Encoding via Rotation</strong><br />
-   Applying <span class="arithmatex">\(R(m)\)</span> to <span class="arithmatex">\(x\)</span> rotates the vector in embedding space by an amount determined by position <span class="arithmatex">\(m\)</span>.<br />
-   Similarly, <span class="arithmatex">\(R(n)\)</span> rotates <span class="arithmatex">\(y\)</span> according to position <span class="arithmatex">\(n\)</span>.</p>
-</li>
-<li>
-<p><strong>Orthogonality Property</strong><br />
-   Rotation matrices are orthogonal, meaning:
-   $$
-   R(m)^\top = R(-m)
-   $$</p>
-</li>
-<li>
-<p><strong>Rewriting the Dot Product</strong><br />
-   Using orthogonality:
-   $$
-   \langle R(m)x, R(n)y \rangle
-   =
-   \langle x, R(m)^\top R(n) y \rangle
-   =
-   \langle x, R(n - m) y \rangle
-   $$</p>
-</li>
-<li>
-<p><strong>Cancellation of Absolute Position</strong><br />
-   The absolute positions <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span> collapse into a single relative offset <span class="arithmatex">\((n - m)\)</span>.</p>
-</li>
-</ol>
-<hr />
-<p>This identity captures the core mathematical reason why RoPE encodes <strong>relative position</strong> rather than absolute position. Below is a detailed explanation of each term and why the equation holds.</p>
-<p>Key implications:</p>
-<ul>
-<li>Absolute positions cancel out.</li>
-<li>Only the relative offset <span class="arithmatex">\((n - m)\)</span> matters.</li>
-<li>This property aligns perfectly with dot-product attention.</li>
-<li>Tokens with the same relative spacing produce the same positional interaction, regardless of where they appear in the sequence.</li>
-</ul>
-<p>This is why RoPE integrates naturally into Transformer architectures.</p>
-<hr />
-<h2 id="5-rope-and-multi-head-attention">5. RoPE and Multi-Head Attention<a class="headerlink" href="#5-rope-and-multi-head-attention" title="Permanent link">&para;</a></h2>
-<p>In multi-head attention:</p>
-<ul>
-<li>RoPE is applied independently within each attention head.</li>
-<li>Each head operates on a lower-dimensional subspace and applies the same frequency schedule.</li>
-</ul>
-<p>As a result:</p>
-<ul>
-<li>Low-frequency dimensions capture long-range dependencies.</li>
-<li>High-frequency dimensions focus on local structure.</li>
-</ul>
-<p>This creates a multi-scale positional representation across heads.</p>
-<hr />
-<h2 id="6-comparison-why-rope-won">6. Comparison: Why RoPE Won<a class="headerlink" href="#6-comparison-why-rope-won" title="Permanent link">&para;</a></h2>
+<h2 id="5-alibi-vs-rope">5. ALiBi vs RoPE<a class="headerlink" href="#5-alibi-vs-rope" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Feature</th>
-<th>Absolute (Sinusoidal)</th>
+<th>Dimension</th>
+<th>ALiBi</th>
 <th>RoPE</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Operation</strong></td>
-<td>Addition</td>
-<td>Rotation (Multiplication)</td>
+<td>Mechanism</td>
+<td>Additive bias on attention logits</td>
+<td>Rotates Q and K vectors</td>
 </tr>
 <tr>
-<td><strong>Relative Distance</strong></td>
-<td>Not explicit</td>
-<td>Naturally captured via dot product</td>
+<td>Learned parameters</td>
+<td>None (slopes are fixed)</td>
+<td>None (frequencies are fixed)</td>
 </tr>
 <tr>
-<td><strong>Extrapolation</strong></td>
-<td>Weak for long contexts</td>
-<td>Strong with scaling</td>
+<td>Length extrapolation</td>
+<td>Strong out-of-the-box</td>
+<td>Requires YaRN / RoPE scaling tricks</td>
 </tr>
 <tr>
-<td><strong>Decay</strong></td>
-<td>No natural decay</td>
-<td>Distance-based interaction decay</td>
+<td>Relative position</td>
+<td>Yes (distance-based)</td>
+<td>Yes (via rotation composition)</td>
 </tr>
 <tr>
-<td><strong>Implementation</strong></td>
-<td>Simple</td>
-<td>Moderate complexity</td>
+<td>Used in</td>
+<td>BLOOM, MPT</td>
+<td>LLaMA, Mistral, PaLM, Gemini</td>
+</tr>
+<tr>
+<td>Decay behavior</td>
+<td>Linear with distance</td>
+<td>Complex sinusoidal</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Prefer ALiBi</strong> when length generalization without fine-tuning is the priority.</p>
+<p><strong>Prefer RoPE</strong> when raw benchmark performance matters — RoPE dominates frontier models (2024–2025), and YaRN/LongRoPE have largely closed the extrapolation gap.</p>
 <hr />
-<h2 id="7-small-intuitive-example">7. Small Intuitive Example<a class="headerlink" href="#7-small-intuitive-example" title="Permanent link">&para;</a></h2>
-<p>Consider a single 2D vector:</p>
-<div class="arithmatex">\[
-x = [1, 0]
-\]</div>
-<p>Assume one frequency <span class="arithmatex">\(\theta = 0.1\)</span>.</p>
-<h3 id="position-1">Position 1<a class="headerlink" href="#position-1" title="Permanent link">&para;</a></h3>
-<p>Rotation angle = <span class="arithmatex">\(0.1\)</span></p>
-<div class="arithmatex">\[
-R(0.1)x = [\cos 0.1, \sin 0.1] \approx [0.995, 0.100]
-\]</div>
-<h3 id="position-3">Position 3<a class="headerlink" href="#position-3" title="Permanent link">&para;</a></h3>
-<p>Rotation angle = <span class="arithmatex">\(0.3\)</span></p>
-<div class="arithmatex">\[
-R(0.3)x = [\cos 0.3, \sin 0.3] \approx [0.955, 0.296]
-\]</div>
-<p>Dot product between the two:</p>
-<div class="arithmatex">\[
-\langle R(0.1)x, R(0.3)x \rangle = \cos(0.2)
-\]</div>
-<p>Observation:</p>
+<h2 id="6-limitations">6. Limitations<a class="headerlink" href="#6-limitations" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The dot product depends only on the positional difference <span class="arithmatex">\((3 - 1)\)</span>.</li>
-<li>Vector magnitude is preserved.</li>
-<li>Relative distance is directly encoded into attention.</li>
+<li><strong>Distance only, no absolute position</strong> — ALiBi encodes how far apart two tokens are, but not where they are absolutely. Tasks requiring absolute position awareness may suffer.</li>
+<li><strong>Not dominant in frontier models</strong> — LLaMA, Mistral, Gemini, and GPT-4 all use RoPE variants. RoPE with context extension techniques has largely matched ALiBi's extrapolation advantage.</li>
+<li><strong>Causal masking interaction</strong> — The bias applies after the causal mask; requires careful implementation to avoid off-by-one errors at sequence boundaries.</li>
 </ul>
 <hr />
-<h2 id="8-interview-deep-dive-topics">8. Interview Deep Dive Topics<a class="headerlink" href="#8-interview-deep-dive-topics" title="Permanent link">&para;</a></h2>
-<h3 id="a-context-window-extension-rope-scaling">A. Context Window Extension (RoPE Scaling)<a class="headerlink" href="#a-context-window-extension-rope-scaling" title="Permanent link">&para;</a></h3>
-<p><strong>Question</strong>: If a model is trained on 4k context, how can it be extended to 128k?</p>
-<ul>
-<li>
-<p><strong>Linear Interpolation</strong>: Scale positions as<br />
-  $$
-  m \rightarrow m \cdot \frac{L}{L'}
-  $$
-  to avoid unseen large angles.</p>
-</li>
-<li>
-<p><strong>NTK-aware Scaling</strong>: Scale different frequencies differently to preserve high-frequency information for nearby tokens.</p>
-</li>
-</ul>
-<hr />
-<h3 id="b-long-term-decay-property">B. Long-Term Decay Property<a class="headerlink" href="#b-long-term-decay-property" title="Permanent link">&para;</a></h3>
-<p>RoPE introduces a natural decay in interaction strength as <span class="arithmatex">\(|m - n|\)</span> increases. This provides a locality bias without enforcing a hard attention window, aligning well with natural language structure.</p>
-<hr />
-<h3 id="c-rope-vs-alibi">C. RoPE vs ALiBi<a class="headerlink" href="#c-rope-vs-alibi" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>ALiBi</strong> adds a linear bias to attention scores based on distance.</li>
-<li><strong>RoPE</strong> encodes position directly into representations, allowing richer and more flexible positional reasoning.</li>
-</ul>
-<hr />
-<h2 id="9-practical-limitations-and-caveats">9. Practical Limitations and Caveats<a class="headerlink" href="#9-practical-limitations-and-caveats" title="Permanent link">&para;</a></h2>
-<ul>
-<li>RoPE assumes evenly spaced token positions.</li>
-<li>Extreme extrapolation without scaling can cause numerical instability.</li>
-<li>Relative position is encoded strongly, but absolute position is implicit, which may matter for structured tasks.</li>
-</ul>
-<hr />
+<p><em>Source: Press et al. (2022) — Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation <a href="https://arxiv.org/abs/2108.12409">[arXiv:2108.12409]</a></em></p>
 
 
 
@@ -2005,7 +1564,7 @@ R(0.3)x = [\cos 0.3, \sin 0.3] \approx [0.955, 0.296]
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy", "mathjax"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.highlight", "search.share", "content.code.copy", "mathjax"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

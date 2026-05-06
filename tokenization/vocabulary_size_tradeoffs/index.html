@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#vocabulary-size-trade-offs" class="md-skip">
           Skip to content
         </a>
       
@@ -285,9 +287,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -401,9 +401,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -540,9 +538,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -748,9 +744,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1015,18 +1009,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      1. Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#2-the-core-trade-off" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      2. The Core Trade-off
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sequence-length-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Sequence Length Impact
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-embedding-table-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Embedding Table Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-multilingual-and-script-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Multilingual and Script Coverage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-fertility" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Fertility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-real-world-vocabulary-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Real-World Vocabulary Sizes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-choosing-vocabulary-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Choosing Vocabulary Size
     </span>
   </a>
   
@@ -1063,9 +1111,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1156,9 +1202,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1166,7 +1210,7 @@
   
   
   <span class="md-ellipsis">
-    Pretraining objective
+    Pretraining Objective
     
   </span>
   
@@ -1177,7 +1221,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Pretraining objective
+            Pretraining Objective
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1188,12 +1232,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../pretraining/next_token_prediction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Next Token Prediction
     
   </span>
   
@@ -1226,9 +1270,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1236,7 +1278,7 @@
   
   
   <span class="md-ellipsis">
-    Scaling laws
+    Scaling Laws
     
   </span>
   
@@ -1247,7 +1289,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            Scaling laws
+            Scaling Laws
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1258,12 +1300,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../scaling_laws/scaling_laws/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Chinchilla & Compute-Optimal Training
     
   </span>
   
@@ -1288,7 +1330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references.md" class="md-nav__link">
+      <a href="../../references/" class="md-nav__link">
         
   
   
@@ -1330,18 +1372,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      1. Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#2-the-core-trade-off" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      2. The Core Trade-off
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sequence-length-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Sequence Length Impact
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-embedding-table-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Embedding Table Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-multilingual-and-script-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Multilingual and Script Coverage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-fertility" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Fertility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-real-world-vocabulary-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Real-World Vocabulary Sizes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-choosing-vocabulary-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Choosing Vocabulary Size
     </span>
   </a>
   
@@ -1366,21 +1462,141 @@
   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<h1 id="vocabulary-size-trade-offs">Vocabulary Size Trade-offs<a class="headerlink" href="#vocabulary-size-trade-offs" title="Permanent link">&para;</a></h1>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>Vocabulary size — the number of unique tokens the tokenizer recognizes — is a fundamental design choice that affects model capacity, training efficiency, inference cost, and cross-lingual performance. Modern LLMs use vocabularies ranging from ~32K (LLaMA 2) to ~256K (Gemini).</p>
+<hr />
+<h2 id="2-the-core-trade-off">2. The Core Trade-off<a class="headerlink" href="#2-the-core-trade-off" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Effect</th>
+<th>Small vocabulary (~32K)</th>
+<th>Large vocabulary (~100K+)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avg. tokens per word</td>
+<td>More (longer sequences)</td>
+<td>Fewer (shorter sequences)</td>
+</tr>
+<tr>
+<td>Sequence length</td>
+<td>Longer → slower attention</td>
+<td>Shorter → faster attention</td>
+</tr>
+<tr>
+<td>Embedding table size</td>
+<td>Small</td>
+<td>Large (embedding + unembedding)</td>
+</tr>
+<tr>
+<td>Rare word coverage</td>
+<td>Poor (falls back to characters)</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Multilingual coverage</td>
+<td>Limited</td>
+<td>Better across scripts</td>
+</tr>
+<tr>
+<td>OOV handling</td>
+<td>More fragmented</td>
+<td>Less fragmented</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-sequence-length-impact">3. Sequence Length Impact<a class="headerlink" href="#3-sequence-length-impact" title="Permanent link">&para;</a></h2>
+<p>A smaller vocabulary forces the tokenizer to split words into more pieces. This directly increases sequence length, which increases the quadratic cost of attention:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>GPT-2 (50K vocab): "unhappiness" → 3 tokens</li>
+<li>LLaMA 2 (32K vocab): "unhappiness" → 4 tokens</li>
+<li>GPT-4 (100K vocab): "unhappiness" → 1 token</li>
 </ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<p>Longer sequences mean more KV cache memory, slower prefill, and more forward passes per document.</p>
+<hr />
+<h2 id="4-embedding-table-cost">4. Embedding Table Cost<a class="headerlink" href="#4-embedding-table-cost" title="Permanent link">&para;</a></h2>
+<p>Vocabulary size directly determines the size of two weight matrices:</p>
+<ul>
+<li><strong>Token embedding matrix</strong>: <span class="arithmatex">\(V \times d_\text{model}\)</span></li>
+<li><strong>Unembedding (lm_head) matrix</strong>: <span class="arithmatex">\(d_\text{model} \times V\)</span></li>
+</ul>
+<p>For a model with <span class="arithmatex">\(d_\text{model} = 4096\)</span> and <span class="arithmatex">\(V = 100{,}000\)</span>: each matrix is <span class="arithmatex">\(4096 \times 100{,}000 \approx 400M\)</span> parameters (in float32). This is a meaningful fraction of a 7B model's total parameters.</p>
+<p>In practice, the two matrices are often <strong>weight-tied</strong> (shared weights) to halve this cost.</p>
+<hr />
+<h2 id="5-multilingual-and-script-coverage">5. Multilingual and Script Coverage<a class="headerlink" href="#5-multilingual-and-script-coverage" title="Permanent link">&para;</a></h2>
+<p>Small vocabularies trained primarily on English text tokenize non-Latin scripts (Chinese, Arabic, Hindi) very inefficiently — each character may become its own token, producing extremely long sequences. Large multilingual vocabularies (SentencePiece with 250K+) allocate tokens proportionally to corpus frequency across languages.</p>
+<p><strong>LLaMA 2 (32K, English-heavy):</strong> A Hindi sentence of 10 words may expand to 40+ tokens.</p>
+<p><strong>LLaMA 3 (128K):</strong> Meta increased vocabulary size specifically to improve multilingual tokenization efficiency.</p>
+<hr />
+<h2 id="6-fertility">6. Fertility<a class="headerlink" href="#6-fertility" title="Permanent link">&para;</a></h2>
+<p><strong>Fertility</strong> is the average number of tokens produced per word for a given tokenizer on a given corpus. Lower fertility = more efficient tokenization.</p>
+<ul>
+<li>English text on a well-matched tokenizer: fertility ≈ 1.3–1.5</li>
+<li>Non-Latin script on a mismatched tokenizer: fertility can exceed 5–10</li>
+</ul>
+<p>Fertility is a standard metric for evaluating multilingual tokenizer quality.</p>
+<hr />
+<h2 id="7-real-world-vocabulary-sizes">7. Real-World Vocabulary Sizes<a class="headerlink" href="#7-real-world-vocabulary-sizes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Vocab Size</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-2</td>
+<td>50,257</td>
+<td>BPE, English-focused</td>
+</tr>
+<tr>
+<td>LLaMA 2</td>
+<td>32,000</td>
+<td>SentencePiece BPE</td>
+</tr>
+<tr>
+<td>LLaMA 3</td>
+<td>128,256</td>
+<td>Enlarged for multilingual</td>
+</tr>
+<tr>
+<td>GPT-4 / GPT-3.5</td>
+<td>~100,000</td>
+<td>cl100k_base (TikToken)</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>256,000</td>
+<td>SentencePiece, multilingual</td>
+</tr>
+<tr>
+<td>Mistral 7B</td>
+<td>32,000</td>
+<td>Same as LLaMA 2</td>
+</tr>
+<tr>
+<td>BLOOM</td>
+<td>250,880</td>
+<td>Multilingual, 46 languages</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-choosing-vocabulary-size">8. Choosing Vocabulary Size<a class="headerlink" href="#8-choosing-vocabulary-size" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monolingual English, smaller model</strong>: 32K–50K is sufficient; keeps embedding table small</li>
+<li><strong>Multilingual or code-heavy</strong>: 100K+ to avoid tokenization inefficiency</li>
+<li><strong>Very long context tasks</strong>: Larger vocabulary reduces sequence length, reducing attention cost</li>
+<li><strong>Tight memory budget</strong>: Smaller vocabulary reduces embedding table size</li>
+</ul>
+<hr />
+<p><em>Sources: Kudo &amp; Richardson (2018) — SentencePiece <a href="https://arxiv.org/abs/1808.06226">[arXiv:1808.06226]</a> · Touvron et al. (2023) — LLaMA 2 <a href="https://arxiv.org/abs/2307.09288">[arXiv:2307.09288]</a> · Dubey et al. (2024) — LLaMA 3 <a href="https://arxiv.org/abs/2407.21783">[arXiv:2407.21783]</a></em></p>
 
 
 
@@ -1435,7 +1651,7 @@ docs/
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy", "mathjax"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.highlight", "search.share", "content.code.copy", "mathjax"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

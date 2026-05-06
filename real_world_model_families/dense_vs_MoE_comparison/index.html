@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,6 +76,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#dense-vs-moe-real-world-comparison" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -280,9 +287,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -396,9 +401,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -688,6 +691,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Dense vs MoE Comparison
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -700,6 +718,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-representative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Representative Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-inference-cost-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Inference Cost Comparison
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-training-cost-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Training Cost Comparison
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-quality-at-equivalent-inference-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Quality at Equivalent Inference Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-when-to-use-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. When to Use Each
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -751,9 +833,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -844,9 +924,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1006,9 +1084,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1099,9 +1175,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1109,7 +1183,7 @@
   
   
   <span class="md-ellipsis">
-    Pretraining objective
+    Pretraining Objective
     
   </span>
   
@@ -1120,7 +1194,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Pretraining objective
+            Pretraining Objective
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1131,12 +1205,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../pretraining/next_token_prediction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Next Token Prediction
     
   </span>
   
@@ -1169,9 +1243,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1179,7 +1251,7 @@
   
   
   <span class="md-ellipsis">
-    Scaling laws
+    Scaling Laws
     
   </span>
   
@@ -1190,7 +1262,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            Scaling laws
+            Scaling Laws
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1201,12 +1273,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../scaling_laws/scaling_laws/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Chinchilla & Compute-Optimal Training
     
   </span>
   
@@ -1231,7 +1303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references.md" class="md-nav__link">
+      <a href="../../references/" class="md-nav__link">
         
   
   
@@ -1263,6 +1335,61 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-representative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Representative Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-inference-cost-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Inference Cost Comparison
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-training-cost-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Training Cost Comparison
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-quality-at-equivalent-inference-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Quality at Equivalent Inference Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-when-to-use-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. When to Use Each
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1281,9 +1408,172 @@
   
 
 
-  <h1>Dense vs MoE Comparison</h1>
-
-
+<h1 id="dense-vs-moe-real-world-comparison">Dense vs MoE: Real-World Comparison<a class="headerlink" href="#dense-vs-moe-real-world-comparison" title="Permanent link">&para;</a></h1>
+<p>This page compares dense and sparse MoE model families on practical dimensions. For the architectural concepts, see <a href="../../model_architecture_families/dense_vs_sparse_models/">Dense vs Sparse Models</a> and <a href="../../model_architecture_families/mixture_of_experts/">Mixture of Experts</a>.</p>
+<hr />
+<h2 id="1-representative-models">1. Representative Models<a class="headerlink" href="#1-representative-models" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Type</th>
+<th>Active Params</th>
+<th>Total Params</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLaMA 3 8B</td>
+<td>Dense</td>
+<td>8B</td>
+<td>8B</td>
+<td>Meta, GQA, RoPE</td>
+</tr>
+<tr>
+<td>LLaMA 3 70B</td>
+<td>Dense</td>
+<td>70B</td>
+<td>70B</td>
+<td>Meta, GQA, RoPE</td>
+</tr>
+<tr>
+<td>Mistral 7B</td>
+<td>Dense</td>
+<td>7B</td>
+<td>7B</td>
+<td>GQA + SWA</td>
+</tr>
+<tr>
+<td>Gemma 2 9B</td>
+<td>Dense</td>
+<td>9B</td>
+<td>9B</td>
+<td>Google, alternating attention</td>
+</tr>
+<tr>
+<td>Mixtral 8x7B</td>
+<td>Sparse MoE</td>
+<td>~13B</td>
+<td>~47B</td>
+<td>Top-2 routing, 8 experts</td>
+</tr>
+<tr>
+<td>Mixtral 8x22B</td>
+<td>Sparse MoE</td>
+<td>~39B</td>
+<td>~141B</td>
+<td>Top-2 routing</td>
+</tr>
+<tr>
+<td>DeepSeek-V2</td>
+<td>Sparse MoE</td>
+<td>~21B</td>
+<td>~236B</td>
+<td>160 experts, top-6</td>
+</tr>
+<tr>
+<td>Grok-1</td>
+<td>Sparse MoE</td>
+<td>~87B</td>
+<td>~314B</td>
+<td>8 experts per layer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-inference-cost-comparison">2. Inference Cost Comparison<a class="headerlink" href="#2-inference-cost-comparison" title="Permanent link">&para;</a></h2>
+<p>The key MoE advantage: inference cost scales with <strong>active</strong> parameters, not total parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Dense 70B</th>
+<th>Mixtral 8x7B (~13B active)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory (weights, FP16)</td>
+<td>~140 GB</td>
+<td>~94 GB (all experts loaded)</td>
+</tr>
+<tr>
+<td>FLOPS per token</td>
+<td>~140B</td>
+<td>~26B (2 experts × 7B)</td>
+</tr>
+<tr>
+<td>Throughput (relative)</td>
+<td>1×</td>
+<td>~3-5× faster per token</td>
+</tr>
+<tr>
+<td>Quality (MMLU)</td>
+<td>~79%</td>
+<td>~79%</td>
+</tr>
+</tbody>
+</table>
+<p>The catch: <strong>all expert weights must be loaded into memory</strong> even though only 2 of 8 are used per token. MoE saves compute but not memory.</p>
+<hr />
+<h2 id="3-training-cost-comparison">3. Training Cost Comparison<a class="headerlink" href="#3-training-cost-comparison" title="Permanent link">&para;</a></h2>
+<p>MoE models are more expensive to train due to:</p>
+<ul>
+<li>Load balancing losses to prevent expert collapse (all tokens routing to one expert)</li>
+<li>Communication overhead in distributed training (all-to-all routing across GPUs)</li>
+<li>Larger total parameter count requires more memory even during training</li>
+</ul>
+<p>In practice, MoE models are trained on the same or more tokens as equivalent dense models to achieve the same quality — the compute efficiency gain is at inference, not training.</p>
+<hr />
+<h2 id="4-quality-at-equivalent-inference-cost">4. Quality at Equivalent Inference Cost<a class="headerlink" href="#4-quality-at-equivalent-inference-cost" title="Permanent link">&para;</a></h2>
+<p>The central promise of MoE: <strong>match a larger dense model's quality at a smaller dense model's inference cost</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Dense equivalent</th>
+<th>MoE model</th>
+<th>MoE active params</th>
+<th>MoE quality (MMLU)</th>
+<th>Dense quality (MMLU)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLaMA 2 70B</td>
+<td>Mixtral 8x7B</td>
+<td>~13B</td>
+<td>79.9%</td>
+<td>69.8%</td>
+</tr>
+<tr>
+<td>GPT-3.5</td>
+<td>Mixtral 8x22B</td>
+<td>~39B</td>
+<td>~77%</td>
+<td>~70%</td>
+</tr>
+</tbody>
+</table>
+<p>Mixtral 8x7B uses 5× fewer active parameters than LLaMA 2 70B while scoring ~10 points higher on MMLU.</p>
+<hr />
+<h2 id="5-when-to-use-each">5. When to Use Each<a class="headerlink" href="#5-when-to-use-each" title="Permanent link">&para;</a></h2>
+<p><strong>Use a dense model when:</strong></p>
+<ul>
+<li>Serving on limited GPU memory (MoE requires loading all experts)</li>
+<li>Deploying on a single GPU or CPU (MoE routing adds complexity)</li>
+<li>Fine-tuning budget is small (fewer total parameters to update in dense)</li>
+<li>Latency is the primary constraint (dense models have simpler compute graphs)</li>
+</ul>
+<p><strong>Use a MoE model when:</strong></p>
+<ul>
+<li>Throughput matters more than per-request latency</li>
+<li>Multiple GPUs are available (experts can be distributed across GPUs)</li>
+<li>Quality-per-inference-FLOP is the primary metric</li>
+<li>Total memory budget allows loading all experts</li>
+</ul>
+<hr />
+<p><em>Sources: Jiang et al. (2024) — Mixtral <a href="https://arxiv.org/abs/2401.04088">[arXiv:2401.04088]</a> · DeepSeek-AI (2024) — DeepSeek-V2 <a href="https://arxiv.org/abs/2405.04434">[arXiv:2405.04434]</a></em></p>
 
 
 
@@ -1338,7 +1628,7 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy", "mathjax"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.highlight", "search.share", "content.code.copy", "mathjax"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

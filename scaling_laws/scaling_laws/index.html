@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../openai/">
+        <link rel="prev" href="../../pretraining/next_token_prediction/">
       
       
-        <link rel="next" href="../dense_vs_MoE_comparison/">
+        <link rel="next" href="../../references/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Mistral - LLM-Architecture_Foundations</title>
+        <title>Chinchilla & Compute-Optimal Training - LLM-Architecture_Foundations</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mistral-model-family" class="md-skip">
+        <a href="#scaling-laws-and-compute-optimal-training" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mistral
+              Chinchilla & Compute-Optimal Training
             
           </span>
         </div>
@@ -527,20 +527,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -556,7 +554,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Real World Model Families
@@ -570,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../claude/" class="md-nav__link">
+      <a href="../../real_world_model_families/claude/" class="md-nav__link">
         
   
   
@@ -593,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../llama/" class="md-nav__link">
+      <a href="../../real_world_model_families/llama/" class="md-nav__link">
         
   
   
@@ -616,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gemini/" class="md-nav__link">
+      <a href="../../real_world_model_families/gemini/" class="md-nav__link">
         
   
   
@@ -639,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../openai/" class="md-nav__link">
+      <a href="../../real_world_model_families/openai/" class="md-nav__link">
         
   
   
@@ -659,32 +657,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Mistral
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../real_world_model_families/mistral/" class="md-nav__link">
         
   
   
@@ -695,71 +671,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-model-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Model Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-mistral-7b-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Mistral 7B Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-mixtral-8x7b-sparse-moe" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Mixtral 8x7B: Sparse MoE
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-performance-vs-size" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Performance vs Size
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-key-architectural-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Key Architectural Contributions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -772,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dense_vs_MoE_comparison/" class="md-nav__link">
+      <a href="../../real_world_model_families/dense_vs_MoE_comparison/" class="md-nav__link">
         
   
   
@@ -795,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../general_comparison/" class="md-nav__link">
+      <a href="../../real_world_model_families/general_comparison/" class="md-nav__link">
         
   
   
@@ -1232,18 +1143,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1259,7 +1172,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Scaling Laws
@@ -1270,10 +1183,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../scaling_laws/scaling_laws/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Chinchilla & Compute-Optimal Training
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1284,6 +1219,104 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-kaplan-et-al-2020-power-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Kaplan et al. (2020): Power Laws
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-chinchilla-hoffmann-et-al-2022-the-revised-optimum" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Chinchilla (Hoffmann et al., 2022): The Revised Optimum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-practical-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Practical Implications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Practical Implications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-size-vs-data-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model size vs data size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-frontier-models-exceed-chinchilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why frontier models exceed Chinchilla
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergent-capabilities-and-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emergent capabilities and scaling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-the-scaling-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. The Scaling Hypothesis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1345,45 +1378,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-model-overview" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Model Overview
+      1. Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-mistral-7b-architecture" class="md-nav__link">
+  <a href="#2-kaplan-et-al-2020-power-laws" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Mistral 7B Architecture
+      2. Kaplan et al. (2020): Power Laws
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-mixtral-8x7b-sparse-moe" class="md-nav__link">
+  <a href="#3-chinchilla-hoffmann-et-al-2022-the-revised-optimum" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Mixtral 8x7B: Sparse MoE
+      3. Chinchilla (Hoffmann et al., 2022): The Revised Optimum
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-performance-vs-size" class="md-nav__link">
+  <a href="#4-practical-implications" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Performance vs Size
+      4. Practical Implications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Practical Implications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-size-vs-data-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model size vs data size
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#why-frontier-models-exceed-chinchilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why frontier models exceed Chinchilla
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergent-capabilities-and-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emergent capabilities and scaling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#5-key-architectural-contributions" class="md-nav__link">
+  <a href="#5-the-scaling-hypothesis" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Key Architectural Contributions
+      5. The Scaling Hypothesis
     </span>
   </a>
   
@@ -1408,133 +1474,100 @@
   
 
 
-<h1 id="mistral-model-family">Mistral Model Family<a class="headerlink" href="#mistral-model-family" title="Permanent link">&para;</a></h1>
-<h2 id="1-model-overview">1. Model Overview<a class="headerlink" href="#1-model-overview" title="Permanent link">&para;</a></h2>
-<p>Mistral AI has released two architecturally distinct model lines: the <strong>Mistral</strong> dense models and the <strong>Mixtral</strong> sparse MoE models. Both are open-weight and have been influential in demonstrating high capability at smaller parameter counts.</p>
+<h1 id="scaling-laws-and-compute-optimal-training">Scaling Laws and Compute-Optimal Training<a class="headerlink" href="#scaling-laws-and-compute-optimal-training" title="Permanent link">&para;</a></h1>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>Scaling laws describe how model performance (measured by loss) changes as a function of three variables: <strong>model size</strong> (<span class="arithmatex">\(N\)</span>, parameters), <strong>dataset size</strong> (<span class="arithmatex">\(D\)</span>, tokens), and <strong>compute budget</strong> (<span class="arithmatex">\(C\)</span>, FLOPs). Two landmark papers established the empirical relationship:</p>
+<ul>
+<li><strong>Kaplan et al. (2020)</strong> — OpenAI: first systematic scaling laws for LLMs</li>
+<li><strong>Hoffmann et al. (2022)</strong> — DeepMind: Chinchilla scaling laws (revised optimal allocation)</li>
+</ul>
+<hr />
+<h2 id="2-kaplan-et-al-2020-power-laws">2. Kaplan et al. (2020): Power Laws<a class="headerlink" href="#2-kaplan-et-al-2020-power-laws" title="Permanent link">&para;</a></h2>
+<p>Kaplan et al. found that LLM loss follows clean <strong>power laws</strong> in each variable when the others are held fixed:</p>
+<div class="arithmatex">\[L(N) \propto N^{-\alpha_N}, \quad L(D) \propto D^{-\alpha_D}, \quad L(C) \propto C^{-\alpha_C}\]</div>
+<p>With approximately: <span class="arithmatex">\(\alpha_N \approx 0.076\)</span>, <span class="arithmatex">\(\alpha_D \approx 0.095\)</span>, <span class="arithmatex">\(\alpha_C \approx 0.050\)</span></p>
+<p><strong>Key finding:</strong> Model size (<span class="arithmatex">\(N\)</span>) has a stronger effect on loss than dataset size (<span class="arithmatex">\(D\)</span>). Kaplan et al. concluded that given a fixed compute budget, it is better to <strong>train a larger model on fewer tokens</strong> than a smaller model to convergence.</p>
+<hr />
+<h2 id="3-chinchilla-hoffmann-et-al-2022-the-revised-optimum">3. Chinchilla (Hoffmann et al., 2022): The Revised Optimum<a class="headerlink" href="#3-chinchilla-hoffmann-et-al-2022-the-revised-optimum" title="Permanent link">&para;</a></h2>
+<p>Chinchilla challenged Kaplan's recommendation by training models more carefully across a wider range of sizes and token counts. Their finding:</p>
+<p><strong>For a compute-optimal run, model size <span class="arithmatex">\(N\)</span> and training tokens <span class="arithmatex">\(D\)</span> should scale equally:</strong></p>
+<div class="arithmatex">\[N_{\text{opt}} \propto C^{0.5}, \quad D_{\text{opt}} \propto C^{0.5}\]</div>
+<p>In practice: <strong>~20 tokens per parameter</strong> is the compute-optimal ratio.</p>
 <table>
 <thead>
 <tr>
 <th>Model</th>
-<th>Params (active)</th>
-<th>Architecture</th>
-<th>Key Features</th>
+<th>Parameters</th>
+<th>Training tokens</th>
+<th>Tokens/param</th>
+<th>Chinchilla optimal?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Mistral 7B</td>
+<td>GPT-3</td>
+<td>175B</td>
+<td>300B</td>
+<td>1.7×</td>
+<td>Under-trained</td>
+</tr>
+<tr>
+<td>Gopher</td>
+<td>280B</td>
+<td>300B</td>
+<td>1.1×</td>
+<td>Under-trained</td>
+</tr>
+<tr>
+<td>Chinchilla</td>
+<td>70B</td>
+<td>1.4T</td>
+<td>20×</td>
+<td>Yes (by design)</td>
+</tr>
+<tr>
+<td>LLaMA 2 7B</td>
 <td>7B</td>
-<td>Dense decoder-only</td>
-<td>SWA, GQA, no absolute PE</td>
+<td>2T</td>
+<td>286×</td>
+<td>Over-trained</td>
 </tr>
 <tr>
-<td>Mixtral 8x7B</td>
-<td>13B active / 47B total</td>
-<td>Sparse MoE</td>
-<td>8 experts, top-2 routing</td>
-</tr>
-<tr>
-<td>Mixtral 8x22B</td>
-<td>39B active / 141B total</td>
-<td>Sparse MoE</td>
-<td>Larger MoE, multilingual</td>
-</tr>
-<tr>
-<td>Mistral Large</td>
-<td>Not disclosed</td>
-<td>Dense</td>
-<td>Flagship closed model</td>
+<td>LLaMA 3 8B</td>
+<td>8B</td>
+<td>15T</td>
+<td>1875×</td>
+<td>Far over-trained</td>
 </tr>
 </tbody>
 </table>
+<p><strong>The "over-training" insight:</strong> Training a smaller model on far more tokens than Chinchilla-optimal is rational for <strong>inference</strong> — a smaller model trained on more data matches the quality of a larger Chinchilla-optimal model but is cheaper to serve. LLaMA 2/3 explicitly chose this trade-off.</p>
 <hr />
-<h2 id="2-mistral-7b-architecture">2. Mistral 7B Architecture<a class="headerlink" href="#2-mistral-7b-architecture" title="Permanent link">&para;</a></h2>
-<p>Mistral 7B (2023) introduced two attention optimizations as defaults that have since become industry-standard:</p>
-<p><strong>Grouped Query Attention (GQA):</strong></p>
+<h2 id="4-practical-implications">4. Practical Implications<a class="headerlink" href="#4-practical-implications" title="Permanent link">&para;</a></h2>
+<h3 id="model-size-vs-data-size">Model size vs data size<a class="headerlink" href="#model-size-vs-data-size" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Uses 8 KV heads instead of 32 (same as query heads)</li>
-<li>Reduces KV cache memory by 4× at inference</li>
-<li>See <a href="../../attention_mechanisms/gqa/">GQA</a> for full details</li>
+<li>Given a fixed compute budget, Chinchilla says split compute equally between model size and data</li>
+<li>Given a fixed inference budget (serving cost), train smaller models on more data</li>
 </ul>
-<p><strong>Sliding Window Attention (SWA):</strong></p>
-<ul>
-<li>Each token attends only to the previous 4,096 tokens (window size <span class="arithmatex">\(W = 4096\)</span>)</li>
-<li>Reduces attention complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n \cdot W)\)</span></li>
-<li>Multi-layer stacking gives a theoretical receptive field of <span class="arithmatex">\(W \times \text{depth}\)</span> tokens</li>
-<li>See <a href="../../attention_mechanisms/sliding_window/">Sliding Window Attention</a></li>
-</ul>
-<p><strong>Other architectural choices:</strong></p>
-<ul>
-<li>RoPE positional encoding (no learned absolute embeddings)</li>
-<li>RMSNorm (not LayerNorm)</li>
-<li>SwiGLU activation in the FFN</li>
-<li>Vocabulary: 32,000 (SentencePiece, same tokenizer as LLaMA 2)</li>
-</ul>
-<p><strong>Mistral 7B config:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Layers</td>
-<td>32</td>
-</tr>
-<tr>
-<td>Hidden dim</td>
-<td>4,096</td>
-</tr>
-<tr>
-<td>Query heads</td>
-<td>32</td>
-</tr>
-<tr>
-<td>KV heads (GQA)</td>
-<td>8</td>
-</tr>
-<tr>
-<td>FFN dim</td>
-<td>14,336</td>
-</tr>
-<tr>
-<td>Context length</td>
-<td>8,192 (SWA window: 4,096)</td>
-</tr>
-</tbody>
-</table>
+<h3 id="why-frontier-models-exceed-chinchilla">Why frontier models exceed Chinchilla<a class="headerlink" href="#why-frontier-models-exceed-chinchilla" title="Permanent link">&para;</a></h3>
+<p>GPT-4, LLaMA 3, and others train on far more tokens than the 20× rule because:
+1. Inference is run billions of times — even small quality gains at the cost of extra training compute are worthwhile
+2. Data quality matters more than Chinchilla assumed; better-curated datasets push the optimum further</p>
+<h3 id="emergent-capabilities-and-scaling">Emergent capabilities and scaling<a class="headerlink" href="#emergent-capabilities-and-scaling" title="Permanent link">&para;</a></h3>
+<p>Some capabilities appear to emerge discontinuously at scale thresholds (Wei et al., 2022):
+- Chain-of-thought reasoning: largely absent below ~100B parameters
+- Arithmetic, multi-step reasoning: emerge at scale</p>
+<p>However, later work (Schaeffer et al., 2023) argues some apparent emergent capabilities are artifacts of nonlinear evaluation metrics rather than true discontinuities.</p>
 <hr />
-<h2 id="3-mixtral-8x7b-sparse-moe">3. Mixtral 8x7B: Sparse MoE<a class="headerlink" href="#3-mixtral-8x7b-sparse-moe" title="Permanent link">&para;</a></h2>
-<p>Mixtral 8x7B replaces each dense FFN layer with a <strong>Mixture of Experts</strong> block containing 8 expert FFNs. A router selects <strong>top-2 experts</strong> per token.</p>
-<p><strong>Why this matters:</strong></p>
+<h2 id="5-the-scaling-hypothesis">5. The Scaling Hypothesis<a class="headerlink" href="#5-the-scaling-hypothesis" title="Permanent link">&para;</a></h2>
+<p>The broader <strong>scaling hypothesis</strong> (Sutton's "Bitter Lesson", 2019) holds that general methods that leverage compute scale better than methods encoding human knowledge:</p>
 <ul>
-<li><strong>Active parameters</strong>: Only ~13B parameters are used per forward pass (2 of 8 experts per layer)</li>
-<li><strong>Total parameters</strong>: ~47B stored (all 8 experts)</li>
-<li>Inference cost matches a ~13B dense model; quality approaches a ~70B dense model</li>
+<li>More compute + more data + larger model → better performance, reliably</li>
+<li>Architecture search, feature engineering, and inductive biases have diminishing value as scale increases</li>
 </ul>
-<p><strong>Architecture:</strong></p>
-<ul>
-<li>Attention layers are <strong>identical to Mistral 7B</strong> (GQA, SWA, RoPE)</li>
-<li>Only the FFN layers become MoE blocks</li>
-<li>Router: linear layer producing logits over 8 experts; softmax-weighted sum of top-2</li>
-</ul>
-<p><strong>Context length:</strong> 32K tokens (SWA window extended vs 7B)</p>
-<p>See <a href="../../model_architecture_families/mixture_of_experts/">Mixture of Experts</a> for routing and load balancing details.</p>
+<p>This underpins why the field has converged on similar decoder-only Transformer architectures rather than divergent specialized designs.</p>
 <hr />
-<h2 id="4-performance-vs-size">4. Performance vs Size<a class="headerlink" href="#4-performance-vs-size" title="Permanent link">&para;</a></h2>
-<p>Mistral 7B was notable at release for outperforming LLaMA 2 13B on most benchmarks while being nearly half the size. The key driver was the architectural efficiency (GQA + SWA) rather than more data or larger scale.</p>
-<p>Mixtral 8x7B matches or exceeds LLaMA 2 70B on most benchmarks at a fraction of the inference cost, demonstrating that sparse MoE is an efficient path to high capability.</p>
-<hr />
-<h2 id="5-key-architectural-contributions">5. Key Architectural Contributions<a class="headerlink" href="#5-key-architectural-contributions" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>GQA as default</strong> — Mistral 7B normalized GQA as the expected choice for efficient inference; adopted subsequently by LLaMA 3, Gemma, and others</li>
-<li><strong>SWA as production feature</strong> — Demonstrated SWA works well in practice for long-context tasks</li>
-<li><strong>Open-weight MoE</strong> — Mixtral made sparse MoE accessible for fine-tuning and research; previously only GPT-4 (suspected) and Google's models used MoE at this scale</li>
-</ul>
-<hr />
-<p><em>Sources: Jiang et al. (2023) — Mistral 7B <a href="https://arxiv.org/abs/2310.06825">[arXiv:2310.06825]</a> · Jiang et al. (2024) — Mixtral of Experts <a href="https://arxiv.org/abs/2401.04088">[arXiv:2401.04088]</a></em></p>
+<p><em>Sources: Kaplan et al. (2020) <a href="https://arxiv.org/abs/2001.08361">[arXiv:2001.08361]</a> · Hoffmann et al. (2022) — Chinchilla <a href="https://arxiv.org/abs/2203.15556">[arXiv:2203.15556]</a> · Wei et al. (2022) — Emergent Abilities <a href="https://arxiv.org/abs/2206.07682">[arXiv:2206.07682]</a></em></p>
 
 
 
