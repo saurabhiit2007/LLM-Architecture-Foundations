@@ -1,3 +1,5 @@
+# LLaMA Model Family
+
 ## 1. Model Breakdown
 
 The Llama family has evolved from simple text prediction into a multi-tiered ecosystem of specialized models.
@@ -8,8 +10,6 @@ The Llama family has evolved from simple text prediction into a multi-tiered eco
 | **Llama 3.2** | 1B, 3B, 11B, 90B | **Vision & Edge:** Introduced native multimodal capabilities and ultra-small versions for mobile devices. |
 | **Llama 3.3** | 70B | **Efficiency King:** Refines the 70B architecture to match 405B performance levels at a fraction of the cost. |
 | **Llama 4** | Scout, Maverick | **Agentic AI:** Focuses on native video/audio processing and advanced autonomous reasoning. |
-
----
 
 ---
 
@@ -30,8 +30,6 @@ Meta uses a combination of:
 
 ---
 
----
-
 ## 3. System 1 vs. System 2 Reasoning
 
 ### System 1 (Fast & Intuitive)
@@ -45,8 +43,6 @@ Meta uses a combination of:
 * **Models:** Llama 4 (Maverick), Llama 3.1 (405B).
 * **Behavior:** These models incorporate **Chain-of-Thought (CoT)** and "test-time scaling." 
 * **Difference:** Instead of guessing the next word, they can "think" through a problem. Llama 4, in particular, is designed to perform agentic loops—checking its own work and iterating on a solution before outputting the final result.
-
----
 
 ---
 

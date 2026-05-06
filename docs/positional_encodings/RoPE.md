@@ -1,3 +1,5 @@
+# Rotary Positional Embeddings (RoPE)
+
 Rotary Positional Embedding (RoPE) is the state-of-the-art method for encoding positional information in Transformers. It is the default choice for modern LLMs, including **Llama 2/3, Mistral, and PaLM**.
 
 ---

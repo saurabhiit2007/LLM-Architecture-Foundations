@@ -1,3 +1,5 @@
+# Byte Pair Encoding (BPE)
+
 ## 1. Overview
 
 Byte Pair Encoding (BPE) and its modern variants are the dominant subword tokenization methods used in today’s Large Language Models (LLMs), including **GPT-3, GPT-4, and LLaMA**. BPE strikes a practical balance between word-level and character-level tokenization, enabling scalable training while avoiding out-of-vocabulary failures.

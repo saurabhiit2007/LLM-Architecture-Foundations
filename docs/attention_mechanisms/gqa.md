@@ -1,8 +1,8 @@
+# Grouped Query Attention (GQA)
+
 ## Overview
 
 **Grouped Query Attention (GQA)** has become the industry standard for modern Large Language Models (LLMs) like **Llama 3**, **Mistral**, and **Gemma**. It was introduced to solve a critical bottleneck in transformer architectures: the memory-heavy **KV Cache**.
-
----
 
 ---
 
@@ -29,8 +29,6 @@ To understand GQA, we must place it on a spectrum between two other mechanisms.
 
 ---
 
----
-
 ## 3. Mathematical Formulation
 
 In a standard transformer layer, we have $H$ query heads. In GQA, we divide these into $G$ groups.
@@ -49,8 +47,6 @@ $$\text{Attention}(Q_i, K_g, V_g) = \text{softmax}\left(\frac{Q_i K_g^T}{\sqrt{d
 
 ---
 
----
-
 ## 4. Training vs. Inference
 
 | Feature | Training Phase | Inference Phase (Generation) |
@@ -64,8 +60,6 @@ $$\text{Attention}(Q_i, K_g, V_g) = \text{softmax}\left(\frac{Q_i K_g^T}{\sqrt{d
 
 ---
 
----
-
 ## 5. Recent Updates (2025-2026)
 
 * **Asymmetric/Activation-Informed GQA:** Instead of grouping neighboring heads, researchers now use "activation-informed" grouping. They group heads that show similar attention patterns, leading to 7-10% better accuracy on benchmarks like MMLU.
@@ -75,8 +69,6 @@ $$\text{Attention}(Q_i, K_g, V_g) = \text{softmax}\left(\frac{Q_i K_g^T}{\sqrt{d
 
 
 * **MLA (Multi-head Latent Attention):** Popularized by **DeepSeek-V3**, this is seen as an evolution of GQA. It uses low-rank compression to further reduce the KV cache beyond what simple grouping can achieve.
-
----
 
 ---
 

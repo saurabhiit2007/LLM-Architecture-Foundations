@@ -1,8 +1,8 @@
+# Mixture of Experts (MoE)
+
 ## 1. Overview
 
 Mixture of Experts (MoE) is an architectural paradigm that enables scaling model capacity to frontier levels while keeping per-token inference compute manageable. It allows a model to store far more knowledge than a dense model with similar inference cost, making it a key technique behind models such as GPT-4, Mixtral, and Grok.
-
----
 
 ---
 
@@ -30,8 +30,6 @@ Key distinction:
 
 - **Total parameters** represent the full knowledge capacity
 - **Active parameters** determine inference cost for a given token
-
----
 
 ---
 
@@ -80,8 +78,6 @@ The model exhibits capacity comparable to a ~50B dense model while running at th
 
 ---
 
----
-
 ## 4. Expert Capacity and Token Dropping
 
 Each expert has a fixed **capacity**, which limits how many tokens it can process in a single batch. This capacity is typically set as a multiple of the expected average load per expert.
@@ -122,8 +118,6 @@ Monitoring expert utilization and token dropping rates is therefore critical dur
 
 ---
 
----
-
 ## 5. Training Dynamics and Stability
 
 ### 5.1 Benefits of MoE Training
@@ -155,8 +149,6 @@ These losses are essential for maintaining expert diversity.
 
 ---
 
----
-
 ## 6. Emergent Expert Specialization
 
 Experts are not manually assigned domains.
@@ -175,8 +167,6 @@ In practice, experts often specialize in:
 - Long-context versus short-context tokens
 
 MoE does not guarantee clean semantic specialization such as math or biology experts.
-
----
 
 ---
 
@@ -202,8 +192,6 @@ Reasoning quality depends more on:
 
 ---
 
----
-
 ## 8. Inference and Deployment Trade-offs
 
 | Aspect | Impact |
@@ -214,8 +202,6 @@ Reasoning quality depends more on:
 | Communication | High, requires all-to-all routing in distributed setups |
 
 MoE models are often **memory-bandwidth bound**, not compute-bound.
-
----
 
 ---
 
@@ -237,8 +223,6 @@ Dense models may be preferable for smaller-scale or latency-critical use cases.
 
 ---
 
----
-
 ## 10. MoE in the Scaling Toolbox
 
 | Strategy | Key Idea | Trade-off |
@@ -252,8 +236,6 @@ MoE is a powerful but specialized tool, not a universal solution.
 
 ---
 
----
-
 ## 11. Key Takeaways
 
 - MoE decouples capacity from inference compute
@@ -262,8 +244,6 @@ MoE is a powerful but specialized tool, not a universal solution.
 - Many failures stem from routing imbalance and systems constraints
 
 MoE reflects a broader trend in modern LLMs: scaling is as much a systems problem as it is a modeling problem.
-
----
 
 ---
 

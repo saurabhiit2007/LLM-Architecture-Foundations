@@ -1,3 +1,5 @@
+# Dense vs Sparse Models
+
 ## 1. High-Level Concept
 
 The fundamental difference between Dense and Sparse models lies in the relationship between **Active Parameters** and **Total Parameters**.
@@ -10,8 +12,6 @@ The fundamental difference between Dense and Sparse models lies in the relations
   The model contains a large pool of parameters, but only a small subset is activated per token. This enables scaling model capacity faster than per-token compute, although system-level costs still increase.
 
 > Note: MoE decouples total parameter count from per-token compute, but does not eliminate compute, memory, or system overhead.
-
----
 
 ---
 
@@ -63,8 +63,6 @@ Where:
 
 ---
 
----
-
 ## 3. Dense vs. Sparse Comparison Table
 
 | Feature | Dense Models | Sparse Models (MoE) |
@@ -79,8 +77,6 @@ Where:
 > Note:
 > - MoE reduces FLOPs per token but can increase system overhead.
 > - Dense models are typically compute-bound, while MoE models are often bandwidth-bound.
-
----
 
 ---
 
@@ -131,8 +127,6 @@ During inference, systems may reduce communication overhead using:
 
 ---
 
----
-
 ## 5. Summary of Pros and Cons
 
 ### 5.1 Pros of Sparse (MoE)
@@ -150,7 +144,5 @@ During inference, systems may reduce communication overhead using:
 
 **Example:**
 A 47B MoE model with 12B active parameters still requires memory comparable to a 47B dense model.
-
----
 
 ---

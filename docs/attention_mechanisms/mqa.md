@@ -1,11 +1,11 @@
+# Multi-Query Attention (MQA)
+
 ## 1. Overview
 
 **Multi-Query Attention (MQA)** is a variation of the standard Multi-Head Attention (MHA) designed to significantly reduce the memory and computational overhead during inference, specifically by optimizing the **KV (Key-Value) Cache**.
 
 ### The Problem: The KV Cache Bottleneck
 In standard Transformers, as the sequence length and batch size grow, the memory required to store Keys and Values for every head becomes the primary bottleneck. This limits throughput and maximum context window sizes.
-
----
 
 ---
 
@@ -27,8 +27,6 @@ In standard Transformers, as the sequence length and batch size grow, the memory
 
 ---
 
----
-
 ## 3. Why it Matters
 
 We use MQA to imporve **Inference Efficiency**:
@@ -37,8 +35,6 @@ We use MQA to imporve **Inference Efficiency**:
  
 
 2. **Increased Memory Bandwidth:** In MHA, the GPU often spends more time moving data (KV caches) than actually performing math. MQA reduces data movement, leading to massive speedups in token generation.
-
----
 
 ---
 
@@ -64,16 +60,12 @@ During inference, we generate one token at a time. This is where MQA shines.
 
 ---
 
----
-
 ## 5. The Recent Evolution: Grouped-Query Attention (GQA)
 
 MQA is often seen as the "extreme" version. Most modern models (like **Llama 3** and **Mistral**) use **Grouped-Query Attention (GQA)**.
 
 * **Mechanism:** Instead of 1 KV head for *all* query heads, GQA creates groups. For example, if you have 32 Query heads, you might have 8 KV heads (one for every 4 queries).
 * **The "Goldilocks" Solution:** It provides a middle ground—retaining the speed of MQA while keeping the representational power (accuracy) of MHA.
-
----
 
 ---
 
@@ -85,8 +77,6 @@ MQA is often seen as the "extreme" version. Most modern models (like **Llama 3**
 | **Memory Efficiency** | Low (Bottleneck) | Highest | High |
 | **Inference Speed** | Base | ~10x Faster | ~8-9x Faster |
 | **Model Quality** | Highest | Significant Drop | Near-MHA Quality |
-
----
 
 ---
 

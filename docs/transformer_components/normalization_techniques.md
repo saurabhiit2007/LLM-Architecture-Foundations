@@ -1,8 +1,8 @@
+# Normalization Techniques
+
 ## 1. Overview
 
 Normalization is critical for training deep neural networks, especially transformers. It stabilizes training, speeds up convergence, and enables deeper architectures.
-
----
 
 ---
 
@@ -38,8 +38,6 @@ For input shape `[batch_size, seq_len, hidden_dim]`:
 
 ---
 
----
-
 ## 3. RMS Normalization (RMSNorm)
 
 ### What it does
@@ -63,8 +61,6 @@ where RMS(x) = √(mean(x²) + ε)
 
 - Modern LLMs (LLaMA, GPT-J, etc.) prefer RMSNorm for efficiency
 - When training speed matters and you don't need mean centering
-
----
 
 ---
 
@@ -125,8 +121,6 @@ x → LayerNorm → FeedForward → Add
 
 ---
 
----
-
 ## 5. Practical Implementation Tips
 
 ### LayerNorm in PyTorch
@@ -164,8 +158,6 @@ class RMSNorm(nn.Module):
         rms = torch.sqrt(torch.mean(x ** 2, dim=-1, keepdim=True) + self.eps)
         return self.weight * x / rms
 ```
-
----
 
 ---
 

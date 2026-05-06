@@ -1,4 +1,6 @@
-## 🏗️ 1. Encoder-Only Models (The "Understanders")
+# Encoder, Decoder, and Encoder-Decoder Models
+
+## 1. Encoder-Only Models (The "Understanders")
 Encoder-only models focus on creating a rich, bidirectional representation of the input.
 
 * **Mechanism:** Uses **Full (Bidirectional) Self-Attention**. Every token can attend to every other token in the sequence.
@@ -11,9 +13,7 @@ Encoder-only models focus on creating a rich, bidirectional representation of th
 
 ---
 
----
-
-## ✍️ 2. Decoder-Only Models (The "Generators")
+## 2. Decoder-Only Models (The "Generators")
 These are the backbone of modern Generative AI. They are designed for one-way, autoregressive generation.
 
 * **Mechanism:** Uses **Causal (Masked) Self-Attention**. A token can only attend to previous tokens in the sequence to prevent "cheating" by looking at the future.
@@ -26,9 +26,7 @@ These are the backbone of modern Generative AI. They are designed for one-way, a
 
 ---
 
----
-
-## 🔄 3. Encoder-Decoder Models (The "Translators")
+## 3. Encoder-Decoder Models (The "Translators")
 The classic "Seq2Seq" architecture that combines an understanding phase with a generation phase.
 
 * **Mechanism:** 
@@ -40,9 +38,7 @@ The classic "Seq2Seq" architecture that combines an understanding phase with a g
 
 ---
 
----
-
-## 📊 Comparison Table
+## Comparison Table
 
 | Feature | Encoder-Only | Decoder-Only | Encoder-Decoder |
 | :--- | :--- | :--- | :--- |
@@ -53,30 +49,10 @@ The classic "Seq2Seq" architecture that combines an understanding phase with a g
 
 ---
 
----
-
-## 🚀  Updates (2026)
+## Updates (2026)
 
 1.  **The Shift to Decoder-Only:** Interviewers may ask why BERT is "dead." The answer isn't that it's bad, but that Decoder-only models have shown superior **Scaling Laws**. By scaling a decoder, we get "emergent" understanding capabilities that rival encoders, making them more versatile.
 2.  **Linear Attention:** Mention that standard $O(n^2)$ attention is being challenged by **Mamba (SSMs)** or **MLA (Multi-head Latent Attention)** used in DeepSeek models to handle massive contexts efficiently.
 3.  **Thought Tokens:** With the rise of "reasoning" models (like o1 or R1), the decoder isn't just predicting the next word; it's generating a hidden "Chain of Thought."
-
----
-
----
-
-## Interview Questions
-
-### Q1: Why is the "Mask" necessary in Decoder training?
-**Answer:** Without a causal mask, the model would have access to the "ground truth" token it is trying to predict during the training phase. The mask ensures the model learns to predict $t+1$ using only tokens $0$ through $t$.
-
-### Q2: What is the benefit of Cross-Attention in an Encoder-Decoder?
-**Answer:** It allows the decoder to dynamically focus on relevant parts of the input sequence (the encoder's hidden states) at each step of the generation. This is why it outperforms simple decoders for high-precision tasks like translation.
-
-### Q3: Explain the KV Cache and why it matters for Decoder-only inference.
-**Answer:** In autoregressive generation, we generate tokens one by one. Without a KV cache, we would recompute the "Keys" and "Values" for all previous tokens at every single step, leading to $O(n^2)$ compute. The KV cache stores these values, reducing the cost of generating the next token to $O(n)$.
-
-### Q4: Can you use a Decoder-only model for Classification?
-**Answer:** Yes. You can either take the hidden state of the last token and pass it to a classification head, or (more commonly now) simply prompt the model to output a specific word (e.g., "Positive" or "Negative").
 
 ---

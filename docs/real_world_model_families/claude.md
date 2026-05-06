@@ -1,3 +1,5 @@
+# Claude Model Family
+
 ## 1. The Claude Model Family (Current Landscape)
 
 Anthropic uses a "Tier" system (Haiku, Sonnet, Opus) across generations. As of 2026, the **4.5 Generation** is the state-of-the-art.
@@ -9,8 +11,6 @@ Anthropic uses a "Tier" system (Haiku, Sonnet, Opus) across generations. As of 2
 | **Claude 4.5 Haiku** | Lightweight | System 1 | High-speed API tasks, sub-second latency requirements. |
 
 > **Note:** Claude 3.7 Sonnet was the landmark "Hybrid" model that first introduced a toggle between instant (System 1) and extended thinking (System 2) modes.
-
----
 
 ---
 
@@ -38,8 +38,6 @@ Anthropic maintains three tiers (Haiku, Sonnet, Opus). In the 2025–2026 era, t
 
 ---
 
----
-
 ## 3. The "Agentic" Evolution
 
 While "System 2" refers to **how the model thinks**, "Agentic" refers to **what the model can do.**
@@ -48,8 +46,6 @@ While "System 2" refers to **how the model thinks**, "Agentic" refers to **what 
 * **Claude 3.7:** Improved Agentic reliability by allowing the model to "think" (System 2) before it clicks a button or writes a line of code.
 * **Claude 4.5:** Fully **Agentic-Native**. The model doesn't just call tools; it plans the entire multi-step trajectory using hidden thinking tokens before execution.
     - **Claude Code:** A specialized agentic interface that uses these capabilities to perform autonomous software engineering tasks (e.g., "Fix the bug in the auth flow and run the tests").
-
----
 
 ---
 
@@ -68,8 +64,6 @@ Anthropic’s defining strategy is **Constitutional AI**, which enables **RLAIF*
 
 ---
 
----
-
 ## 5. System 1 vs. System 2 Reasoning
 
 Anthropic has moved beyond "prompting for step-by-step" into true **Inference-Time Scaling**.
@@ -85,8 +79,6 @@ Anthropic has moved beyond "prompting for step-by-step" into true **Inference-Ti
 - **Mechanism:** The model generates **Thinking Tokens** (visible or hidden) before producing the final answer. This allows the model to "plan" and "search" through different solution paths.
 - **Scaling Law:** Performance improves as you increase the **Thinking Budget** (more compute at inference = higher intelligence).
 - **Models:** Claude 3.7 Sonnet and Claude 4.5 Opus.
-
----
 
 ---
 

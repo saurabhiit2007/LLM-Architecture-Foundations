@@ -1,3 +1,5 @@
+# Sliding Window Attention
+
 ## 1. Overview
 
 **Sliding Window Attention** is a sparse attention mechanism designed to break the $O(n^2)$ complexity of standard Transformers. It limits the attention span of each token to a fixed window size $W$, resulting in linear complexity $O(n \times W)$.
@@ -10,8 +12,6 @@
 
 ---
 
----
-
 ## 2. Theoretical Receptive Field
 
 A common question is: *"If the window is small, how does the model see the beginning of a long document?"*
@@ -19,8 +19,6 @@ A common question is: *"If the window is small, how does the model see the begin
 * **The Stacking Effect:** Even if a single layer only sees $W$ tokens, the information propagates upward. 
 * **Calculation:** In a model with $L$ layers, the top layer has a theoretical receptive field of $L \times W$.
 * **Analogy:** It functions like a Convolutional Neural Network (CNN) where deeper layers have a broader "view" of the input.
-
----
 
 ---
 
@@ -39,8 +37,6 @@ This is the most critical optimization for deployment.
 * **Mechanism:** Instead of an ever-growing KV cache, we use a fixed-size circular buffer of size $W$.
 * **The Logic:** When the model generates token $i$, it overwrites the cache at position $i \pmod W$.
 * **Result:** Memory usage stays **constant**, allowing for "infinite" sequence generation without running out of VRAM.
-
----
 
 ---
 
@@ -75,8 +71,6 @@ Some recent architectures use **Dilated Sliding Window Attention**.
 
 ---
 
----
-
 ## 5. Summary
 
 | Feature | Vanilla Attention | Sliding Window Attention |
@@ -85,8 +79,6 @@ Some recent architectures use **Dilated Sliding Window Attention**.
 | **KV Cache** | Grows linearly | Constant/Fixed size |
 | **Best For** | Short, dense context | Long-form documents/Chat |
 | **Key Risk** | Memory OOM (Out of Memory) | Forgetting distant context |
-
----
 
 ---
 

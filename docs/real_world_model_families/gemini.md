@@ -1,3 +1,5 @@
+# Gemini Model Family
+
 ## 1. Recent Gemini Models & Tiers
 
 The Gemini ecosystem has evolved into a sophisticated suite of models designed to balance **speed (System 1)** with **deep reasoning (System 2)**.
@@ -14,8 +16,6 @@ As of early 2026, the lineup is categorized by its "agentic" capabilities - the 
 
 ---
 
----
-
 ## 2. Training Strategy: The Gemini Difference
 
 What separates Gemini from previous Large Language Models (LLMs) is its **Native Multimodal** architecture.
@@ -27,8 +27,6 @@ What separates Gemini from previous Large Language Models (LLMs) is its **Native
 
 
 * **RLAIF (Reinforcement Learning from AI Feedback):** To scale beyond human limitations, Google uses a "Teacher" model to provide feedback to "Student" models, accelerating the learning of complex logic and safety protocols.
-
----
 
 ---
 
@@ -47,8 +45,6 @@ Based on the dual-process theory of cognition, Gemini models are now categorized
 * **Models:** Gemini 3 Pro, Gemini 3 Flash (Thinking Mode).
 * **Behavior:** These models engage in **Chain-of-Thought (CoT)** reasoning. They "think" before they speak, often checking their own work and correcting errors in a hidden scratchpad before delivering the final answer.
 * **Goal:** Accuracy and logical depth for STEM and complex reasoning.
-
----
 
 ---
 

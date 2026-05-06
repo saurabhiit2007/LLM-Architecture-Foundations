@@ -1,8 +1,8 @@
+# Multi-Head Attention (MHA)
+
 ## 1. Overview
 
 Multi-Head Attention is the fundamental mechanism that allows Transformers to focus on different parts of an input sequence simultaneously. Instead of one "viewpoint," the model gets multiple parallel perspectives.
-
----
 
 ---
 
@@ -18,8 +18,6 @@ The MHA process involves transforming input embeddings into three distinct space
 
 3. **Concatenation**: All heads are joined: $\text{Concat}(\text{Head}_1, ..., \text{Head}_h)$.
 4. **Final Output Projection**: The result is multiplied by $W^O$ to return to the original model dimension.
-
----
 
 ---
 
@@ -42,8 +40,6 @@ If you are interviewing for a Senior or Research role, these updates are critica
 ### C. Rotary Positional Embeddings (RoPE)
 
 * Modern MHA (used in Llama) uses **RoPE** instead of additive positional encoding. It encodes position by rotating the Q and K vectors in a complex space, which naturally captures the *relative* distance between tokens.
-
----
 
 ---
 

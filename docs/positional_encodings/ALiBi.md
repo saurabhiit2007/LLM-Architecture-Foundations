@@ -1,262 +1,78 @@
-Rotary Positional Embedding (RoPE) is the state-of-the-art method for encoding positional information in Transformers. It is the default choice for modern LLMs, including **Llama 2/3, Mistral, and PaLM**.
+# ALiBi (Attention with Linear Biases)
+
+## 1. Overview
+
+ALiBi (Attention with Linear Biases) is a positional encoding method introduced by Press et al. (2022) that replaces learned or rotary position embeddings with a simple **linear penalty added directly to attention logits**. Its key property is strong **length extrapolation**: a model trained on sequences of length 1024 can generalize to sequences of length 2048 or longer at inference time without any fine-tuning.
+
+Used in: **BLOOM** (176B), **MPT**, and several other open models.
 
 ---
 
-## 1. The Core Concept
+## 2. Core Idea
 
-Traditional embeddings like Sinusoidal or Learned Absolute Embeddings are **additive**:
+Standard attention computes:
 
-$$
-x_i = e_i + p_i
-$$
+$$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
-**RoPE** is **multiplicative**. It treats the embedding vector as a set of complex numbers and rotates them in a high-dimensional space based on their position.
+ALiBi adds a fixed, non-learned bias matrix to the pre-softmax scores:
 
-### Why rotate?
-
-The primary goal of RoPE is to ensure that the **dot product** between two tokens (Query and Key) depends only on their **relative distance**, not their absolute positions.
-
-$$
-\langle f_q(x_m, m), f_k(x_n, n) \rangle = g(x_m, x_n, m - n)
-$$
+$$\text{Attention} = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}} + m \cdot B\right)V$$
 
 Where:
 
-- **$x_m, x_n$** : The original content embeddings of the tokens at positions $m$ and $n$. These vectors come from the token embedding layer or the previous Transformer block and do not yet include positional information.
+- $B_{ij} = -(i - j)$ for $j \leq i$ — the distance between query position $i$ and key position $j$
+- $m$ is a **head-specific scalar slope** (fixed, not learned)
 
-- **$m, n$**: The absolute token positions in the sequence. For example, $m = 5$ and $n = 12$.
-
-- **$f_q(x_m, m)$**: The position-aware **Query** representation at position $m$.  
-  This function applies the RoPE rotation to the query vector derived from $x_m$.
-
-- **$f_k(x_n, n)$**: The position-aware **Key** representation at position $n$.  
-  This function applies the same RoPE rotation scheme to the key vector derived from $x_n$.
-
-- **$\langle \cdot , \cdot \rangle$**: The dot product used in scaled dot-product attention to compute attention scores.
-
-- **$g(x_m, x_n, m - n)$**: A function whose output depends on the token contents and **only the relative position** \((m - n)\), not on the absolute positions themselves.
-
-#### Why This Matters
-
-This equation states that after applying RoPE:
-
-- Absolute positions $m$ and $n$ do not independently affect the attention score.
-- Only the relative distance $(m - n)$ influences how strongly two tokens attend to each other.
-- This property enables strong length extrapolation, a natural locality bias, and robust long-context behavior.
-- This allows the model to understand relationships between tokens regardless of where they appear in the sequence.
-
-In contrast, additive positional embeddings typically produce attention scores that depend on both absolute and relative positions, which limits generalization to longer sequences.
-
+The bias penalizes attending to distant tokens proportionally to their distance. The further away a token is, the more its logit is suppressed.
 
 ---
 
-## 2. The Algorithm
+## 3. Head-Specific Slopes
 
-RoPE works by pairing elements of the $d$-dimensional embedding and applying a 2D rotation matrix to each pair.
+Each attention head gets a different slope $m$, forming a geometric sequence. For $n$ heads:
 
-For a pair of dimensions $[x^{(1)}, x^{(2)}]$ at position $m$, the transformation is:
+$$m_h = 2^{-8h/n}, \quad h = 1, \ldots, n$$
 
-$$
-\begin{pmatrix}
-\cos m\theta & -\sin m\theta \\
-\sin m\theta & \cos m\theta
-\end{pmatrix}
-\begin{pmatrix}
-x^{(1)} \\
-x^{(2)}
-\end{pmatrix}
-$$
+For 8 heads, slopes are $\frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \ldots, \frac{1}{256}$
 
-- **The Angle ($\theta$)**: The rotation frequency follows a geometric progression  
-  $$
-  \theta_i = 10000^{-2i/d}
-  $$
-  similar to sinusoidal embeddings.
+- **Steep slope (large $m$)**: head strongly prefers nearby tokens — local attention behavior
+- **Shallow slope (small $m$)**: head can attend more globally — long-range dependencies
 
-- **The Result**: As position $m$ increases, the vector rotates further. Because the rotation matrix is orthogonal, the vector norm is preserved while positional information is encoded.
+This gives the model a spectrum of attention ranges across heads with zero learned parameters.
 
 ---
 
-## 3. Where Exactly Is RoPE Applied?
+## 4. Why It Extrapolates
 
-RoPE is applied **only to the Query and Key vectors** in self-attention.
+Standard positional encodings (absolute or RoPE) struggle beyond their training context length because the model has never seen position indices larger than its training maximum. ALiBi avoids this by using **distance** rather than absolute position — a query-key pair 500 tokens apart receives the same bias whether it sits at positions (100, 600) or (1000, 1500). The bias function generalizes naturally to any distance.
 
-- Queries and Keys are rotated based on token position.
-- Values are left unchanged.
-
-Reason:
-
-- Attention scores are computed using the dot product $QK^\top$.
-- RoPE ensures this dot product captures relative position.
-- Applying RoPE to Values does not improve positional reasoning and can degrade performance.
+**Key result (Press et al.):** A model trained with ALiBi at 1024 tokens matches or exceeds a RoPE baseline trained at 2048 tokens when evaluated at 2048 — it extrapolates past its training length better than RoPE trained directly at the target length.
 
 ---
 
-## 4. Why RoPE Works for Dot-Product Attention
+## 5. ALiBi vs RoPE
 
-The key mathematical insight behind RoPE is **rotation composition**.
+| Dimension | ALiBi | RoPE |
+|-----------|-------|------|
+| Mechanism | Additive bias on attention logits | Rotates Q and K vectors |
+| Learned parameters | None (slopes are fixed) | None (frequencies are fixed) |
+| Length extrapolation | Strong out-of-the-box | Requires YaRN / RoPE scaling tricks |
+| Relative position | Yes (distance-based) | Yes (via rotation composition) |
+| Used in | BLOOM, MPT | LLaMA, Mistral, PaLM, Gemini |
+| Decay behavior | Linear with distance | Complex sinusoidal |
 
-Consider the equation:
+**Prefer ALiBi** when length generalization without fine-tuning is the priority.
 
-$$
-\langle R(m)x, R(n)y \rangle = \langle x, R(n - m)y \rangle
-$$
-
-Where:
-
-- **$x, y$**: Content vectors representing token embeddings after linear projection into Query or Key space. These vectors do not contain positional information by themselves.
-
-- **$m, n$**: Absolute token positions in the sequence. For example, $m = 4$ and $n = 10$
-
-- **$R(m)$, $R(n)$**: Orthogonal rotation matrices parameterized by position.  
-  Each matrix applies a set of 2D rotations across paired embedding dimensions, with rotation angles proportional to the position index.
-
-- **$\langle \cdot , \cdot \rangle$**: The standard dot product used in attention score computation.
+**Prefer RoPE** when raw benchmark performance matters — RoPE dominates frontier models (2024–2025), and YaRN/LongRoPE have largely closed the extrapolation gap.
 
 ---
 
-#### Step-by-Step Intuition
+## 6. Limitations
 
-1. **Position Encoding via Rotation**  
-   Applying $R(m)$ to $x$ rotates the vector in embedding space by an amount determined by position $m$.  
-   Similarly, $R(n)$ rotates $y$ according to position $n$.
-
-2. **Orthogonality Property**  
-   Rotation matrices are orthogonal, meaning:
-   $$
-   R(m)^\top = R(-m)
-   $$
-
-3. **Rewriting the Dot Product**  
-   Using orthogonality:
-   $$
-   \langle R(m)x, R(n)y \rangle
-   =
-   \langle x, R(m)^\top R(n) y \rangle
-   =
-   \langle x, R(n - m) y \rangle
-   $$
-
-4. **Cancellation of Absolute Position**  
-   The absolute positions $m$ and $n$ collapse into a single relative offset $(n - m)$.
+- **Distance only, no absolute position** — ALiBi encodes how far apart two tokens are, but not where they are absolutely. Tasks requiring absolute position awareness may suffer.
+- **Not dominant in frontier models** — LLaMA, Mistral, Gemini, and GPT-4 all use RoPE variants. RoPE with context extension techniques has largely matched ALiBi's extrapolation advantage.
+- **Causal masking interaction** — The bias applies after the causal mask; requires careful implementation to avoid off-by-one errors at sequence boundaries.
 
 ---
 
-
-This identity captures the core mathematical reason why RoPE encodes **relative position** rather than absolute position. Below is a detailed explanation of each term and why the equation holds.
-
-Key implications:
-
-- Absolute positions cancel out.
-- Only the relative offset $(n - m)$ matters.
-- This property aligns perfectly with dot-product attention.
-- Tokens with the same relative spacing produce the same positional interaction, regardless of where they appear in the sequence.
-
-This is why RoPE integrates naturally into Transformer architectures.
-
----
-
-## 5. RoPE and Multi-Head Attention
-
-In multi-head attention:
-
-- RoPE is applied independently within each attention head.
-- Each head operates on a lower-dimensional subspace and applies the same frequency schedule.
-
-As a result:
-
-- Low-frequency dimensions capture long-range dependencies.
-- High-frequency dimensions focus on local structure.
-
-This creates a multi-scale positional representation across heads.
-
----
-
-## 6. Comparison: Why RoPE Won
-
-| Feature | Absolute (Sinusoidal) | RoPE |
-|-------|----------------------|------|
-| **Operation** | Addition | Rotation (Multiplication) |
-| **Relative Distance** | Not explicit | Naturally captured via dot product |
-| **Extrapolation** | Weak for long contexts | Strong with scaling |
-| **Decay** | No natural decay | Distance-based interaction decay |
-| **Implementation** | Simple | Moderate complexity |
-
----
-
-## 7. Small Intuitive Example
-
-Consider a single 2D vector:
-
-$$
-x = [1, 0]
-$$
-
-Assume one frequency $\theta = 0.1$.
-
-### Position 1
-
-Rotation angle = $0.1$
-
-$$
-R(0.1)x = [\cos 0.1, \sin 0.1] \approx [0.995, 0.100]
-$$
-
-### Position 3
-
-Rotation angle = $0.3$
-
-$$
-R(0.3)x = [\cos 0.3, \sin 0.3] \approx [0.955, 0.296]
-$$
-
-Dot product between the two:
-
-$$
-\langle R(0.1)x, R(0.3)x \rangle = \cos(0.2)
-$$
-
-Observation:
-
-- The dot product depends only on the positional difference $(3 - 1)$.
-- Vector magnitude is preserved.
-- Relative distance is directly encoded into attention.
-
----
-
-## 8. Interview Deep Dive Topics
-
-### A. Context Window Extension (RoPE Scaling)
-
-**Question**: If a model is trained on 4k context, how can it be extended to 128k?
-
-- **Linear Interpolation**: Scale positions as  
-  $$
-  m \rightarrow m \cdot \frac{L}{L'}
-  $$
-  to avoid unseen large angles.
-
-- **NTK-aware Scaling**: Scale different frequencies differently to preserve high-frequency information for nearby tokens.
-
----
-
-### B. Long-Term Decay Property
-
-RoPE introduces a natural decay in interaction strength as $|m - n|$ increases. This provides a locality bias without enforcing a hard attention window, aligning well with natural language structure.
-
----
-
-### C. RoPE vs ALiBi
-
-- **ALiBi** adds a linear bias to attention scores based on distance.
-- **RoPE** encodes position directly into representations, allowing richer and more flexible positional reasoning.
-
----
-
-## 9. Practical Limitations and Caveats
-
-- RoPE assumes evenly spaced token positions.
-- Extreme extrapolation without scaling can cause numerical instability.
-- Relative position is encoded strongly, but absolute position is implicit, which may matter for structured tasks.
-
----
+*Source: Press et al. (2022) — Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation [[arXiv:2108.12409]](https://arxiv.org/abs/2108.12409)*

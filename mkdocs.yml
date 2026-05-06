@@ -5,7 +5,6 @@ repo_url: https://github.com/saurabhiit2007/LLM-Architecture-Foundations
 theme:
   name: material
   features:
-    - navigation.expand
     - navigation.top
     - search.highlight
     - search.share
@@ -23,6 +22,9 @@ theme:
   font:
     text: Inter
     code: JetBrains Mono
+
+extra_css:
+  - stylesheets/extra.css
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -59,10 +61,10 @@ nav:
   - Positional Encodings:
       - RoPE: ./positional_encodings/RoPE.md
       - ALiBi: ./positional_encodings/ALiBi.md
-  - Pretraining objective:
-      - Next Token Prediction: ./index.md
-  - Scaling laws:
-      - model size, data size, compute tradeoffs: ./index.md
+  - Pretraining Objective:
+      - Next Token Prediction: ./pretraining/next_token_prediction.md
+  - Scaling Laws:
+      - Chinchilla & Compute-Optimal Training: ./scaling_laws/scaling_laws.md
   - References: references.md
 
 markdown_extensions:

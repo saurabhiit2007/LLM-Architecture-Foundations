@@ -1,3 +1,5 @@
+# SentencePiece and Unigram
+
 The **Unigram Language Model** is a probabilistic, top-down subword tokenization algorithm. While often associated with the **SentencePiece** library (the framework for lossless, language-agnostic tokenization), Unigram itself is a distinct algorithm used by models like **T5, XLNet, ALBERT, and many modern multilingual LLMs**.
 
 ---

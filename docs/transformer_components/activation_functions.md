@@ -1,3 +1,5 @@
+# Activation Functions
+
 ## 1. Overview
 
 GLU (Gated Linear Unit) variants are gating mechanisms used in modern neural networks, particularly in transformers. They combine linear transformations with element-wise gating to control information flow.
@@ -10,8 +12,6 @@ Output = Gate(x) ⊙ Transform(x)
 ```
 
 where ⊙ represents element-wise multiplication.
-
----
 
 ---
 
@@ -102,8 +102,6 @@ The network learned that for this input pattern, the first dimension should be e
 
 ---
 
----
-
 ## 3. GELU (Gaussian Error Linear Unit)
 
 **Formula:**
@@ -133,8 +131,6 @@ GELU(x) ≈ 0.5x(1 + tanh[√(2/π)(x + 0.044715x³)])
 
 - Default activation in many modern transformers
 - Better gradient flow than ReLU in deep networks
-
----
 
 ---
 
@@ -251,8 +247,6 @@ Notice that unlike sigmoid (bounded [0,1]), Swish can produce gate values > 1, a
 
 ---
 
----
-
 ## 5. GeGLU (GELU-Gated Linear Unit)
 
 **Formula:**
@@ -266,8 +260,6 @@ GeGLU(x) = GELU(xW) ⊙ (xV)
 - Proposed in "GLU Variants Improve Transformer" (2020)
 - Slightly better than standard FFN in transformers
 - More common in vision transformers
-
----
 
 ---
 ## 6. ReGLU (ReLU-Gated Linear Unit)
@@ -319,24 +311,5 @@ To maintain the same parameter count, implementations often use:
 | SwiGLU | Swish | LLaMA, PaLM | SOTA for LLMs, best empirical performance |
 | GeGLU | GELU | Vision Transformers | Good for transformers, smooth |
 | ReGLU | ReLU | Baseline | Simple, sparse activation |
-
----
-
----
-
-## Interview Questions
-
-1. **Why GLU variants?** They provide learnable, dynamic gating that helps models control information flow more effectively than static activations.
-
-2. **Trade-off:** Better performance but ~1.5x parameters (or reduced hidden dimension for same param count).
-
-3. **Current best practice:** SwiGLU is the most common choice for modern LLMs (LLaMA, PaLM, etc.).
-
-4. **When to use:**
-   - SwiGLU: Language models, general-purpose transformers
-   - GeGLU: Vision transformers, when you want GELU-like smoothness
-   - GELU: Simpler architectures without gating overhead
-
-5. **Mathematical intuition:** Gating allows the network to learn which activations to pass through and which to suppress, providing more expressiveness than fixed activation functions.
 
 ---

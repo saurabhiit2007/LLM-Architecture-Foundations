@@ -1,8 +1,8 @@
+# TikToken
+
 ## 1. Overview
 
 `tiktoken` is a high-performance **Byte Pair Encoding (BPE)** tokenizer developed by OpenAI. It is written in **Rust**, making it significantly faster than previous Python-based tokenizers. It is the backbone for how GPT models process text.
-
----
 
 ---
 
@@ -32,8 +32,6 @@ The BPE algorithm starts with individual bytes and iteratively merges the most f
 
 ---
 
----
-
 ## 4. Technical Implementation (Python)
 
 ```python
@@ -54,8 +52,6 @@ print(f"Decoded: {original}")
 # Check vocabulary size
 print(f"Vocab size: {enc.n_vocab}")
 ```
-
----
 
 ---
 
