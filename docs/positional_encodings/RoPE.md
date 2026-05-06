@@ -226,11 +226,11 @@ Observation:
 
 ---
 
-## 8. Interview Deep Dive Topics
+## 8. Context Window Extension and Key Properties
 
 ### A. Context Window Extension (RoPE Scaling)
 
-**Question**: If a model is trained on 4k context, how can it be extended to 128k?
+A model trained at 4k context can be extended by scaling the position indices:
 
 - **Linear Interpolation**: Scale positions as  
   $$
@@ -250,8 +250,7 @@ RoPE introduces a natural decay in interaction strength as $|m - n|$ increases. 
 
 ### C. RoPE vs ALiBi
 
-- **ALiBi** adds a linear bias to attention scores based on distance.
-- **RoPE** encodes position directly into representations, allowing richer and more flexible positional reasoning.
+See [ALiBi](ALiBi.md) for the full comparison.
 
 ---
 

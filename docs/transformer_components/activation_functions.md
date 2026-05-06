@@ -39,52 +39,6 @@ The sigmoid ensures smooth, differentiable gating where:
 
 **Key Advantage:** The gate is **input-dependent** and **learned**, allowing the network to dynamically control which features are relevant for a given input pattern.
 
-**Toy Example:**
-
-Let's say we have input `x ∈ ℝ³` and want output dimension 2.
-```
-Input: x = [1.0, -0.5, 2.0]
-
-Learned parameters:
-W = [[0.5, -0.3],      V = [[0.2,  0.8],
-     [0.2,  0.6],           [-0.5, 0.3],
-     [-0.1, 0.4]]           [0.7, -0.2]]
-
-Bias: b = [0.1, -0.2]      c = [0.0, 0.5]
-```
-
-**Step 1: Compute value path**
-```
-xW + b = [1.0, -0.5, 2.0] @ W + [0.1, -0.2]
-       = [0.5×1 + 0.2×(-0.5) + (-0.1)×2,  -0.3×1 + 0.6×(-0.5) + 0.4×2] + [0.1, -0.2]
-       = [0.2, 0.3] + [0.1, -0.2]
-       = [0.3, 0.1]
-```
-
-**Step 2: Compute gate path**
-```
-xV + c = [1.0, -0.5, 2.0] @ V + [0.0, 0.5]
-       = [0.2×1 + (-0.5)×(-0.5) + 0.7×2,  0.8×1 + 0.3×(-0.5) + (-0.2)×2] + [0.0, 0.5]
-       = [1.85, 0.25] + [0.0, 0.5]
-       = [1.85, 0.75]
-
-σ(xV + c) = [σ(1.85), σ(0.75)]
-          = [0.864, 0.679]
-```
-
-**Step 3: Element-wise multiplication (gating)**
-```
-GLU(x) = [0.3, 0.1] ⊙ [0.864, 0.679]
-       = [0.259, 0.068]
-```
-
-**Interpretation:**
-
-- First dimension: value=0.3 gets 86.4% activation → 0.259
-- Second dimension: value=0.1 gets 67.9% activation → 0.068
-
-The network learned that for this input pattern, the first dimension should be emphasized more (high gate value) while the second dimension should be partially suppressed.
-
 **Key Points:**
 
 - Uses sigmoid (σ) as the gate
@@ -92,13 +46,6 @@ The network learned that for this input pattern, the first dimension should be e
 - One path is gated by the sigmoid of the other
 - Introduced in "Language Modeling with Gated Convolutional Networks" (2017)
 
-**Characteristics:**
-
-- Gates values between 0 and 1
-- Smooth gating mechanism
-- Can suppress or allow information flow
-- The gating is **content-dependent**: different inputs produce different gate values
-- More expressive than fixed activations: can learn complex, non-linear feature selection
 
 ---
 
@@ -176,53 +123,6 @@ For Swish(x) = x · σ(x):
 - When x = 5: Swish ≈ 4.966 (nearly linear for large positive values)
 - The function dips slightly below zero for negative inputs before recovering
 
-**Toy Example:**
-
-Let's trace through SwiGLU with input `x ∈ ℝ³` and output dimension 2.
-```
-Input: x = [2.0, -1.0, 1.5]
-
-Learned parameters:
-W = [[0.4,  0.2],      V = [[0.3, -0.5],
-     [-0.3, 0.5],           [0.6,  0.2],
-     [0.2,  0.1]]           [-0.2, 0.4]]
-```
-
-**Step 1: Compute xW (pre-activation for gate)**
-```
-xW = [2.0, -1.0, 1.5] @ W
-   = [0.4×2 + (-0.3)×(-1) + 0.2×1.5,  0.2×2 + 0.5×(-1) + 0.1×1.5]
-   = [1.4, 0.05]
-```
-
-**Step 2: Apply Swish to get the gate**
-```
-Swish(xW) = (xW) · σ(xW)
-          = [1.4, 0.05] · [σ(1.4), σ(0.05)]
-          = [1.4, 0.05] · [0.802, 0.512]
-          = [1.123, 0.026]
-```
-
-**Step 3: Compute value path**
-```
-xV = [2.0, -1.0, 1.5] @ V
-   = [0.3×2 + 0.6×(-1) + (-0.2)×1.5,  -0.5×2 + 0.2×(-1) + 0.4×1.5]
-   = [-0.3, -0.6]
-```
-**Step 4: Apply gating**
-```
-SwiGLU(x) = Swish(xW) ⊙ (xV)
-          = [1.123, 0.026] ⊙ [-0.3, -0.6]
-          = [-0.337, -0.016]
-```
-
-**Interpretation:**
-
-- First dimension: value=-0.3 gets amplified by gate=1.123 → -0.337
-- Second dimension: value=-0.6 gets heavily suppressed by gate=0.026 → -0.016
-
-Notice that unlike sigmoid (bounded [0,1]), Swish can produce gate values > 1, allowing **amplification** not just suppression!
-
 **Key Advantages of SwiGLU:**
 
 1. **Enhanced expressiveness:** The Swish gate can amplify (gate > 1) or suppress (gate < 1), unlike sigmoid which only suppresses
@@ -230,20 +130,6 @@ Notice that unlike sigmoid (bounded [0,1]), Swish can produce gate values > 1, a
 3. **Empirically superior:** Consistently outperforms other GLU variants in large-scale experiments
 4. **Widely adopted:** Current best practice in production LLMs (LLaMA, PaLM, Mistral, etc.)
 
-**Key Points:**
-
-- Combines Swish activation with gating
-- Used in PaLM, LLaMA, Mistral, and most modern LLMs
-- β is typically set to 1
-- Empirically outperforms other GLU variants in large language models
-- Gates can amplify (>1) not just suppress, unlike sigmoid-based GLU
-
-**Why it's important:**
-
-- State-of-the-art for LLMs
-- Better performance-to-parameter ratio
-- Industry standard in modern architectures
-- The go-to choice for new transformer implementations
 
 ---
 
@@ -260,21 +146,6 @@ GeGLU(x) = GELU(xW) ⊙ (xV)
 - Proposed in "GLU Variants Improve Transformer" (2020)
 - Slightly better than standard FFN in transformers
 - More common in vision transformers
-
----
-## 6. ReGLU (ReLU-Gated Linear Unit)
-
-**Formula:**
-```
-ReGLU(x) = ReLU(xW) ⊙ (xV)
-```
-
-**Key Points:**
-
-- Uses ReLU as gating function
-- Simpler and faster than smooth variants
-- Good baseline for comparison
-- Less commonly used in practice than SwiGLU/GeGLU
 
 ---
 

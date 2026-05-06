@@ -71,16 +71,3 @@ $$\text{Attention}(Q_i, K_g, V_g) = \text{softmax}\left(\frac{Q_i K_g^T}{\sqrt{d
 * **MLA (Multi-head Latent Attention):** Popularized by **DeepSeek-V3**, this is seen as an evolution of GQA. It uses low-rank compression to further reduce the KV cache beyond what simple grouping can achieve.
 
 ---
-
-## 6. Interview Questions
-
-* **Q: Why does GQA allow for larger batch sizes?**
-    * *A: Because the KV cache for each sequence is smaller. More sequences can fit into the GPU's VRAM simultaneously.*
-
-* **Q: How do you convert an MHA model to GQA?**
-    * *A: You take the $H$ original KV heads and "mean-pool" them into $G$ heads. Then, you perform a small amount of "uptraining" to let the model adapt.*
-
-* **Q: Is GQA used in the Encoder or Decoder?**
-    * *A: It is most valuable in the **Decoder** during autoregressive generation, as that is where the KV cache bottleneck exists.*
-
----

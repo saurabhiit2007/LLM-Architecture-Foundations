@@ -230,7 +230,6 @@ Dense models may be preferable for smaller-scale or latency-critical use cases.
 | Dense scaling | Increase parameters | Expensive inference |
 | MoE | Sparse activation | Memory and communication overhead |
 | Longer training | More tokens per parameter | Higher one-time cost |
-| Quantization | Lower precision | Potential accuracy loss |
 
 MoE is a powerful but specialized tool, not a universal solution.
 
@@ -244,18 +243,5 @@ MoE is a powerful but specialized tool, not a universal solution.
 - Many failures stem from routing imbalance and systems constraints
 
 MoE reflects a broader trend in modern LLMs: scaling is as much a systems problem as it is a modeling problem.
-
----
-
-## 11. Questions
-
-**Q: Does MoE reduce attention bottlenecks?**
-A: No. MoE typically replaces FFN layers. Attention remains dense, so KV cache memory and attention compute are unchanged.
-
-**Q: Why use Top-2 routing instead of Top-1?**
-A: Top-2 provides smoother gradients and backup information flow, improving training stability.
-
-**Q: What is the main bottleneck when serving MoE models?**  
-A: Memory bandwidth and communication, not raw FLOPs.
 
 ---

@@ -81,10 +81,3 @@ Some recent architectures use **Dilated Sliding Window Attention**.
 | **Key Risk** | Memory OOM (Out of Memory) | Forgetting distant context |
 
 ---
-
-## 6. Pro-Tips for the Interview
-
-* **Mention FlashAttention:** Note that SWA can be combined with FlashAttention kernels for maximum hardware throughput.
-* **The "Forgetfulness" Trade-off:** Be ready to discuss that while SWA is efficient, it literally "forgets" specific details that fall out of the $L \times W$ range, unlike standard attention.
-
----

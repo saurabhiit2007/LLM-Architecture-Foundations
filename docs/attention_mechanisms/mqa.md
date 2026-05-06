@@ -29,7 +29,7 @@ In standard Transformers, as the sequence length and batch size grow, the memory
 
 ## 3. Why it Matters
 
-We use MQA to imporve **Inference Efficiency**:
+We use MQA to improve **Inference Efficiency**:
 
 1. **Reduced VRAM Footprint:** You can fit much larger batches or longer sequences into the same GPU memory.
  
@@ -60,16 +60,7 @@ During inference, we generate one token at a time. This is where MQA shines.
 
 ---
 
-## 5. The Recent Evolution: Grouped-Query Attention (GQA)
-
-MQA is often seen as the "extreme" version. Most modern models (like **Llama 3** and **Mistral**) use **Grouped-Query Attention (GQA)**.
-
-* **Mechanism:** Instead of 1 KV head for *all* query heads, GQA creates groups. For example, if you have 32 Query heads, you might have 8 KV heads (one for every 4 queries).
-* **The "Goldilocks" Solution:** It provides a middle ground—retaining the speed of MQA while keeping the representational power (accuracy) of MHA.
-
----
-
-## 6. Comparison Summary
+## 5. Comparison Summary
 
 | Feature | Multi-Head (MHA) | Multi-Query (MQA) | Grouped-Query (GQA) |
 | :--- | :--- | :--- | :--- |
@@ -77,19 +68,5 @@ MQA is often seen as the "extreme" version. Most modern models (like **Llama 3**
 | **Memory Efficiency** | Low (Bottleneck) | Highest | High |
 | **Inference Speed** | Base | ~10x Faster | ~8-9x Faster |
 | **Model Quality** | Highest | Significant Drop | Near-MHA Quality |
-
----
-
-## 7. Potential Interview Questions
-
-* **"Does MQA affect training speed?"** * 
-  * *Answer:* Primarily no. The benefit is most realized during *incremental decoding* (inference). During training, the overhead of KV heads is negligible compared to the full backprop.
-
-
-* **"Why would we ever use MHA if MQA is faster?"** 
-  * *Answer:* Performance. For tasks requiring very fine-grained attention to different parts of a sequence simultaneously, MHA is more expressive.
-
-* **"Can I use MQA on a model already trained with MHA?"**
-  * *Answer:* Yes, via "Uptraining." You can convert an MHA checkpoint to MQA by mean-pooling the $K$ and $V$ heads into a single head and then performing a small amount of additional training (usually ~5% of the original compute) to help the model adapt.
 
 ---

@@ -99,15 +99,6 @@ Common failure modes:
 
 ---
 
-### 4.2 Expert Specialization
-
-- Experts rarely align with human-interpretable domains such as coding or specific languages.
-- In practice, experts specialize in syntactic patterns, token statistics, or latent semantic clusters.
-- Some experts may become partially redundant.
-
-Specialization is emergent rather than explicitly supervised.
-
----
 
 ### 4.3 System Design and Communication Overhead
 
