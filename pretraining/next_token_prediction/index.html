@@ -379,6 +379,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model_architecture_families/ssm_mamba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSMs and Mamba
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -934,6 +957,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../../tokenization/byte_pair_encoding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Byte Pair Encoding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tokenization/wordpiece/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WordPiece
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../tokenization/unigram/" class="md-nav__link">
         
   
@@ -963,29 +1032,6 @@
   
   <span class="md-ellipsis">
     Sentence Piece Unigram
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tokenization/byte_pair_encoding/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Byte Pair Encoding
     
   </span>
   
@@ -1322,6 +1368,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#8-masked-language-modeling-mlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Masked Language Modeling (MLM)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1517,6 +1572,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#8-masked-language-modeling-mlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Masked Language Modeling (MLM)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1615,7 +1679,20 @@
 </table>
 <p>Decoder-only NTP has become dominant for generalist LLMs because it generalizes well to both generation and understanding tasks when scaled.</p>
 <hr />
-<p><em>Sources: Radford et al. (2019) — GPT-2 <a href="https://openai.com/index/better-language-models/">[openai.com]</a> · Brown et al. (2020) — GPT-3 <a href="https://arxiv.org/abs/2005.14165">[arXiv:2005.14165]</a></em></p>
+<h2 id="8-masked-language-modeling-mlm">8. Masked Language Modeling (MLM)<a class="headerlink" href="#8-masked-language-modeling-mlm" title="Permanent link">&para;</a></h2>
+<p>MLM is BERT's pretraining objective. Rather than predicting the next token, the model predicts <strong>randomly masked tokens</strong> from bidirectional context.</p>
+<p><strong>Masking procedure (15% of tokens selected):</strong>
+- 80% of selected tokens → replaced with <code>[MASK]</code>
+- 10% → replaced with a random token
+- 10% → left unchanged (prevents the model from only learning to predict <code>[MASK]</code>)</p>
+<p><strong>Objective:</strong>
+<span class="arithmatex">\(<span class="arithmatex">\(\mathcal{L}_\text{MLM} = -\sum_{i \in \mathcal{M}} \log p_\theta(x_i \mid x_{\setminus \mathcal{M}})\)</span>\)</span></p>
+<p>where <span class="arithmatex">\(\mathcal{M}\)</span> is the set of masked positions.</p>
+<p><strong>Key difference from CLM</strong>: MLM uses bidirectional attention — every token attends to every other token (no causal mask). This produces richer representations for understanding tasks but makes autoregressive generation impossible.</p>
+<p>BERT also used <strong>Next Sentence Prediction (NSP)</strong> as a secondary objective, but RoBERTa (Liu et al., 2019) showed NSP is unnecessary and removing it improves performance.</p>
+<p><strong>Why MLM is less dominant today</strong>: Encoder-only models trained with MLM excel at classification and NLU tasks, but they cannot generate text. At sufficient scale, decoder-only CLM models have matched and exceeded encoder-only performance on NLU tasks, making them the more versatile architecture.</p>
+<hr />
+<p><em>Sources: Radford et al. (2019) — GPT-2 <a href="https://openai.com/index/better-language-models/">[openai.com]</a> · Brown et al. (2020) — GPT-3 <a href="https://arxiv.org/abs/2005.14165">[arXiv:2005.14165]</a> · Devlin et al. (2019) — BERT <a href="https://arxiv.org/abs/1810.04805">[arXiv:1810.04805]</a> · Liu et al. (2019) — RoBERTa <a href="https://arxiv.org/abs/1907.11692">[arXiv:1907.11692]</a></em></p>
 
 
 

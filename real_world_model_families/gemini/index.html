@@ -379,6 +379,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model_architecture_families/ssm_mamba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSMs and Mamba
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -725,6 +748,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4-architecture-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Architecture Specifics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Architecture Specifics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenizer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multimodal-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multimodal Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-architecture-choices-gemini-10-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Architecture Choices (Gemini 1.0 / 1.5)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1038,6 +1112,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../../tokenization/byte_pair_encoding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Byte Pair Encoding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tokenization/wordpiece/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WordPiece
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../tokenization/unigram/" class="md-nav__link">
         
   
@@ -1067,29 +1187,6 @@
   
   <span class="md-ellipsis">
     Sentence Piece Unigram
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tokenization/byte_pair_encoding/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Byte Pair Encoding
     
   </span>
   
@@ -1511,6 +1608,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4-architecture-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Architecture Specifics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Architecture Specifics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenizer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multimodal-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multimodal Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-architecture-choices-gemini-10-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Architecture Choices (Gemini 1.0 / 1.5)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1633,6 +1781,59 @@
 </tbody>
 </table>
 <hr />
+<h2 id="4-architecture-specifics">4. Architecture Specifics<a class="headerlink" href="#4-architecture-specifics" title="Permanent link">&para;</a></h2>
+<h3 id="tokenizer">Tokenizer<a class="headerlink" href="#tokenizer" title="Permanent link">&para;</a></h3>
+<p>Gemini uses <strong>SentencePiece</strong> with a <strong>256K vocabulary</strong> — the largest of any major model family. The large vocabulary is deliberate: Gemini is built for native multilingual use, and a 256K vocab keeps tokenization efficient across scripts (Hindi, Arabic, Chinese, etc.) without requiring character-level fallback.</p>
+<h3 id="attention">Attention<a class="headerlink" href="#attention" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pro/Ultra variants use <strong>Multi-Head Attention</strong> for maximum quality</li>
+<li>Flash/Nano variants use <strong>Multi-Query Attention (MQA)</strong> for lower latency and memory</li>
+<li>Gemini 1.5 Pro introduced a <strong>2M token context window</strong> using a combination of efficient attention and architectural innovations not publicly detailed</li>
+</ul>
+<h3 id="multimodal-architecture">Multimodal Architecture<a class="headerlink" href="#multimodal-architecture" title="Permanent link">&para;</a></h3>
+<p>Gemini was trained <strong>natively multimodal</strong> — text, images, audio, and video were interleaved in a single training mixture rather than being handled by separate encoders fused at inference. This differs from models like GPT-4V, which combine a language model with a separate vision encoder (e.g., CLIP).</p>
+<p>The practical benefit: Gemini can reason across modalities more fluidly (e.g., referring to a timestamp in a video while discussing its transcript), because all modalities share the same token space and attention layers.</p>
+<h3 id="key-architecture-choices-gemini-10-15">Key Architecture Choices (Gemini 1.0 / 1.5)<a class="headerlink" href="#key-architecture-choices-gemini-10-15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Architecture</td>
+<td>Decoder-only transformer</td>
+</tr>
+<tr>
+<td>Tokenizer</td>
+<td>SentencePiece, 256K vocab</td>
+</tr>
+<tr>
+<td>Positional encoding</td>
+<td>Relative (details not published)</td>
+</tr>
+<tr>
+<td>Attention (large)</td>
+<td>MHA</td>
+</tr>
+<tr>
+<td>Attention (small/fast)</td>
+<td>MQA</td>
+</tr>
+<tr>
+<td>Training objective</td>
+<td>Next token prediction (multimodal tokens)</td>
+</tr>
+<tr>
+<td>Alignment</td>
+<td>RLHF + RLAIF</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Sources: Gemini Team et al. (2023) — Gemini: A Family of Highly Capable Multimodal Models <a href="https://arxiv.org/abs/2312.11805">[arXiv:2312.11805]</a> · Gemini Team et al. (2024) — Gemini 1.5 <a href="https://arxiv.org/abs/2403.05530">[arXiv:2403.05530]</a></em></p>
 
 
 
