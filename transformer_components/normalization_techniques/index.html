@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../../real_world_model_families/general_comparison/">
+        <link rel="prev" href="../transformer_block/">
       
       
         <link rel="next" href="../activation_functions/">
@@ -683,6 +683,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../real_world_model_families/deepseek/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DeepSeek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../real_world_model_families/dense_vs_MoE_comparison/" class="md-nav__link">
         
   
@@ -768,6 +791,29 @@
             Transformer Components
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer_block/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transformer Block
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -978,39 +1024,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#5-practical-implementation-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Practical Implementation Tips
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Practical Implementation Tips">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#layernorm-in-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      LayerNorm in PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rmsnorm-in-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      RMSNorm in PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1033,6 +1046,29 @@
   
   <span class="md-ellipsis">
     Activation Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffn_block/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feed-Forward Network (FFN)
     
   </span>
   
@@ -1247,6 +1283,29 @@
             Positional Encodings
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../positional_encodings/sinusoidal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sinusoidal (Original)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1638,39 +1697,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#5-practical-implementation-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Practical Implementation Tips
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Practical Implementation Tips">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#layernorm-in-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      LayerNorm in PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rmsnorm-in-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      RMSNorm in PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1815,40 +1841,6 @@ x → LayerNorm → FeedForward → Add
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="5-practical-implementation-tips">5. Practical Implementation Tips<a class="headerlink" href="#5-practical-implementation-tips" title="Permanent link">&para;</a></h2>
-<h3 id="layernorm-in-pytorch">LayerNorm in PyTorch<a class="headerlink" href="#layernorm-in-pytorch" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-
-<span class="c1"># Standard LayerNorm</span>
-<span class="n">layer_norm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
-
-<span class="c1"># Pre-LN Transformer Block</span>
-<span class="k">class</span> <span class="nc">PreLNBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">attn</span> <span class="o">=</span> <span class="n">MultiHeadAttention</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">norm2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="c1"># Pre-LN: normalize before sublayer</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">attn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">x</span>
-</code></pre></div>
-<h3 id="rmsnorm-in-pytorch">RMSNorm in PyTorch<a class="headerlink" href="#rmsnorm-in-pytorch" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">RMSNorm</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="n">eps</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">rms</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">rms</span>
-</code></pre></div>
 <hr />
 
 

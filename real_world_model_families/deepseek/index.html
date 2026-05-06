@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../claude/">
+        <link rel="prev" href="../mistral/">
       
       
-        <link rel="next" href="../gemini/">
+        <link rel="next" href="../dense_vs_MoE_comparison/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Llama - LLM-Architecture_Foundations</title>
+        <title>DeepSeek - LLM-Architecture_Foundations</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llama-model-family" class="md-skip">
+        <a href="#deepseek-model-family" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Llama
+              DeepSeek
             
           </span>
         </div>
@@ -590,32 +590,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Llama
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../llama/" class="md-nav__link">
         
   
   
@@ -626,170 +604,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-model-breakdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Model Breakdown
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-training-strategy-the-meta-recipe" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Training Strategy: The "Meta Recipe"
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Training Strategy: The &#34;Meta Recipe&#34;">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-over-training-on-massive-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      A. Over-training on Massive Data
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-teacher-student-distillation" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. Teacher-Student Distillation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-iterative-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. Iterative Alignment
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-system-1-vs-system-2-reasoning" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. System 1 vs. System 2 Reasoning
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. System 1 vs. System 2 Reasoning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#system-1-fast-intuitive" class="md-nav__link">
-    <span class="md-ellipsis">
-      System 1 (Fast &amp; Intuitive)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#system-2-slow-deliberate" class="md-nav__link">
-    <span class="md-ellipsis">
-      System 2 (Slow &amp; Deliberate)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-engineering-deep-dive-llama-specifics" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Engineering Deep-Dive: Llama Specifics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Engineering Deep-Dive: Llama Specifics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-grouped-query-attention-gqa" class="md-nav__link">
-    <span class="md-ellipsis">
-      A. Grouped-Query Attention (GQA)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-the-128k-tokenizer-efficiency" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. The 128K Tokenizer Efficiency
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-scaling-the-post-training-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. Scaling the "Post-Training" Stack
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#d-rope-rotary-positional-embeddings-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      D. RoPE (Rotary Positional Embeddings) Scaling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#e-tool-use-environment-impact" class="md-nav__link">
-    <span class="md-ellipsis">
-      E. Tool Use &amp; Environment Impact
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -868,10 +682,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../deepseek/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    DeepSeek
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -882,6 +718,119 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mla-multi-head-latent-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. MLA: Multi-head Latent Attention
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. MLA: Multi-head Latent Attention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deepseek-moe-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. DeepSeek MoE Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mtp-multi-token-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. MTP: Multi-Token Prediction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-deepseek-r1-reasoning-via-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. DeepSeek-R1: Reasoning via RL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DeepSeek-R1: Reasoning via RL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-deepseek-matters-for-architecture-interviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Why DeepSeek Matters for Architecture Interviews
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1536,46 +1485,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-model-breakdown" class="md-nav__link">
+  <a href="#1-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Model Breakdown
+      1. Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-training-strategy-the-meta-recipe" class="md-nav__link">
+  <a href="#2-mla-multi-head-latent-attention" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Training Strategy: The "Meta Recipe"
+      2. MLA: Multi-head Latent Attention
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Training Strategy: The &#34;Meta Recipe&#34;">
+    <nav class="md-nav" aria-label="2. MLA: Multi-head Latent Attention">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-over-training-on-massive-data" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
-      A. Over-training on Massive Data
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-teacher-student-distillation" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. Teacher-Student Distillation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-iterative-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. Iterative Alignment
+      How It Works
     </span>
   </a>
   
@@ -1587,28 +1518,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-system-1-vs-system-2-reasoning" class="md-nav__link">
+  <a href="#3-deepseek-moe-architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      3. System 1 vs. System 2 Reasoning
+      3. DeepSeek MoE Architecture
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. System 1 vs. System 2 Reasoning">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mtp-multi-token-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. MTP: Multi-Token Prediction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-deepseek-r1-reasoning-via-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. DeepSeek-R1: Reasoning via RL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DeepSeek-R1: Reasoning via RL">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#system-1-fast-intuitive" class="md-nav__link">
+  <a href="#training-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
-      System 1 (Fast &amp; Intuitive)
+      Training Pipeline
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#system-2-slow-deliberate" class="md-nav__link">
+  <a href="#key-results" class="md-nav__link">
     <span class="md-ellipsis">
-      System 2 (Slow &amp; Deliberate)
+      Key Results
     </span>
   </a>
   
@@ -1620,62 +1569,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-engineering-deep-dive-llama-specifics" class="md-nav__link">
+  <a href="#6-why-deepseek-matters-for-architecture-interviews" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Engineering Deep-Dive: Llama Specifics
+      6. Why DeepSeek Matters for Architecture Interviews
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="4. Engineering Deep-Dive: Llama Specifics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-grouped-query-attention-gqa" class="md-nav__link">
-    <span class="md-ellipsis">
-      A. Grouped-Query Attention (GQA)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-the-128k-tokenizer-efficiency" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. The 128K Tokenizer Efficiency
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-scaling-the-post-training-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. Scaling the "Post-Training" Stack
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#d-rope-rotary-positional-embeddings-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      D. RoPE (Rotary Positional Embeddings) Scaling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#e-tool-use-environment-impact" class="md-nav__link">
-    <span class="md-ellipsis">
-      E. Tool Use &amp; Environment Impact
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1698,98 +1596,166 @@
   
 
 
-<h1 id="llama-model-family">LLaMA Model Family<a class="headerlink" href="#llama-model-family" title="Permanent link">&para;</a></h1>
-<h2 id="1-model-breakdown">1. Model Breakdown<a class="headerlink" href="#1-model-breakdown" title="Permanent link">&para;</a></h2>
-<p>The Llama family has evolved from simple text prediction into a multi-tiered ecosystem of specialized models.</p>
+<h1 id="deepseek-model-family">DeepSeek Model Family<a class="headerlink" href="#deepseek-model-family" title="Permanent link">&para;</a></h1>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>DeepSeek (by DeepSeek AI, China) became one of the most significant model families of 2024–2025 by achieving near-frontier performance at a fraction of the training cost of comparable Western models. Two key architectural innovations drove this: <strong>MLA</strong> (Multi-head Latent Attention) and <strong>MTP</strong> (Multi-Token Prediction).</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Generation</th>
-<th style="text-align: left;">Key Models</th>
-<th style="text-align: left;">Primary Use Case</th>
+<th>Model</th>
+<th>Released</th>
+<th>Parameters (Total / Active)</th>
+<th>Key Innovation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Llama 3.1</strong></td>
-<td style="text-align: left;">8B, 70B, 405B</td>
-<td style="text-align: left;"><strong>Frontier Intelligence:</strong> The 405B model was the first open-weights model to compete with GPT-4o.</td>
+<td>DeepSeek-V2</td>
+<td>May 2024</td>
+<td>236B / 21B</td>
+<td>MLA, MoE</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Llama 3.2</strong></td>
-<td style="text-align: left;">1B, 3B, 11B, 90B</td>
-<td style="text-align: left;"><strong>Vision &amp; Edge:</strong> Introduced native multimodal capabilities and ultra-small versions for mobile devices.</td>
+<td>DeepSeek-V3</td>
+<td>Dec 2024</td>
+<td>671B / 37B</td>
+<td>MTP, FP8 training</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Llama 3.3</strong></td>
-<td style="text-align: left;">70B</td>
-<td style="text-align: left;"><strong>Efficiency King:</strong> Refines the 70B architecture to match 405B performance levels at a fraction of the cost.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Llama 4</strong></td>
-<td style="text-align: left;">Scout, Maverick</td>
-<td style="text-align: left;"><strong>Agentic AI:</strong> Focuses on native video/audio processing and advanced autonomous reasoning.</td>
+<td>DeepSeek-R1</td>
+<td>Jan 2025</td>
+<td>671B / 37B</td>
+<td>GRPO reasoning, no supervised CoT</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="2-training-strategy-the-meta-recipe">2. Training Strategy: The "Meta Recipe"<a class="headerlink" href="#2-training-strategy-the-meta-recipe" title="Permanent link">&para;</a></h2>
-<p>Meta's strategy focuses on "squeezing" maximum intelligence into smaller parameter counts through three primary methods:</p>
-<h3 id="a-over-training-on-massive-data">A. Over-training on Massive Data<a class="headerlink" href="#a-over-training-on-massive-data" title="Permanent link">&para;</a></h3>
-<p>While standard models are trained until they are "optimal" (per Chinchilla scaling laws), Meta trains Llama models on <strong>15+ trillion tokens</strong>. This ensures that even the small 8B models have high "world knowledge" and linguistic nuance.</p>
-<h3 id="b-teacher-student-distillation">B. Teacher-Student Distillation<a class="headerlink" href="#b-teacher-student-distillation" title="Permanent link">&para;</a></h3>
-<p>For Llama 3.2 and 3.3, Meta used their largest model (405B) to generate high-quality synthetic data. The smaller models were then trained on these "perfect" reasoning traces, effectively inheriting the logic of the larger model without the massive hardware requirements.</p>
-<h3 id="c-iterative-alignment">C. Iterative Alignment<a class="headerlink" href="#c-iterative-alignment" title="Permanent link">&para;</a></h3>
-<p>Meta uses a combination of:</p>
-<ul>
-<li><strong>Rejection Sampling:</strong> Generating multiple outputs and selecting only the highest quality for the next training round.</li>
-<li><strong>Direct Preference Optimization (DPO):</strong> Aligning the model to prefer specific styles of reasoning over others based on human feedback.</li>
-</ul>
+<h2 id="2-mla-multi-head-latent-attention">2. MLA: Multi-head Latent Attention<a class="headerlink" href="#2-mla-multi-head-latent-attention" title="Permanent link">&para;</a></h2>
+<p>MLA is DeepSeek's replacement for standard GQA/MQA. Instead of reducing the <em>number</em> of KV heads, MLA compresses the <em>dimension</em> of each K and V via a learned low-rank projection.</p>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<p><strong>Standard MHA:</strong> KV cache stores <span class="arithmatex">\(h\)</span> full-dimension K and V vectors per token.</p>
+<p><strong>MLA:</strong> The model first compresses the hidden state into a low-dimensional <strong>latent vector</strong>, then expands it back to full K and V at attention time:</p>
+<div class="arithmatex">\[c_t^{KV} = W^{DKV} h_t \quad \in \mathbb{R}^{d_c}\]</div>
+<div class="arithmatex">\[K_t = W^{UK} c_t^{KV}, \quad V_t = W^{UV} c_t^{KV}\]</div>
+<p>Where:
+- <span class="arithmatex">\(d_c \ll d_\text{model}\)</span> (latent dimension, much smaller than full hidden dim)
+- <span class="arithmatex">\(W^{DKV}\)</span> is the down-projection (compression)
+- <span class="arithmatex">\(W^{UK}, W^{UV}\)</span> are up-projections (expand to K and V at query time)</p>
+<p><strong>What gets cached:</strong> Only the compressed latent <span class="arithmatex">\(c_t^{KV}\)</span> (not the full K/V), reducing KV cache memory significantly compared to even GQA.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>KV Cache Size per Token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MHA (h=128)</td>
+<td><span class="arithmatex">\(2 \times 128 \times d_h\)</span></td>
+</tr>
+<tr>
+<td>GQA (g=8)</td>
+<td><span class="arithmatex">\(2 \times 8 \times d_h\)</span></td>
+</tr>
+<tr>
+<td>MLA (DeepSeek-V2)</td>
+<td><span class="arithmatex">\(1 \times d_c\)</span> where <span class="arithmatex">\(d_c \approx 4 \times d_h\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>For DeepSeek-V2, MLA reduces KV cache by ~5.75× compared to MHA while matching or exceeding MHA quality.</p>
 <hr />
-<h2 id="3-system-1-vs-system-2-reasoning">3. System 1 vs. System 2 Reasoning<a class="headerlink" href="#3-system-1-vs-system-2-reasoning" title="Permanent link">&para;</a></h2>
-<h3 id="system-1-fast-intuitive">System 1 (Fast &amp; Intuitive)<a class="headerlink" href="#system-1-fast-intuitive" title="Permanent link">&para;</a></h3>
+<h2 id="3-deepseek-moe-architecture">3. DeepSeek MoE Architecture<a class="headerlink" href="#3-deepseek-moe-architecture" title="Permanent link">&para;</a></h2>
+<p>Both V2 and V3 use a fine-grained MoE where each FFN layer has many small experts:</p>
 <ul>
-<li><strong>Models:</strong> Llama 3.1 (8B/70B), Llama 3.2.</li>
-<li><strong>Behavior:</strong> These are "next-token predictors." They provide instant, fluid answers based on pattern recognition. </li>
-<li><strong>Limitation:</strong> They can suffer from "hallucinations" in complex logic because they don't pause to verify their own steps.</li>
+<li><strong>V2</strong>: 160 experts per layer, top-2 routing, 2 shared experts always active</li>
+<li><strong>V3</strong>: 256 experts, top-8 routing, 1 shared expert</li>
 </ul>
-<h3 id="system-2-slow-deliberate">System 2 (Slow &amp; Deliberate)<a class="headerlink" href="#system-2-slow-deliberate" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Models:</strong> Llama 4 (Maverick), Llama 3.1 (405B).</li>
-<li><strong>Behavior:</strong> These models incorporate <strong>Chain-of-Thought (CoT)</strong> and "test-time scaling." </li>
-<li><strong>Difference:</strong> Instead of guessing the next word, they can "think" through a problem. Llama 4, in particular, is designed to perform agentic loops—checking its own work and iterating on a solution before outputting the final result.</li>
-</ul>
+<p><strong>Shared experts</strong> are a DeepSeek innovation: a small number of experts are always active for every token. This ensures a stable "backbone" of common knowledge while specialized experts handle domain-specific patterns.</p>
+<p>DeepSeek V3 also introduced an <strong>auxiliary-loss-free</strong> load balancing strategy — instead of adding a separate load balancing loss term (which can interfere with training), they use a bias term on expert routing scores to nudge load distribution.</p>
 <hr />
-<h2 id="4-engineering-deep-dive-llama-specifics">4. Engineering Deep-Dive: Llama Specifics<a class="headerlink" href="#4-engineering-deep-dive-llama-specifics" title="Permanent link">&para;</a></h2>
-<p>If you are asked "What makes the Llama 3/4 lineage unique compared to GPT or Claude?", focus on these four pillars:</p>
-<h3 id="a-grouped-query-attention-gqa">A. Grouped-Query Attention (GQA)<a class="headerlink" href="#a-grouped-query-attention-gqa" title="Permanent link">&para;</a></h3>
-<p>Unlike Llama 2 (where only the large models had GQA), <strong>every model in the Llama 3/4 family</strong> uses GQA.</p>
-<ul>
-<li><strong>Impact:</strong> Explain that GQA reduces the memory footprint of the KV (Key-Value) cache. This allows for higher throughput and larger context windows (like the 128k jump in Llama 3.1) without requiring linear increases in VRAM. It is the reason these models are so performant on consumer-grade GPUs.</li>
-</ul>
-<h3 id="b-the-128k-tokenizer-efficiency">B. The 128K Tokenizer Efficiency<a class="headerlink" href="#b-the-128k-tokenizer-efficiency" title="Permanent link">&para;</a></h3>
-<p>Llama 3/4 uses a <strong>Tiktoken-based tokenizer</strong> with a 128k vocabulary (up from 32k).</p>
-<ul>
-<li><strong>The "So What?":</strong> A larger vocabulary means the model represents more text with fewer tokens. This improves inference speed and performance on non-English languages and code, as the model doesn't have to "break down" common words into as many tiny sub-fragments.</li>
-</ul>
-<h3 id="c-scaling-the-post-training-stack">C. Scaling the "Post-Training" Stack<a class="headerlink" href="#c-scaling-the-post-training-stack" title="Permanent link">&para;</a></h3>
-<p>Meta has moved the "magic" from the Pre-training phase to the <strong>Post-training phase</strong>.</p>
-<ul>
-<li><strong>Key Terms:</strong> Mention <strong>PPO (Proximal Policy Optimization)</strong> vs. <strong>DPO (Direct Preference Optimization)</strong>. </li>
-<li><strong>The Nuance:</strong> Meta uses Llama 3.1 405B to generate "Preference Data" for the smaller models. If asked about "System 2," explain that this involves <strong>Rejection Sampling</strong>, where the model explores multiple "reasoning traces" and is only rewarded for the one that leads to the correct answer.</li>
-</ul>
-<h3 id="d-rope-rotary-positional-embeddings-scaling">D. RoPE (Rotary Positional Embeddings) Scaling<a class="headerlink" href="#d-rope-rotary-positional-embeddings-scaling" title="Permanent link">&para;</a></h3>
-<p>To achieve the 128k context window in Llama 3.1, Meta had to modify the <strong>RoPE base frequency</strong>.</p>
-<ul>
-<li><strong>Technical Detail:</strong> They increased the base frequency (theta) to <strong>500,000</strong>. </li>
-<li><strong>Insight:</strong> If asked how they handled long-range dependencies, mention that this scaling allows the model to "attend" to tokens that are much further apart in the sequence without losing the relative positional logic.</li>
-</ul>
-<h3 id="e-tool-use-environment-impact">E. Tool Use &amp; Environment Impact<a class="headerlink" href="#e-tool-use-environment-impact" title="Permanent link">&para;</a></h3>
-<p>Llama 3.1 was the first to be "natively" trained for tool use (Search, Wolfram Alpha, Code Interpreter).</p>
-<ul>
-<li><strong>System 1 vs. 2 Link:</strong> Standard models "hallucinate" tool arguments (System 1). Llama 4 uses <strong>Agentic Loops</strong> (System 2) to "call a tool -&gt; observe the error -&gt; try again," which is a fundamental shift in how the model handles external APIs.</li>
-</ul>
+<h2 id="4-mtp-multi-token-prediction">4. MTP: Multi-Token Prediction<a class="headerlink" href="#4-mtp-multi-token-prediction" title="Permanent link">&para;</a></h2>
+<p>DeepSeek-V3 introduced MTP as an auxiliary training objective. Instead of predicting only the next token, the model predicts the <strong>next <span class="arithmatex">\(k\)</span> tokens</strong> simultaneously.</p>
+<div class="arithmatex">\[\mathcal{L}_\text{MTP} = \sum_{t=1}^{T} \sum_{j=1}^{k} \log p_\theta(x_{t+j} \mid x_{&lt;t})\]</div>
+<p><strong>Benefits:</strong>
+- Denser training signal per token (more gradient information per forward pass)
+- The model must represent more future context, improving long-range coherence
+- At inference time, MTP heads can be reused for <strong>speculative decoding</strong> (predict 2+ tokens, verify cheaply)</p>
 <hr />
+<h2 id="5-deepseek-r1-reasoning-via-rl">5. DeepSeek-R1: Reasoning via RL<a class="headerlink" href="#5-deepseek-r1-reasoning-via-rl" title="Permanent link">&para;</a></h2>
+<p>DeepSeek-R1 (Jan 2025) demonstrated that <strong>strong chain-of-thought reasoning can emerge from RL alone</strong>, without requiring supervised CoT data.</p>
+<h3 id="training-pipeline">Training Pipeline<a class="headerlink" href="#training-pipeline" title="Permanent link">&para;</a></h3>
+<p><strong>Stage 1 — Cold Start:</strong> Fine-tune on a small set of long-form reasoning examples with explicit <code>&lt;think&gt;</code> tags to initialize the model's reasoning format.</p>
+<p><strong>Stage 2 — GRPO Reasoning RL:</strong> Apply GRPO (Group Relative Policy Optimization — see LLM-Alignment-Reasoning repo) with a verifiable reward:
+- +1 for a correct final answer (math, code judged by execution)
+- 0 or negative for incorrect answers or formatting violations</p>
+<p>No process reward model (PRM) is needed — only outcome verification.</p>
+<p><strong>Stage 3 — Rejection Sampling + SFT:</strong> Generate many reasoning traces, keep only correct ones, fine-tune again to stabilize the format.</p>
+<p><strong>Stage 4 — Final RLHF:</strong> Align the reasoning model for safety and helpfulness.</p>
+<h3 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th>DeepSeek-R1</th>
+<th>OpenAI o1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AIME 2024</td>
+<td>79.8%</td>
+<td>79.2%</td>
+</tr>
+<tr>
+<td>MATH-500</td>
+<td>97.3%</td>
+<td>96.4%</td>
+</tr>
+<tr>
+<td>Codeforces (rating)</td>
+<td>2029</td>
+<td>1891</td>
+</tr>
+</tbody>
+</table>
+<p>DeepSeek-R1 matched o1 on most reasoning benchmarks while being fully open-weights.</p>
+<p><strong>The key insight:</strong> Language models can "discover" effective reasoning strategies through RL on outcome rewards — extended thinking chains emerge as instrumental behavior, not because they were explicitly taught.</p>
+<hr />
+<h2 id="6-why-deepseek-matters-for-architecture-interviews">6. Why DeepSeek Matters for Architecture Interviews<a class="headerlink" href="#6-why-deepseek-matters-for-architecture-interviews" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>DeepSeek Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attention efficiency</td>
+<td>MLA: KV compression via low-rank latent, better than GQA</td>
+</tr>
+<tr>
+<td>MoE design</td>
+<td>Fine-grained experts + shared experts + auxiliary-loss-free balancing</td>
+</tr>
+<tr>
+<td>Training efficiency</td>
+<td>FP8 training in V3; ~<span class="arithmatex">\(6M total training cost vs ~\)</span>100M for GPT-4</td>
+</tr>
+<tr>
+<td>Reasoning</td>
+<td>R1: emergent CoT from RL without SFT data</td>
+</tr>
+<tr>
+<td>Open weights</td>
+<td>Full model weights released, enabling research</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Sources: DeepSeek-AI (2024) — DeepSeek-V2 <a href="https://arxiv.org/abs/2405.04434">[arXiv:2405.04434]</a> · DeepSeek-AI (2024) — DeepSeek-V3 <a href="https://arxiv.org/abs/2412.19437">[arXiv:2412.19437]</a> · DeepSeek-AI (2025) — DeepSeek-R1 <a href="https://arxiv.org/abs/2501.12948">[arXiv:2501.12948]</a></em></p>
 
 
 
