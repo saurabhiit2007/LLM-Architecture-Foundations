@@ -47,11 +47,14 @@ nav:
       - Gemini: ./real_world_model_families/gemini.md
       - OpenAI: ./real_world_model_families/openai.md
       - Mistral: ./real_world_model_families/mistral.md
+      - DeepSeek: ./real_world_model_families/deepseek.md
       - Dense vs MoE Comparison: ./real_world_model_families/dense_vs_MoE_comparison.md
       - General Comparison: ./real_world_model_families/general_comparison.md
   - Transformer Components:
+      - Transformer Block: ./transformer_components/transformer_block.md
       - Normalization Techniques: ./transformer_components/normalization_techniques.md
       - Activation Functions: ./transformer_components/activation_functions.md
+      - Feed-Forward Network (FFN): ./transformer_components/ffn_block.md
   - Tokenization:
       - Unigram: ./tokenization/unigram.md
       - Sentence Piece Unigram: ./tokenization/sentence_piece_unigram.md
@@ -59,6 +62,7 @@ nav:
       - TikToken: ./tokenization/tiktoken.md
       - Vocabulary Size Tradeoffs:  ./tokenization/vocabulary_size_tradeoffs.md
   - Positional Encodings:
+      - Sinusoidal (Original): ./positional_encodings/sinusoidal.md
       - RoPE: ./positional_encodings/RoPE.md
       - ALiBi: ./positional_encodings/ALiBi.md
   - Pretraining Objective:

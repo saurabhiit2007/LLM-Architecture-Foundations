@@ -42,6 +42,7 @@ Without scaling, dot products grow with dimensionality. If each component of $Q$
 | MQA / GQA | Fewer KV heads → smaller KV cache | [MQA](mqa.md), [GQA](gqa.md) |
 | Sliding Window | Limits attention span → $O(n \cdot W)$ | [Sliding Window](sliding_window.md) |
 | RoPE | Rotates Q/K to encode relative position | [RoPE](../positional_encodings/RoPE.md) |
-| FlashAttention | Tiled SRAM kernels → faster, memory-efficient | LLM-Inference-Speed repo |
+| KV Cache | Stores past K/V to avoid recomputation at inference | [LLM-Inference-Speed: KV Caching](https://saurabhiit2007.github.io/LLM-Inference-Speed/attention_optimization/kv_caching/) |
+| FlashAttention | Tiled SRAM kernels → faster, memory-efficient | [LLM-Inference-Speed: FlashAttention](https://saurabhiit2007.github.io/LLM-Inference-Speed/attention_optimization/flash_attention/) |
 
 ---

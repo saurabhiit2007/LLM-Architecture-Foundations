@@ -20,10 +20,14 @@
 
 ### Transformer Components
 
+* **Vaswani et al. (2017)** — *Attention Is All You Need (FFN block, sinusoidal PE, residual connections).* [[arXiv:1706.03762]](https://arxiv.org/abs/1706.03762)
+* **He et al. (2016)** — *Deep Residual Learning for Image Recognition (residual connections).* [[arXiv:1512.03385]](https://arxiv.org/abs/1512.03385)
+* **Xiong et al. (2020)** — *On Layer Normalization in the Transformer Architecture (Pre-LN).* [[arXiv:2002.04745]](https://arxiv.org/abs/2002.04745)
 * **Ba et al. (2016)** — *Layer Normalization.* [[arXiv:1607.06450]](https://arxiv.org/abs/1607.06450)
 * **Zhang & Sennrich (2019)** — *Root Mean Square Layer Normalization (RMSNorm).* [[arXiv:1910.07467]](https://arxiv.org/abs/1910.07467)
 * **Hendrycks & Gimpel (2016)** — *Gaussian Error Linear Units (GELUs).* [[arXiv:1606.08415]](https://arxiv.org/abs/1606.08415)
 * **Shazeer (2020)** — *GLU Variants Improve Transformer (SwiGLU, GeGLU).* [[arXiv:2002.05202]](https://arxiv.org/abs/2002.05202)
+* **Geva et al. (2021)** — *Transformer Feed-Forward Layers Are Key-Value Memories.* [[arXiv:2012.14913]](https://arxiv.org/abs/2012.14913)
 
 ---
 
@@ -64,3 +68,5 @@
 * **OpenAI (2024)** — *o1 System Card.* [[openai.com]](https://openai.com/index/openai-o1-system-card/)
 * **Team et al. (2023)** — *Gemini: A Family of Highly Capable Multimodal Models.* [[arXiv:2312.11805]](https://arxiv.org/abs/2312.11805)
 * **DeepSeek-AI (2024)** — *DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model.* [[arXiv:2405.04434]](https://arxiv.org/abs/2405.04434)
+* **DeepSeek-AI (2024)** — *DeepSeek-V3 Technical Report.* [[arXiv:2412.19437]](https://arxiv.org/abs/2412.19437)
+* **DeepSeek-AI (2025)** — *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.* [[arXiv:2501.12948]](https://arxiv.org/abs/2501.12948)
