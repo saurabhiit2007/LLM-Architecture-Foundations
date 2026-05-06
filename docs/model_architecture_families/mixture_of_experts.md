@@ -235,7 +235,77 @@ MoE is a powerful but specialized tool, not a universal solution.
 
 ---
 
-## 11. Key Takeaways
+## 11. Expert Balancing: How Major Models Differ
+
+This is the most common interview differentiator. The table below shows the key axes: expert count, granularity, shared experts, and balancing method.
+
+### Design Comparison
+
+| Model | Total Experts | Active (top-k) | Shared Experts | Balancing Method |
+|-------|--------------|----------------|----------------|-----------------|
+| Switch Transformer | N | 1 | No | Auxiliary loss + capacity factor |
+| Mixtral 8×7B | 8 | 2 | No | Auxiliary load balancing loss |
+| GPT-4 (reported) | 16 | 2 | No | Auxiliary load balancing loss |
+| Qwen2-MoE | 64 | 8 | 8 (always on) | Expert-level balance loss + z-loss |
+| DeepSeek-V2 | 160 | 6 | 2 (always on) | Auxiliary-loss-free (bias adjustment) |
+| DeepSeek-V3 | 256 | 8 | 1 (always on) | Auxiliary-loss-free (bias adjustment) |
+
+---
+
+### Design Axis 1: Expert Granularity
+
+**Coarse-grained (Mixtral):** Few large experts. Simpler to train, easier to reason about expert specialization, but less flexibility in routing.
+
+**Fine-grained (DeepSeek, Qwen):** Many small experts. More routing options per token, which allows more precise specialization. The total parameter count stays the same — you split the FFN budget into more, smaller pieces.
+
+---
+
+### Design Axis 2: Shared Experts
+
+DeepSeek and Qwen use **always-on shared experts** that process every token regardless of routing:
+
+$$y = \sum_{i \in \text{shared}} E_i(x) + \sum_{i \in \text{top-k routed}} G(x)_i \cdot E_i(x)$$
+
+**Rationale:** Common syntactic and linguistic patterns appear in all tokens. Having shared experts handle these frees the routed experts to specialize on domain-specific content. Without shared experts, every routed expert must partially relearn common patterns.
+
+Mixtral and Switch Transformer have no shared experts — all experts compete equally for every token.
+
+---
+
+### Design Axis 3: Load Balancing Method
+
+#### Standard: Auxiliary Loss (Mixtral, Switch, Qwen)
+
+An auxiliary loss is added to the training objective to penalize uneven token distribution:
+
+$$\mathcal{L}_\text{aux} = \alpha \cdot N \sum_{i=1}^{N} f_i \cdot P_i$$
+
+Where $f_i$ is the fraction of tokens routed to expert $i$ and $P_i$ is the average routing probability for expert $i$.
+
+**Problem:** This creates a tension with the main task loss. The router is pulled in two directions — maximize task performance (which may prefer imbalanced routing) and minimize imbalance (which may hurt quality).
+
+#### DeepSeek Innovation: Auxiliary-Loss-Free Balancing
+
+DeepSeek-V3 removes the auxiliary loss entirely. Instead, a **bias term** $b_i$ is maintained for each expert and adjusted dynamically during training:
+
+- If expert $i$ is overloaded → $b_i$ is nudged downward → fewer tokens route to it
+- If expert $i$ is underloaded → $b_i$ is nudged upward → more tokens route to it
+
+The bias only affects routing decisions, not the main training gradient. The primary loss is uncontaminated by balancing pressure. DeepSeek reports this produces better final model quality than auxiliary-loss-based approaches.
+
+---
+
+### Summary for Interviews
+
+The three questions to anchor on:
+
+1. **How many experts, and how large?** Coarse (Mixtral: 8 large) vs fine-grained (DeepSeek: 256 small)
+2. **Are some experts always active?** No (Mixtral/Switch) vs yes (DeepSeek/Qwen shared experts)
+3. **How is load balanced?** Auxiliary loss on training objective (most models) vs bias-term adjustment without touching the loss (DeepSeek-V3)
+
+---
+
+## 12. Key Takeaways
 
 - MoE decouples capacity from inference compute
 - It is most effective for knowledge-heavy scaling
