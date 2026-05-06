@@ -36,6 +36,7 @@ nav:
       - Encoder Decoder Models: ./model_architecture_families/encoder_decoder_models.md
       - Dense vs Sparse Models: ./model_architecture_families/dense_vs_sparse_models.md
       - Mixture of Models (MoE): ./model_architecture_families/mixture_of_experts.md
+      - SSMs and Mamba: ./model_architecture_families/ssm_mamba.md
   - Attention Mechanisms:
       - Multi-Head Attention: ./attention_mechanisms/mha.md
       - Multi Query Attention (MQA): ./attention_mechanisms/mqa.md
@@ -56,9 +57,10 @@ nav:
       - Activation Functions: ./transformer_components/activation_functions.md
       - Feed-Forward Network (FFN): ./transformer_components/ffn_block.md
   - Tokenization:
+      - Byte Pair Encoding: ./tokenization/byte_pair_encoding.md
+      - WordPiece: ./tokenization/wordpiece.md
       - Unigram: ./tokenization/unigram.md
       - Sentence Piece Unigram: ./tokenization/sentence_piece_unigram.md
-      - Byte Pair Encoding: ./tokenization/byte_pair_encoding.md
       - TikToken: ./tokenization/tiktoken.md
       - Vocabulary Size Tradeoffs:  ./tokenization/vocabulary_size_tradeoffs.md
   - Positional Encodings:

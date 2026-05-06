@@ -34,6 +34,9 @@
 ### Tokenization
 
 * **Sennrich et al. (2016)** — *Neural Machine Translation of Rare Words with Subword Units (BPE).* (ACL 2016) [[arXiv:1508.07909]](https://arxiv.org/abs/1508.07909)
+* **Schuster & Nakamura (2012)** — *Japanese and Korean Voice Search (WordPiece).* (ICASSP 2012)
+* **Devlin et al. (2019)** — *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.* [[arXiv:1810.04805]](https://arxiv.org/abs/1810.04805)
+* **Liu et al. (2019)** — *RoBERTa: A Robustly Optimized BERT Pretraining Approach.* [[arXiv:1907.11692]](https://arxiv.org/abs/1907.11692)
 * **Kudo (2018)** — *Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates (Unigram).* (ACL 2018) [[arXiv:1804.10959]](https://arxiv.org/abs/1804.10959)
 * **Kudo & Richardson (2018)** — *SentencePiece: A simple and language independent subword tokenizer and detokenizer.* [[arXiv:1808.06226]](https://arxiv.org/abs/1808.06226)
 
@@ -45,6 +48,8 @@
 * **Raffel et al. (2020)** — *Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5).* [[arXiv:1910.10683]](https://arxiv.org/abs/1910.10683)
 * **Fedus et al. (2022)** — *Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity.* [[arXiv:2101.03961]](https://arxiv.org/abs/2101.03961)
 * **Shazeer et al. (2017)** — *Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer.* [[arXiv:1701.06538]](https://arxiv.org/abs/1701.06538)
+* **Gu & Dao (2023)** — *Mamba: Linear-Time Sequence Modeling with Selective State Spaces.* [[arXiv:2312.00752]](https://arxiv.org/abs/2312.00752)
+* **Lieber et al. (2024)** — *Jamba: A Hybrid Transformer-Mamba Language Model.* [[arXiv:2403.19887]](https://arxiv.org/abs/2403.19887)
 
 ---
 
@@ -66,7 +71,8 @@
 * **Jiang et al. (2024)** — *Mixtral of Experts.* [[arXiv:2401.04088]](https://arxiv.org/abs/2401.04088)
 * **OpenAI (2023)** — *GPT-4 Technical Report.* [[arXiv:2303.08774]](https://arxiv.org/abs/2303.08774)
 * **OpenAI (2024)** — *o1 System Card.* [[openai.com]](https://openai.com/index/openai-o1-system-card/)
-* **Team et al. (2023)** — *Gemini: A Family of Highly Capable Multimodal Models.* [[arXiv:2312.11805]](https://arxiv.org/abs/2312.11805)
+* **Gemini Team et al. (2023)** — *Gemini: A Family of Highly Capable Multimodal Models.* [[arXiv:2312.11805]](https://arxiv.org/abs/2312.11805)
+* **Gemini Team et al. (2024)** — *Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context.* [[arXiv:2403.05530]](https://arxiv.org/abs/2403.05530)
 * **DeepSeek-AI (2024)** — *DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model.* [[arXiv:2405.04434]](https://arxiv.org/abs/2405.04434)
 * **DeepSeek-AI (2024)** — *DeepSeek-V3 Technical Report.* [[arXiv:2412.19437]](https://arxiv.org/abs/2412.19437)
 * **DeepSeek-AI (2025)** — *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.* [[arXiv:2501.12948]](https://arxiv.org/abs/2501.12948)

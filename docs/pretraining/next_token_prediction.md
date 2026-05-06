@@ -83,4 +83,26 @@ Decoder-only NTP has become dominant for generalist LLMs because it generalizes 
 
 ---
 
-*Sources: Radford et al. (2019) — GPT-2 [[openai.com]](https://openai.com/index/better-language-models/) · Brown et al. (2020) — GPT-3 [[arXiv:2005.14165]](https://arxiv.org/abs/2005.14165)*
+## 8. Masked Language Modeling (MLM)
+
+MLM is BERT's pretraining objective. Rather than predicting the next token, the model predicts **randomly masked tokens** from bidirectional context.
+
+**Masking procedure (15% of tokens selected):**
+- 80% of selected tokens → replaced with `[MASK]`
+- 10% → replaced with a random token
+- 10% → left unchanged (prevents the model from only learning to predict `[MASK]`)
+
+**Objective:**
+$$\mathcal{L}_\text{MLM} = -\sum_{i \in \mathcal{M}} \log p_\theta(x_i \mid x_{\setminus \mathcal{M}})$$
+
+where $\mathcal{M}$ is the set of masked positions.
+
+**Key difference from CLM**: MLM uses bidirectional attention — every token attends to every other token (no causal mask). This produces richer representations for understanding tasks but makes autoregressive generation impossible.
+
+BERT also used **Next Sentence Prediction (NSP)** as a secondary objective, but RoBERTa (Liu et al., 2019) showed NSP is unnecessary and removing it improves performance.
+
+**Why MLM is less dominant today**: Encoder-only models trained with MLM excel at classification and NLU tasks, but they cannot generate text. At sufficient scale, decoder-only CLM models have matched and exceeded encoder-only performance on NLU tasks, making them the more versatile architecture.
+
+---
+
+*Sources: Radford et al. (2019) — GPT-2 [[openai.com]](https://openai.com/index/better-language-models/) · Brown et al. (2020) — GPT-3 [[arXiv:2005.14165]](https://arxiv.org/abs/2005.14165) · Devlin et al. (2019) — BERT [[arXiv:1810.04805]](https://arxiv.org/abs/1810.04805) · Liu et al. (2019) — RoBERTa [[arXiv:1907.11692]](https://arxiv.org/abs/1907.11692)*

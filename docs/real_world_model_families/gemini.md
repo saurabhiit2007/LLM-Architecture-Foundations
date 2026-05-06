@@ -58,3 +58,34 @@ Based on the dual-process theory of cognition, Gemini models are now categorized
 | **Primary Use** | Search & Summarize | Research & Engineering |
 
 ---
+
+## 4. Architecture Specifics
+
+### Tokenizer
+Gemini uses **SentencePiece** with a **256K vocabulary** — the largest of any major model family. The large vocabulary is deliberate: Gemini is built for native multilingual use, and a 256K vocab keeps tokenization efficient across scripts (Hindi, Arabic, Chinese, etc.) without requiring character-level fallback.
+
+### Attention
+- Pro/Ultra variants use **Multi-Head Attention** for maximum quality
+- Flash/Nano variants use **Multi-Query Attention (MQA)** for lower latency and memory
+- Gemini 1.5 Pro introduced a **2M token context window** using a combination of efficient attention and architectural innovations not publicly detailed
+
+### Multimodal Architecture
+Gemini was trained **natively multimodal** — text, images, audio, and video were interleaved in a single training mixture rather than being handled by separate encoders fused at inference. This differs from models like GPT-4V, which combine a language model with a separate vision encoder (e.g., CLIP).
+
+The practical benefit: Gemini can reason across modalities more fluidly (e.g., referring to a timestamp in a video while discussing its transcript), because all modalities share the same token space and attention layers.
+
+### Key Architecture Choices (Gemini 1.0 / 1.5)
+
+| Component | Choice |
+|-----------|--------|
+| Architecture | Decoder-only transformer |
+| Tokenizer | SentencePiece, 256K vocab |
+| Positional encoding | Relative (details not published) |
+| Attention (large) | MHA |
+| Attention (small/fast) | MQA |
+| Training objective | Next token prediction (multimodal tokens) |
+| Alignment | RLHF + RLAIF |
+
+---
+
+*Sources: Gemini Team et al. (2023) — Gemini: A Family of Highly Capable Multimodal Models [[arXiv:2312.11805]](https://arxiv.org/abs/2312.11805) · Gemini Team et al. (2024) — Gemini 1.5 [[arXiv:2403.05530]](https://arxiv.org/abs/2403.05530)*
